@@ -1,4 +1,6 @@
-# boilerplate-react
+# SMOOTY - Project 2
+
+Suivez les instructions ci-dessous pour démarrer idéalement :
 
 - Fork project
 
