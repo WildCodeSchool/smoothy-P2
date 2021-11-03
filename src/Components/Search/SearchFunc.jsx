@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import SearchProductList from "./SearchProductList";
 import './SearchFunc.css'
+import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 let url = ""; 
 
@@ -30,37 +33,12 @@ const SearchFunc = () => {
   return (
     
     <div className="Container">
-      <h1>Products List</h1>
-
-      <form onSubmit={handleSubmit}>
-        <input
-          className="form-control mr-sm-2 m-2"
-          type="search"
-          placeholder="Chercher un produit"
-          aria-label="Search"
-          value={term}
-          onChange={(e) => setTerm(e.target.value)}
-        />
-        <button>Search</button>
-      </form>
-
-      {products && (
-        <div className="map-products">
-          {products.map((product) => (
-            <p className="items" key={product.id}>
-              Marque :{product.brands}
-              <img
-                className="images"
-                key={product.id}
-                src={product.image_front_small_url}
-                alt={""}
-              />
-            </p>
-          ))}
-        </div>
-      )}
+      <SearchBar handleSubmit={handleSubmit} term={term} setTerm={setTerm}/>
+    <div className='search-bar'>  
+    </div>
+      <SearchProductList products={products}/>
     </div>
   );
 };
 
-export default SearchFunc;
+export default SearchFunc;      

@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import HomePage from './Components/Navbar/NavComponents/HomePage'
-import Navbar from './Components/Navbar/Navbar'
+import HomePage from './Components/Navbar/NavComponents/HomePage';
+import Navbar from './Components/Navbar/Navbar';
 import Barcode from "./Components/Navbar/NavComponents/Barcode";
 import SearchFunc from "./Components/Search/SearchFunc";
+import SearchBar from "./Components/Search/SearchBar";
 const App = () => {
   return (
 
@@ -15,10 +16,10 @@ const App = () => {
           <HomePage />
         </Route>
         <Route path='/barcode'>
-        <Barcode/>
+          <Barcode/>
         </Route>
-        </Switch>
-        </div>
+      </Switch>
+    </div>
 
     </Router>
     
