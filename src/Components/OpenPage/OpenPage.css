@@ -1,0 +1,36 @@
+.image-Slide1 {
+    background-image: url("../../Assets/slide.png");
+    background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 100vw;
+      height: 28vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .search-Location1{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2.5rem;
+      }
+    
+      .food-pref1{
+        background-color:#FFEBB0;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 3vh;
+      }
+    
+      .barcode-logo1{
+        display: flex;
+        justify-content: center;
+        width: 7rem;
+        border : 1px solid black;
+        padding: 5px;
+        border-radius: 5px;
+    
+    }
