@@ -7,3 +7,5 @@ Suivez les instructions ci-dessous pour démarrer idéalement :
 - ```npm i```
 
 -  ```npm run dev```
+
+Thanks
