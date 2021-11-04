@@ -35,7 +35,6 @@ const SearchFunc = () => {
   return (
     
     <div className="Container">
-      <SearchBar handleSubmit={handleSubmit} term={term} setTerm={setTerm}/>
     <div className='search-bar'>  
     </div>
       <SearchProductList products={products}/>

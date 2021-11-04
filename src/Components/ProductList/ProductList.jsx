@@ -1,13 +1,15 @@
 import React from "react";
-import NavBar from "../NavBar/NavBar.jsx";
-import SearchFunc from "../Search/SearchFunc.jsx";
+import NavBar from "../NavBar/NavBar";
 import "./ProductList.css";
+import HomePage from "../HomePage/HomePage";
 
-function ProductList() {
+
+function ProductList(props) {
+  console.log(props.term)
   return (
     <div>
       <NavBar />
-      <SearchFunc />
+      <p>{props.term}</p>
     </div>
   );
 }

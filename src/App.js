@@ -6,6 +6,8 @@ import Product from "./Components/Product/Product.jsx";
 import OpenPage from "./Components/OpenPage/OpenPage.jsx";
 
 const App = () => {
+
+  
   return (
     <>
       <Router>

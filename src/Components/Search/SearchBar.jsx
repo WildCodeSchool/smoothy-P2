@@ -1,22 +1,19 @@
 import React from 'react'
 
-function SearchBar({handleSubmit,term,setTerm}) {
+function SearchBar(props) {
+    const {term, handleChange, handleSubmit } = props;
     return (
-
-        <div>
-
-        <form onSubmit={handleSubmit}>
-        <input
-          className="form-control mr-sm-2 m-2"
-          type="search"
-          placeholder="Chercher un produit"
-          aria-label="Search"
-          value={term}
-          onChange={(e) => setTerm(e.target.value)}
-        />
-        <button>Search</button>
-      </form>
-        </div>
+      <div>
+         <form onSubmit={handleSubmit}>
+          <input
+            value={term}
+            type="text"
+            placeholder="Chercher un produit"
+            onChange={handleChange}
+          />
+          <button>Search</button>
+        </form>
+      </div>
     )
 }
 
