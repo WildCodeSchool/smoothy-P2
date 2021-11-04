@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
-function SearchBar({handleSubmit,term,setTerm}) {
-    return (
-
-        <div>
-
-        <form onSubmit={handleSubmit}>
+function SearchBar({ handleSubmit, term, setTerm }) {
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
         <input
           className="form-control mr-sm-2 m-2"
           type="search"
@@ -16,8 +14,8 @@ function SearchBar({handleSubmit,term,setTerm}) {
         />
         <button>Search</button>
       </form>
-        </div>
-    )
+    </div>
+  );
 }
 
-export default SearchBar
+export default SearchBar;

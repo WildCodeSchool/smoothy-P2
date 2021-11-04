@@ -1,11 +1,16 @@
-import React from 'react'
-import SearchFunc from '../Search/SearchFunc.jsx'
-import './Product.css'
+import React from "react";
+import NavBar from "../NavBar/NavBar.jsx";
+import Footer from "../Footer/Footer.jsx";
+import "./Product.css";
 
 function Product() {
-    
-    return <h2 className='ProductList'><SearchFunc/></h2>
-    
+  return (
+    <h2 className="Product">
+      <NavBar />
+      
+      <Footer />
+    </h2>
+  );
 }
 
-export default Product
+export default Product;

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./Components/HomePage/HomePage.jsx";
 import ProductList from "./Components/ProductList/ProductList.jsx";
 import Product from "./Components/Product/Product.jsx";
-import OpenPage from "./Components/OpenPage/OpenPage.jsx";
+import NotFind from "./Components/Product/Product.jsx";
 
 const App = () => {
   return (
@@ -13,14 +13,14 @@ const App = () => {
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route path="/OpenPage">
-            <OpenPage />
-          </Route>
-          <Route path="/ProductList">
+          <Route path="/productlist">
             <ProductList />
           </Route>
-          <Route path="/Product">
+          <Route path="/product">
             <Product />
+          </Route>
+          <Route path="/notfind">
+            <NotFind />
           </Route>
         </Switch>
       </Router>

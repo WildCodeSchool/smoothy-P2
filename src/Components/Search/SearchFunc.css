@@ -1,63 +1,58 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-  
-  }
-  
-  .test-title {
-    color: rgb(71, 71, 255);
-    padding-bottom: 1rem;
-  }
-  
-  
-  .searchBar{
-    text-align: center;
-    padding: 2rem 1rem;
-  }
-  
-  .searchBar input{
-    font-size: 1.2rem;
-  }
-  
-  .search-results{
-    text-align: center;
-    padding: 1rem 1rem;
-    width: 100%;
-  }
-  
-  .search-result{
-    border: 1px solid #eee;
-    margin: 1rem 1rem;
-    padding: 1rem;
-  }
-  
-  .Container{
-    text-align: center;
-    margin-bottom: 5rem;
-    color: green;
-  }
-  
-  .Container h1{
-    padding-bottom: 1rem;
-  }
-  
-  
-  .map-products{
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 1rem;
-  }
-  
-  .items{
-    margin-bottom: 1rem ;
-    margin-left: 8rem;
-  }
-  
-  
-  
-  .images  {
-    margin-top: 2rem;
-    display: flex;
-    padding: 1rem;
-    height: auto;
-  }
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.test-title {
+  color: rgb(71, 71, 255);
+  padding-bottom: 1rem;
+}
+
+.searchBar {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.searchBar input {
+  font-size: 1.2rem;
+}
+
+.search-results {
+  text-align: center;
+  padding: 1rem 1rem;
+  width: 100%;
+}
+
+.search-result {
+  border: 1px solid #eee;
+  margin: 1rem 1rem;
+  padding: 1rem;
+}
+
+.Container {
+  text-align: center;
+  margin-bottom: 4rem;
+  color: green;
+}
+
+.Container h1 {
+  padding-bottom: 1rem;
+}
+
+.map-products {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+}
+
+.items {
+  margin-bottom: 1rem;
+  margin-left: 8rem;
+}
+
+.images {
+  margin-top: 2rem;
+  display: flex;
+  padding: 1rem;
+  height: auto;
+}

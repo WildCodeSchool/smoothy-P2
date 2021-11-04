@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./HomePage.css";
 import barcode from "../../Assets/barcode3.svg";
-import SearchFunc from "../Search/SearchFunc.jsx"
+import SearchFunc from "../Search/SearchFunc.jsx";
 
 function HomePage() {
   const [classImg, setClassImg] = useState("image-Slide");

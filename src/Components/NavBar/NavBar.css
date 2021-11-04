@@ -1,15 +1,14 @@
 .navbar {
-    display: flex;
-    background-color: #FFEBB0;
+  display: flex;
+  background-color: #ffebb0;
+  border: solid black 1px;
 }
 
-.main-logo{
-    width: 4.5rem;
-    margin-left:0.5rem ;
-
+.main-logo {
+  width: 4.5rem;
+  margin-left: 0.5rem;
 }
-.barcode-logo2{
-    width: 3rem;
-    margin:1.3rem  0 0 3rem ;
-
+.barcode-logo2 {
+  width: 3rem;
+  margin: 1.3rem 0 0 3rem;
 }
