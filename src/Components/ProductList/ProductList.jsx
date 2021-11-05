@@ -1,15 +1,17 @@
 import React from "react";
 import NavBar from "../NavBar/NavBar";
 import "./ProductList.css";
+import SearchFunc from "../Search/SearchFunc";
+
 // import HomePage from "../HomePage/HomePage";
 
 
 const ProductList = (props) => {
-  const params = props.match.params;
+  const res = props.match.params.product;
   return (
     <div>
       <NavBar />
-      <p>{params.product}</p>
+      <SearchFunc produits={res}/>
     </div>
   );
 }
