@@ -9,8 +9,7 @@ function SearchBar(props) {
             value={term}
             type="text"
             placeholder="Chercher un produit"
-            onChange={handleChange}
-          />
+            onChange={handleChange}/>
           <button>Search</button>
         </form>
       </div>
