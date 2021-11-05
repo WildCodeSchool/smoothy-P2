@@ -1,14 +1,15 @@
 import React from "react";
 import NavBar from "../NavBar/NavBar";
 import "./ProductList.css";
-import HomePage from "../HomePage/HomePage";
+// import HomePage from "../HomePage/HomePage";
 
-function ProductList({term}) {
- console.log(term);
+
+const ProductList = (props) => {
+  const params = props.match.params;
   return (
     <div>
       <NavBar />
-      <p>{term}</p>
+      <p>{params.product}</p>
     </div>
   );
 }

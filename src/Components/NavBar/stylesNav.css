@@ -1,8 +1,6 @@
 .navbar {
     display: flex;
     background-color: #FFEBB0;
-    justify-content: space-around;
-    align-items:center;
 }
 
 .main-logo{
@@ -10,8 +8,9 @@
     margin-left:0.5rem ;
 
 }
-.barcode-logo2{
+.barcode-logo{
     width: 3rem;
     margin:1.3rem  0 0 3rem ;
+
 }
 

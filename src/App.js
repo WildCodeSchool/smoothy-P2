@@ -15,12 +15,13 @@ const App = () => {
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route path="/OpenPage">
+          {/* <Route path="/OpenPage">
             <OpenPage />
-          </Route>
-          <Route path="/ProductList">
-            <ProductList />
-          </Route>
+          </Route> */}
+          <Route 
+            exact path="/ProductList/:product"
+            component={ProductList}
+          />
           <Route path="/Product">
             <Product />
           </Route>
