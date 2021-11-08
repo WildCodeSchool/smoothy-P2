@@ -12,6 +12,7 @@ const NavBar = () => {
   const handleChange = event => setTerm(event.target.value);
   
   const [termF, setTermF] = useState("");
+  
   const handleSubmit = e => {
     e.preventDefault();
     setTermF(term);
