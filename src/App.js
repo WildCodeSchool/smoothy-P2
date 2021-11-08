@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./Components/HomePage/HomePage.jsx";
 import ProductList from "./Components/ProductList/ProductList.jsx";
 import Product from "./Components/Product/Product.jsx";
+import NotFound from './Components/NotFound/NotFound.jsx';
 import OpenPage from "./Components/OpenPage/OpenPage.jsx";
 import PageListSetter from "./Components/ProductList/PageListSetter.jsx";
 
@@ -28,6 +29,13 @@ const App = () => {
             exact path="/Product/:product"
             component={Product}
           />
+
+          <Route path="/Product">
+            <Product />
+          </Route>
+     
+          <Route path="*" component={NotFound} />
+
         </Switch>
       </Router>
     </>
