@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import "./HomePage.css";
 import barcode from "../../Assets/barcode3.svg";
 import SearchBar from "../Search/SearchBar.jsx";
 import {useHistory} from "react-router-dom";
 
+
+import "./HomePage.css";
 
 function HomePage() {
   const history = useHistory()
@@ -42,6 +43,7 @@ function HomePage() {
         <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} />
         <img className="barcode-logo" src={barcode} alt="test" />
       </div>
+     
     </div>
   );
 }
