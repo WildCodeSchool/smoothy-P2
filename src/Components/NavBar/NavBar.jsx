@@ -20,8 +20,7 @@ const NavBar = () => {
   };
 
   return (
-    
-    <nav className="navbar">
+      <nav className="navbar">
       <div>
       <Link to="/"><img className='main-logo' src={MainLogo} alt='test'></img></Link>
       </div>
