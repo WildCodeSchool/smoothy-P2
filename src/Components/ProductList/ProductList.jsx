@@ -1,23 +1,28 @@
-import React from "react";
-import NavBar from "../NavBar/NavBar.jsx";
-import "./ProductList.css";
-import SearchFunc from "../Search/SearchFunc.jsx";
-import ArrowUp from "../ArrowUp/ArrowUp.jsx";
-import Footer from "../Footer/Footer.jsx";
+import React from 'react'
+import './PageListSetter.css'
+import moreProducts from  '../../Assets/moreProducts.png'
 
+function PageListSetter({page, setPage,produits}) {
 
-const ProductList = (props) => {
-  const res = props.match.params.product;
+    const handleClick = () => {
+        
+    setPage(++page)
 
-  
-  return (
-    <div>
-      <NavBar />
-      <SearchFunc produits={res}/>
-      <ArrowUp/>
-      <Footer />
-    </div>
-  );
+    console.log(produits)
+
+}
+    return (
+      
+        <div className='more-button'>
+            <img  className={/\d/.test(produits)
+         ? 'hidden-button-style'
+         : 'more-button-style'} 
+         onClick={handleClick} 
+         src={moreProducts} alt="more-products" />
+        </div>
+
+       
+    )
 }
 
-export default ProductList; 
+export default PageListSetter
