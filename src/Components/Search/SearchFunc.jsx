@@ -11,25 +11,24 @@ const SearchFunc = ({produits}) => {
 
  
   const [products, setProducts] = useState(null);
-
   const [page, setPage] = useState(1);
 
 useEffect(() => {
-  
   /\d/.test(produits)
-
   ? url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=_id&tag_contains_0=contains&tag_0=${produits}&fields=code,product_name_fr,brands_tags,image_front_small_url,quantity,nutriscore_grade,labels_old,brand,_keywords&json=true` 
-
   : url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=_keywords&tag_contains_0=contains&tag_0=${produits}&fields=code,product_name_fr,brands_tags,image_front_small_url,quantity,nutriscore_grade,labels_old,brands,_keywords&page_size=5&page=${page}&json=true`
-
-  if (url) {
-    axios(url).then(({ data }) => {
-    setProducts(data.products);
-    })
+  
+  const getProducts = async () => {
+    await axios
+      .get(url)
+      .then(({data}) => setProducts(data.products))
   }
 
-}, [products],[page])
+  getProducts()
+  
+}, [page])
 
+  console.log(products)
   return (
     <div className="Container">
 
