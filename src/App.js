@@ -6,6 +6,7 @@ import Product from "./Components/Product/Product.jsx";
 import OpenPage from "./Components/OpenPage/OpenPage.jsx";
 import PageListSetter from "./Components/ProductList/PageListSetter.jsx";
 
+
 const App = () => {
 
   
@@ -23,9 +24,10 @@ const App = () => {
             exact path="/ProductList/:product"
             component={ProductList } 
           />
-          <Route path="/Product">
-            <Product />
-          </Route>
+          <Route 
+            exact path="/Product/:product"
+            component={Product}
+          />
         </Switch>
       </Router>
     </>
