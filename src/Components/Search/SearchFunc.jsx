@@ -2,8 +2,7 @@ import React, { useState,useEffect } from "react";
 import axios from "axios";
 import SearchProductList from "./SearchProductList.jsx";
 import './SearchFunc.css'
-import PageListSetter from '../ProductList/PageListSetter'
-import SearchBar from "./SearchBar.jsx";
+import PageListSetter from '../ProductList/PageListSetter.jsx'
 
 let url = "";
 
