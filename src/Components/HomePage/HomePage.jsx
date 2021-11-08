@@ -20,7 +20,8 @@ function HomePage() {
    const [term, setTerm] = useState("");
    const handleChange = event => setTerm(event.target.value);
    
-   const handleSubmit = e => {
+
+   const handleSubmit = (e) => {
      e.preventDefault();
      /\d/.test(term)
      ? history.push(`/Product/${term}`)
@@ -38,7 +39,7 @@ function HomePage() {
         <button className="food-pref" id="food-pref">
           Préférences Alimentaires
         </button>
-        <SearchBar handleChange={handleChange} handleSubmit={handleSubmit}/>
+        <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} />
         <img className="barcode-logo" src={barcode} alt="test" />
       </div>
     </div>
