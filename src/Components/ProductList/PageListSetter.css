@@ -1,4 +1,11 @@
-.button {
+.more-button {
     display: flex;
     justify-content: center;
+    margin-top: 3rem;
+    opacity: 0.80;
+}
+
+.more-button-style:hover{
+    opacity: 0.50;
+    
 }

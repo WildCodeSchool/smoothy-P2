@@ -1,5 +1,7 @@
 import React from 'react'
 import './PageListSetter.css'
+import more from  './arrow2.png'
+
 
 function PageListSetter({page, setPage,}) {
 
@@ -7,13 +9,13 @@ function PageListSetter({page, setPage,}) {
         
     setPage(++page)
 
-    console.log(page)
 }
     return (
       
-        <div className='button'>
-         <button onClick={handleClick}>Plus de produits</button> 
+        <div className='more-button'>
+            <img  className='more-button-style' onClick={handleClick} src={more} alt="arrow" />
         </div>
+
        
     )
 }

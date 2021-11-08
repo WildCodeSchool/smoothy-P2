@@ -14,13 +14,6 @@ const SearchFunc = ({produits}) => {
   const [page, setPage] = useState(1);
 
 
-
-
-
-
-
-
-
 useEffect(() => {
   
 
