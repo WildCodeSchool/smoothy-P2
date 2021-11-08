@@ -25,9 +25,8 @@ useEffect(() => {
 
   getProducts()
   
-}, [page])
+}, [produits, page])
 
-  console.log(products)
   return (
     <div className="Container">
 

@@ -6,13 +6,8 @@ import moreProducts from  '../../Assets/moreProducts.png';
 
 
 function PageListSetter({page, setPage,produits}) {
-
     const handleClick = () => {
-        
     setPage(++page)
-
-    console.log(produits)
-
 }
     return (
       
