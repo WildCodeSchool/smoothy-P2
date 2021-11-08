@@ -1,7 +1,6 @@
 import React from 'react'
-import '../Components/ProductList/ArrowUp.css'
-import upArrow from './ProductList/arrowUp3.svg'
-
+import './ArrowUp.css'
+import upArrow from '../../../Assets/arrowUp.svg'
 function ArrowUp() {
 
   const handleUp = ()=>{
