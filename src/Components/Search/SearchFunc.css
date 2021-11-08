@@ -1,65 +1,75 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-  
+  box-sizing: border-box;
+  margin: 0;
+
+}
+
+.test-title {
+  color: rgb(71, 71, 255);
+  padding-bottom: 1rem;
+}
+
+
+.searchBar{
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.searchBar input{
+  font-size: 1.2rem;
+}
+
+.search-results{
+  text-align: center;
+  padding: 1rem 1rem;
+  width: 100%;
+}
+
+.search-result{
+  border: 1px solid #eee;
+  margin: 1rem 1rem;
+  padding: 1rem;
+}
+
+.Container{
+  text-align: center;
+  margin-bottom: 1rem;
+  color: green;
+}
+
+.Container h1{
+  padding-bottom: 1rem;
+}
+
+
+.map-products{
+  display: flex-end;
+flex-wrap: wrap;
+width: 100vw;
+padding-top: 1rem;
+}
+
+figure{
+  display: flex;
+
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  border: solid 1px black;
+  padding: 0.3rem;
+}
+
+
+.images {
+  display: block;
+    width: 78px;
+    height: 78px;
+    object-fit: contain;
   }
-  
-  .test-title {
-    color: rgb(71, 71, 255);
-    padding-bottom: 1rem;
-  }
-  
-  
-  .searchBar{
-    text-align: center;
-    padding: 2rem 1rem;
-  }
-  
-  .searchBar input{
-    font-size: 1.2rem;
-  }
-  
-  .search-results{
-    text-align: center;
-    padding: 1rem 1rem;
-    width: 100%;
-  }
-  
-  .search-result{
-    border: 1px solid #eee;
-    margin: 1rem 1rem;
-    padding: 1rem;
-  }
-  
-  .Container{
-    text-align: center;
-    margin-bottom: 5rem;
-    color: green;
-  }
-  
-  .Container h1{
-    padding-bottom: 1rem;
-  }
-  
-  
-  .map-products{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    flex-direction: column;
-    padding-top: 1rem;
-    margin-left: 1rem;
-  }
-  
-  .items{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-  }
-  
-  
-    .images  {
-    margin-top: 2rem;
-    padding: 1rem;
-    height: auto;
+
+  .items {
+    text-align: start;
+    align-items:flex-start;
+    width: 50vh;
   }

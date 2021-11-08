@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../NavBar/NavBar';
+import NavBar from '../NavBar/NavBar.jsx';
 import sigmund from  '../../Assets/sigmund.png';
 import "./NotFound.css"
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./HomePage.css";
 import barcode from "../../Assets/barcode3.svg";
-import SearchBar from "../Search/SearchBar";
+import SearchBar from "../Search/SearchBar.jsx";
 import {useHistory} from "react-router-dom";
 
 
