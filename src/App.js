@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./Components/HomePage/HomePage.jsx";
 import ProductList from "./Components/ProductList/ProductList.jsx";
 import Product from "./Components/Product/Product.jsx";
-import OpenPage from "./Components/OpenPage/OpenPage.jsx";
-import PageListSetter from "./Components/ProductList/PageListSetter.jsx";
+
 
 
 const App = () => {
@@ -17,9 +16,6 @@ const App = () => {
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route path="/OpenPage">
-            <OpenPage />
-          </Route> 
           <Route 
             exact path="/ProductList/:product"
             component={ProductList } 

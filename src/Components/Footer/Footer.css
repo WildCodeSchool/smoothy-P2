@@ -1,0 +1,32 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffebb0;
+    border: solid black 1px;
+  }
+  
+  .main-logo1 {
+    width: 4rem;
+    margin-left: 1rem;
+  }
+  
+  a.youtube {
+    color: #eb3223;
+  }
+  
+  a.facebook {
+    color: #4968ad;
+  }
+  
+  a.twitter {
+    color: #49a1eb;
+  }
+  
+  a.instagram {
+    color: black;
+  }
+  
+  a.social {
+    margin-right: 1.5rem;
+  }

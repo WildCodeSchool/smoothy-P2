@@ -1,5 +1,6 @@
 import React from "react";
-import NavBar from "../NavBar/NavBar";
+import NavBar from "../NavBar/NavBar.jsx";
+import Footer from "../Footer/Footer.jsx";
 import SearchFunc from '../Search/SearchFunc.jsx'
 import './Product.css'
 
@@ -10,6 +11,7 @@ const Product = (props) => {
           <NavBar />
           <SearchFunc produits={res}/>
           {console.log(`Product : ${res}`)}
+         <Footer/> 
         </div>
       );
     }

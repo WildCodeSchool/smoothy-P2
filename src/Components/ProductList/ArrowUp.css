@@ -2,10 +2,10 @@
     color: #b98800;
     position: fixed;
     opacity: 0.5;
-    height: 7em;
-    width: 7rem;
+    height: 4rem;
+    width: 4rem;
     bottom: 1vh;
-    right: 1vw;
+    right: 15vw;
     animation: 2s infinite linear alternate bump;
   }
 

@@ -1,6 +1,6 @@
 import React from 'react'
-import '../Components/ProductList/ArrowUp.css'
-import upArrow from './ProductList/arrowUp3.svg'
+import '../ProductList/ArrowUp.css'
+import upArrow from '../ProductList/arrowUp2.png'
 
 function ArrowUp() {
 

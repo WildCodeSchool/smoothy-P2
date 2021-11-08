@@ -23,10 +23,10 @@ const NavBar = () => {
     
     <nav className="navbar">
       <div>
-      <Link to="OpenPage"><img className='main-logo' src={MainLogo} alt='test'></img></Link>
+      <Link to="/"><img className='main-logo' src={MainLogo} alt='test'></img></Link>
       </div>
       <div>
-      <Link to='OpenPage'><img className='barcode-logo2' src={BarCode} alt='test'/></Link>
+      <Link to='/'><img className='barcode-logo2' src={BarCode} alt='test'/></Link>
       </div>
        <SearchBar handleChange={handleChange} handleSubmit={handleSubmit}/>
     </nav>

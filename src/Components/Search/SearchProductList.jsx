@@ -20,12 +20,14 @@ function SearchProductList({ products }) {
         <div className="map-products">
           {products.map((product) => (
       <figure key={product.id}>
+        <div className="items1" >
           <img
           className="images"
           key={product.id}
           src={product.image_front_small_url}
           alt={""}
         /> 
+        </div>
         <figcaption>
           <p className="items" key={product.id}>
             {(product.product_name_fr).toUpperCase()} - {product.quantity} 

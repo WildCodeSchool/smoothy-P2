@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./HomePage.css";
 import barcode from "../../Assets/barcode3.svg";
-import SearchBar from "../Search/SearchBar";
+import SearchBar from "../Search/SearchBar.jsx";
 import {useHistory} from "react-router-dom";
 
 
@@ -11,7 +11,7 @@ function HomePage() {
   const [classText, setText] = useState("text-Slide");
   const [classSearch, setSearch] = useState("search-Hide");
 
-  const handleClick = (props) => {
+  const handleClick = () => {
     setClassImg("image-Head");
     setText("text-Home-Hide");
     setSearch("search-Location");
