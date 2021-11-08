@@ -11,7 +11,7 @@ function HomePage() {
   const [classText, setText] = useState("text-Slide");
   const [classSearch, setSearch] = useState("search-Hide");
 
-  const handleClick = (props) => {
+  const handleClick = () => {
     setClassImg("image-Head");
     setText("text-Home-Hide");
     setSearch("search-Location");
