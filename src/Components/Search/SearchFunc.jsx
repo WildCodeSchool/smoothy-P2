@@ -35,7 +35,7 @@ useEffect(() => {
     <div className='search-bar'>  
     </div>
       <SearchProductList products={products}/>
-      <PageListSetter page={page} setPage={setPage}/>
+      <PageListSetter page={page} setPage={setPage} produits={produits}/>
 
     </div>
   );

@@ -1,0 +1,69 @@
+.arrow-up {
+    color: #b98800;
+    position: fixed;
+    opacity: 0.5;
+    height: 7em;
+    width: 7rem;
+    bottom: 1vh;
+    right: 1vw;
+    animation: 2s infinite linear alternate bump;
+  }
+
+  .arrow-up:hover {
+    opacity: 5;
+  }
+  
+  
+  
+  
+  @media screen and (min-width: 600px) {
+    .arrow-up {
+      color: #b98800;
+      opacity: 0.5;
+      height: 9rem;
+      width: 9rem;
+      position: fixed;
+      bottom: 1vh;
+      right: 1vw;
+      animation:infinite alternate 2s bump;
+    }
+  
+    .arrow-up:hover {
+      opacity: 5;
+    }
+    
+  }
+  
+  @keyframes bump {
+  
+    0% {
+      bottom: 0;
+    }
+  
+    20% {
+      bottom: 0.5px;
+    }
+    
+    40% {
+        bottom: 0.10px;
+      }
+  
+
+    50% {
+      bottom: 0.15px;
+    }
+
+    60% {
+        bottom: 0.10px;
+      }
+  
+    80% {
+      bottom: 0.5px;
+    }
+  
+    100% {
+      bottom: 0.;
+  
+    }
+  }
+  

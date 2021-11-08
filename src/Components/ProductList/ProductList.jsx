@@ -2,6 +2,7 @@ import React from 'react'
 import './PageListSetter.css'
 import moreProducts from  '../../Assets/moreProducts.png'
 
+
 function PageListSetter({page, setPage,produits}) {
 
     const handleClick = () => {
