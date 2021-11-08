@@ -20,17 +20,11 @@ function HomePage() {
    const [term, setTerm] = useState("");
    const handleChange = event => setTerm(event.target.value);
    
-   const [termF, setTermF] = useState("");
    const handleSubmit = e => {
      e.preventDefault();
-     setTermF(term);
-     // if number
-     //.push(/Product)
-     //else if string
-     //.push(productList)
-     // else none
-     //.push(Notfind)
-    history.push(`/ProductList/${term}`);
+     /\d/.test(term)
+     ? history.push(`/Product/${term}`)
+     : history.push(`/ProductList/${term}`);
    };
 
   return (  
@@ -47,7 +41,6 @@ function HomePage() {
         <SearchBar handleChange={handleChange} handleSubmit={handleSubmit}/>
         <img className="barcode-logo" src={barcode} alt="test" />
       </div>
-      {/* {term && <ProductList term={term}/>} */}
     </div>
   );
 }
