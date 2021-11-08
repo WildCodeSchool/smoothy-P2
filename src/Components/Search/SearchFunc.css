@@ -45,19 +45,21 @@
   .map-products{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: column;
     padding-top: 1rem;
+    margin-left: 1rem;
   }
   
   .items{
-    margin-bottom: 1rem ;
-    margin-left: 8rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
   }
   
   
-  
-  .images  {
+    .images  {
     margin-top: 2rem;
-    display: flex;
     padding: 1rem;
     height: auto;
   }

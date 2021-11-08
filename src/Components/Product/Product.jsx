@@ -1,11 +1,19 @@
-import React from 'react'
+import React from "react";
+import NavBar from "../NavBar/NavBar";
 import SearchFunc from '../Search/SearchFunc.jsx'
 import './Product.css'
 
-function Product() {
-    
-    return <h2 className='ProductList'><SearchFunc/></h2>
-    
-}
+const Product = (props) => {
+    const res = props.match.params.product;
+    return (
+        <div>
+          <NavBar />
+          <SearchFunc produits={res}/>
+          {console.log(`Product : ${res}`)}
+        </div>
+      );
+    }
 
 export default Product
+
+//3274080005003
