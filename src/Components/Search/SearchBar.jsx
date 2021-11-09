@@ -1,11 +1,15 @@
 import React from 'react'
+import ResetPage from './ResetPage';
 
 function SearchBar(props) {
     const {term, handleChange, handleSubmit} = props;
 
 
+
+
     return (
       <div>
+        
          <form onSubmit={handleSubmit}  >
           <input
             value={term}
@@ -14,9 +18,11 @@ function SearchBar(props) {
             onChange={handleChange}
          
           />
-          
-          <button>Search</button>
+        <button>Search</button>
+
         </form>
+
+
       </div>
     )
 }

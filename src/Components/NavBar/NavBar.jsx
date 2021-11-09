@@ -5,8 +5,9 @@ import BarCode from  '../../Assets/barcode3.svg';
 import SearchBar from "../Search/SearchBar.jsx";
 import './NavBar.css';
 import {useHistory} from "react-router-dom";
+import ResetPage from '../Search/ResetPage';
 
-const NavBar = () => {
+const NavBar = ({page,setPage}) => {
   const history = useHistory();
   const [term, setTerm] = useState("");
   const handleChange = event => setTerm(event.target.value);
@@ -27,7 +28,10 @@ const NavBar = () => {
       <div>
       <Link to='/'><img className='barcode-logo2' src={BarCode} alt='test'/></Link>
       </div>
+      <div>
        <SearchBar handleChange={handleChange} handleSubmit={handleSubmit}/>
+
+       </div>
     </nav>
   );
 };
