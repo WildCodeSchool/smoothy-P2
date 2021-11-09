@@ -16,18 +16,18 @@ const App = () => {
           <Route exact path="/">
             <HomePage />
           </Route> 
-          <Route 
+            <Route 
             exact path="/ProductList/:product"
-            component={ProductList } 
-          />
+            component={ProductList} 
+          /> 
           <Route 
             exact path="/Product/:product"
             component={Product}
           />
 
-          <Route path="/Product">
+          {/* <Route path="/Product">
             <Product />
-          </Route>
+          </Route> */}
      
           <Route path="*" component={NotFound} />
 

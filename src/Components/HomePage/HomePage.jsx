@@ -5,6 +5,7 @@ import {useHistory} from "react-router-dom";
 
 
 import "./HomePage.css";
+import Product from "../Product/Product";
 
 function HomePage() {
   const history = useHistory()
@@ -21,7 +22,6 @@ function HomePage() {
    const [term, setTerm] = useState("");
    const handleChange = event => setTerm(event.target.value);
    
-
 
   
    const handleSubmit = (e) => {
