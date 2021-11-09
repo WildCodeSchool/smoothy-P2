@@ -1,5 +1,4 @@
 import React from 'react'
-import ResetPage from './ResetPage';
 
 function SearchBar(props) {
     const {term, handleChange, handleSubmit} = props;

@@ -5,9 +5,8 @@ import BarCode from  '../../Assets/barcode3.svg';
 import SearchBar from "../Search/SearchBar.jsx";
 import './NavBar.css';
 import {useHistory} from "react-router-dom";
-import ResetPage from '../Search/ResetPage';
 
-const NavBar = ({page,setPage}) => {
+const NavBar = () => {
   const history = useHistory();
   const [term, setTerm] = useState("");
   const handleChange = event => setTerm(event.target.value);
