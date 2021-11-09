@@ -2,10 +2,10 @@
     color: #b98800;
     position: fixed;
     opacity: 0.5;
-    height: 7em;
-    width: 7rem;
+    height: 6em;
+    width: 6rem;
     bottom: 1vh;
-    right: 1vw;
+    right: 1rem;
     animation: 2s infinite linear alternate bump;
   }
 
@@ -20,8 +20,8 @@
     .arrow-up {
       color: #b98800;
       opacity: 0.5;
-      height: 9rem;
-      width: 9rem;
+      height: 7.5rem;
+      width: 7.5rem;
       position: fixed;
       bottom: 1vh;
       right: 1vw;

@@ -21,12 +21,15 @@ function HomePage() {
    const handleChange = event => setTerm(event.target.value);
    
 
+
+  
    const handleSubmit = (e) => {
      e.preventDefault();
      /\d/.test(term)
      ? history.push(`/Product/${term}`)
      : history.push(`/ProductList/${term}`);
    };
+  
 
   return (  
     <div>
