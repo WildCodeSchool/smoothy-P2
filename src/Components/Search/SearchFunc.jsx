@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
-// import SearchProductList from "./SearchProductList.jsx";
+import SearchProductList from "./SearchProductList.jsx";
 import './SearchFunc.css'
 import PageListSetter from '../ProductList/PageListSetter.jsx'
 import SearchProduct from '../Product/SearchProduct.jsx'
@@ -27,16 +27,26 @@ useEffect(() => {
     setPage(1)
 }, [produits])
 
+if (/\d/.test(produits)) {
   return (
     <div className="Container">
     <div className='search-bar'>  
     </div>
-    
-      {/* <SearchProductList products={products}/> */}
-      <SearchProduct products={products}/>
+      <SearchProduct products={products}/> 
+      <PageListSetter page={page} setPage={setPage} produits={produits}/>
+    </div>
+  );
+} else {
+  return (
+    <div className="Container">
+    <div className='search-bar'>  
+    </div>
+      <SearchProductList products={products}/>
       <PageListSetter page={page} setPage={setPage} produits={produits}/>
     </div>
   );
 };
+}
+
 
 export default SearchFunc;    
