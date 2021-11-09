@@ -1,9 +1,7 @@
 import React from "react";
 
 const fistLetterUpperCase = (a) =>{
-  
   return (a+'').charAt(0).toUpperCase()+a.substr(1);
-
 }
 
 const dashRemover = (str)=> 
@@ -28,7 +26,7 @@ function SearchProductList({ products }) {
         /> 
         <figcaption>
           <p className="items" key={product.id}>
-            {(product.product_name_fr).toUpperCase()} - {product.quantity} 
+            {product.product_name_fr} - {product.quantity} 
             
             </p>
             <p>{dashRemover(fistLetterUpperCase(product.brands_tags[0]))}</p>

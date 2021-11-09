@@ -2,8 +2,10 @@ import React from "react";
 import NavBar from "../NavBar/NavBar.jsx";
 import Footer from "../Footer/Footer.jsx";
 import SearchFunc from '../Search/SearchFunc.jsx'
-import ArrowUp from '../ProductList/Arrows/ArrowUp.jsx'
-import './Product.css'
+import ArrowUp from '../ProductList/Arrows/ArrowUp.jsx';
+import './Product.css';
+
+
 
 const Product = (props) => {
     const res = props.match.params.product;
