@@ -1,0 +1,19 @@
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    
+}
+
+.window {
+    position: relative;
+    
+}
+
+.drawingBuffer{
+    position: absolute;
+    top: 10rem;
+}
