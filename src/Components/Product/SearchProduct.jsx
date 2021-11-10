@@ -1,22 +1,35 @@
 import React from "react";
 
 const Searchproduct = ({products}) => {
-    
+
+// exemples gen code
+//     737628064502 : Rice Noodles
+//     3017620425035 : Pâte à tartiner aux noisettes
+//     8032862870028 : Pâte à tartiner Gonuts sans sucre
+//     3019081238643 : Sardines à l'huile d'olive
+//     3587220002252 : La Gâche Tranchée au Beurre Frais et à la Crème Fraîche
+//     3242274001056 : Salade & Compagnie - Montmartre - Sodebo - 320 g
+
+// ToDo
+//     fiche à brancher à l'architecture : 
+//     ✅ barres de recherche (accueil et header)
+//     - choix parmi une sélection
+//     - code barre
+
+//     ✅ affichage nutriscore/Nova/Ecoscore
+//     (Fonction affichage tableaux)
+
     return (
 
       <div>
       {products && (
             
-
-            
-            
         <div>
             {console.log(products[0])}
             <h1>{products[0].generic_name}</h1>
-                <p>barcode {products[0].code}</p>
-                <p>url of the product page on Open Food Facts.	{products[0].url}</p>
-                <p>How to cook the food: microwave, oven, which temperature…	{products[0].preparation}</p>
-                <p>If the product is complete or if there is any information missing.	{products[0].states}</p>                
+                <p>barcode : {products[0].code}</p>
+                <p>url du produit sur Open Food Facts :	{products[0].url}</p>
+                {/* <p>If the product is complete or if there is any information missing.	{products[0].states}</p>                 */}
       
       
             <h2>Résumé</h2>
@@ -48,25 +61,27 @@ const Searchproduct = ({products}) => {
                     ))}
                     </p> 
       
-                <p>Nutri-score : {products[0].nutrition_grade_fr} 
-                {products[0].nutrition_grade_fr}</p>
-                <div id="score"></div>
+                <p>Nutri-score : {products[0].nutrition_grade_fr}</p>
+                <img src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + products[0].nutrition_grade_fr + ".svg"} alt={''} />
       
                 <p>Classification Nova (transformation des aliments) : {products[0].nova_group}</p>
+                <img src={"https://fr.openfoodfacts.org/images/misc/nova-group-" + products[0].nova_group + ".svg"} alt={''} />
       
                 <p>Eco Score : {products[0].ecoscore_grade}</p>
+                <img src={"https://fr.openfoodfacts.org/images/icons/ecoscore-" + products[0].ecoscore_grade + ".svg"} alt={''} />
       
                 <p>repères nutritionnels pour 100 g	???</p>
       
                 <p>Additifs	</p>
                     <p>{products[0].additives_n}</p>
-                    <p>{products[0].additives}</p>  
-                    
+
+                    <p>additives_original_tags.map</p>
                     <p>{products[0].additives_original_tags.map((add) => (
                         <p key={add._id}> {add.split(":")[1]} </p>
                     ))}
                     </p> 
                     
+                    <p>additives_tags.map</p>
                     <p>{products[0].additives_tags.map((add) => (
                         <p key={add._id}> {add.split(":")[1]} </p>
                     ))}
