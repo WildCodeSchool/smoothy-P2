@@ -14,7 +14,7 @@ const Searchproduct = ({products}) => {
 //     fiche à brancher à l'architecture : 
 //     ✅ barres de recherche (accueil et header)
 //     - choix parmi une sélection
-//     - code barre
+//     ✅ code barre
 
 //     ✅ affichage nutriscore/Nova/Ecoscore
 //     (Fonction affichage tableaux)
