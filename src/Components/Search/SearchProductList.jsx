@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const fistLetterUpperCase = (a) =>{
   return (a+'').charAt(0).toUpperCase()+a.substr(1);
@@ -11,19 +12,20 @@ const dashRemover = (str)=>
 
 
 
-function SearchProductList({ products }) {
+function SearchProductList({ products}) {
+
   return (
     <div>
       {products && (
         <div className="map-products">
           {products.map((product) => (
       <figure key={product.id}>
-          <img
+         <Link to = {`/Product/${product.code}`} > <img
           className="images"
           key={product.id}
           src={product.image_front_small_url}
-          alt={""}
-        /> 
+          alt={"product-img"}
+        /> </Link>
         <figcaption>
           <p className="items" key={product.id}>
             {product.product_name_fr} - {product.quantity} 
@@ -36,6 +38,7 @@ function SearchProductList({ products }) {
 
         </div>
       )}
+      
     </div>
   );
 }

@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import barcode from "../../Assets/barcode3.svg";
 import SearchBar from "../Search/SearchBar.jsx";
 import {useHistory} from "react-router-dom";
-
-
-import "./HomePage.css";
-import Product from "../Product/Product";
+import "./HomePage.css"
+import DisplayScan from "../Scanner/DisplayScan.jsx";
 
 function HomePage() {
   const history = useHistory()
@@ -44,7 +42,9 @@ function HomePage() {
           Préférences Alimentaires
         </button>
         <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} />
-        <img className="barcode-logo" src={barcode} alt="test" />
+        
+        <DisplayScan />
+        
       </div>
      
     </div>
