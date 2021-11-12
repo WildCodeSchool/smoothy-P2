@@ -1,116 +1,194 @@
-import React from "react";
+import React, { useState } from "react";
+
+import downchevron from '../../Assets/downchevron.png';
+import './SearchProduct.css';
+
+
+const dashRemover = (str)=>
+{
+return str.replaceAll(('-','_'), ' ');
+}
+
+
 
 const Searchproduct = ({products}) => {
-    
-    return (
 
-      <div>
-      {products && (
-            
 
-            
-            
-        <div>
-            {console.log(products[0])}
-            <h1>{products[0].generic_name}</h1>
-                <p>barcode {products[0].code}</p>
-                <p>url of the product page on Open Food Facts.	{products[0].url}</p>
-                <p>How to cook the food: microwave, oven, which temperature…	{products[0].preparation}</p>
-                <p>If the product is complete or if there is any information missing.	{products[0].states}</p>                
-      
-      
-            <h2>Résumé</h2>
-                <p></p>
-                <p>Nom générique donné par les autorités Européennes : {products[0].generic_name}</p>
-                <p>Nom du produit : {products[0]._name}</p>
-                <p>Marque : {products[0].brands}</p>
-                <p>poids : {products[0].quantity}</p>
-                <p>Photos produit</p>
-                    <p><img src={products[0].image_front_small_url} alt={''} /></p>
-                    <p><img src={products[0].image_url} alt={''} /></p>
-                    <p><img src={products[0].image_small_url} alt={''} /></p>
-      
-                <p>Végétalien, Végétarien, sans graisse, Casher... : {products[0].labels}</p>
-                <p>Huile de palme</p>
-                    <p>{products[0].ingredients_from_palm_oil_n}</p>
-                    <p>{products[0].ingredients_from_palm_oil}</p>                         
-                    
-                    <p>{products[0].ingredients_from_palm_oil_tags.map((add) => (
-                        <p key={add._id}> {add.split(":")[1]} </p>
-                    ))}
-                    </p> 
-      
-                    <p>{products[0].ingredients_that_may_be_from_palm_oil_n}</p>
-                    <p>{products[0].ingredients_that_may_be_from_palm_oil}</p>                       
-                    
-                    <p>{products[0].ingredients_that_may_be_from_palm_oil_tags.map((add) => (
-                        <p key={add._id}> {add.split(":")[1]} </p>
-                    ))}
-                    </p> 
-      
-                <p>Nutri-score : {products[0].nutrition_grade_fr} 
-                {products[0].nutrition_grade_fr}</p>
-                <div id="score"></div>
-      
-                <p>Classification Nova (transformation des aliments) : {products[0].nova_group}</p>
-      
-                <p>Eco Score : {products[0].ecoscore_grade}</p>
-      
-                <p>repères nutritionnels pour 100 g	???</p>
-      
-                <p>Additifs	</p>
-                    <p>{products[0].additives_n}</p>
-                    <p>{products[0].additives}</p>  
-                    
-                    <p>{products[0].additives_original_tags.map((add) => (
-                        <p key={add._id}> {add.split(":")[1]} </p>
-                    ))}
-                    </p> 
-                    
-                    <p>{products[0].additives_tags.map((add) => (
-                        <p key={add._id}> {add.split(":")[1]} </p>
-                    ))}
-                    </p>
-                                     
-                
-                <p>Catégories	{products[0].categories}</p>
-                <p>code emballeur	{products[0].emb_codes}</p>
-      
-            <h2>Ingrédients</h2>
-                <p>Photos liste ingrédients</p>
-                    <p><img src={products[0].image_ingredients_url} alt={''} /></p>
-                    <p><img src={products[0].image_ingredients_small_url} alt={''} /></p>
-                    <p><img src={products[0].image_ingredients_thumb_url} alt={''} /></p>
-                <p>liste des ingrédients texte	{products[0].ingredients_text}</p>
-                <p>Traces {products[0].traces}</p>
-      
-                <p>Allergènes	{products[0].allergens}</p>
-                    
-                    <p>{products[0].allergens_tags.map((add) => (
-                        <p key={add._id}> {add.split(":")[1]} </p>
-                    ))}
-                    </p>
-      
-            <h2>Nutrition</h2>
-                <p>Photos valeurs nutritionnelles </p>
-                    <p><img src={products[0].image_nutrition_url} alt={''} /></p>
-                    <p><img src={products[0].image_nutrition_small_url} alt={''} /></p>
-                    <p><img src={products[0].image_nutrition_thumb_url} alt={''} /></p>
-            <h2>Environnement</h2>
-                <p></p>
-            <h2>Synthèse</h2>
-      
+
+const [useswitch, setSwitch] = useState ("Composition");
+
+const [alergenComponent, setAlergenComponent] = useState("alergene-Component-Product");
+const [alergenetxt, setaAlergenetxt] = useState("alergene-Text-Product");
+const [arowDownEndAlergen, setArowDownEndAlergen] = useState("arow-Down-Product");
+
+
+
+const handleClick = () => {
+setAlergenComponent("alergene-Component-lvlup-Product");
+setaAlergenetxt("alergene-Text-Unhide-Product");
+setArowDownEndAlergen("arow-Down-Hide-Product");
+};
+
+console.log("useswitch", useswitch); // a retirer apres merg
+
+
+
+
+return (
+
+<div>
+    {products && (
+    <div className="container-Product">
+
+        <div className="header-Product">
+            <div className="img-Left-Product">
+                <img className="img-Left-Prod" src={products[0].image_url} alt={''} />
+            </div>
+            <div className="header-Right-Product">
+                <p className="generic-Name-Product">{products[0].generic_name}</p>
+                <p>fat : {products[0].nutrient_levels.fat}
+                    {products[0].nutrient_levels.fat}
+                </p>
+            </div>
         </div>
-        
-      
-      )}
-        </div>)}
 
-      
-      
-   
+        <div className="midll-Product">
+
+            <div className="switch-Midllproduct">
+
+
+                <div className="composiotion-Product">
+
+                    <p className="composiotion-Switch-Product show-Composition-Product" onClick={()=>
+                        setSwitch("Composition")}>Compositon | </p>
+
+                    <p className="environement-Switch-Product " onClick={()=>setSwitch("Environement")}> Environement
+                    </p>
+
+                </div>
+
+
+                <div className="composition-environement-Product show-Environement-Product ">
+
+                    { useswitch === "Composition" ? ( <p>{dashRemover(products[0].ingredients_text)}</p>) : (<p>
+                        {products[0].ingredients_url}</p>)}
+
+
+
+                </div>
+
+
+            </div>
+
+            <div className="alergen-Product">
+
+                <div className={alergenComponent}>
+
+                    <p className={arowDownEndAlergen}>Alèrgenes</p>
+
+                    <button className={arowDownEndAlergen} onClick={handleClick}>
+
+                        <img src={downchevron} alt="" />
+                    </button>
+
+
+                    <p className={alergenetxt}> {/*obligation de placer span afin de placer emoji propre a jsx */}
+                        <span role="img" aria-label="warning"> ⚠️ </span> Ce produit contient :
+                        {products[0].allergens_from_ingredients}
+                    </p>
+                </div>
+
+
+            </div>
+        </div>
+        <div className="le-grid">
+
+            <div className="propos1 bestchoic">
+
+
+                <div className="container-Img-Bestchoic">
+                    <p> img </p>
+                </div>
+
+                <div className="container-Infos-Bestchoic">
+
+                    <p>nom de l'ingredient</p>
+                    <p>marque </p>
+                    <p>qualidades</p>
+                </div>
+
+
+            </div>
+
+
+
+            <div className="propos1 bestchoic">
+
+
+                <div className="container-Img-Bestchoic">
+                    <p> img </p>
+                </div>
+
+                <div className="container-Infos-Bestchoic">
+
+                    <p>nom de l'ingredient</p>
+                    <p>marque </p>
+                    <p>qualidades</p>
+                </div>
+
+
+            </div>
+
+
+            <div className="propos1 bestchoic">
+
+
+                <div className="container-Img-Bestchoic">
+                    <p> img </p>
+                </div>
+
+                <div className="container-Infos-Bestchoic">
+
+                    <p>nom de l'ingredient</p>
+                    <p>marque </p>
+                    <p>qualidades</p>
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+        <p className="goproductlist">vour tout</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    )}
+</div>)}
+
+
+
+
 
 export default Searchproduct
 
 //3274080005003
+//8032862870028
+//3700281615746
 
+// a recuperrer : produit bio ou non
+// pour environement => origine

@@ -34,7 +34,7 @@ function HomePage() {
 
   return (  
     <div>
-      <div className={classImg} onClick={handleClick}>
+      <div className={classImg} onClick={handleClick}> {/*Modifier div car pa bon en jsv Onclick => evenement pas bon sur balise statike ex: possible button */}
         <p className={classText}>
           Hello, cliquez sur écran pour chercher un produit.
         </p>
