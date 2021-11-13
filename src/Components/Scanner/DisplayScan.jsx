@@ -2,8 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import Scanner from "./Scanner.jsx";
 import Result from "./Result.jsx";
 import "./display.css";
-import {useHistory} from "react-router-dom";
-import barcode from "../../Assets/barcode3.svg"
+import { useHistory } from "react-router-dom";
+import barcode from "../../Assets/barcode3.svg";
 const DisplayScan = () => {
   const [scanning, setScanning] = useState(false);
   const [results, setResults] = useState([]);
@@ -11,25 +11,18 @@ const DisplayScan = () => {
   const history = useHistory();
   let barCode = results[0];
 
-
-
-
   useEffect(() => {
-
-    barCode && history.push(`/Product/${barCode}`)
-      
+    barCode && history.push(`/Product/${barCode}`);
   }, [barCode]);
-
- 
 
   return (
     <div className="displayScan">
       <div className="container">
-        <button className="barcode-logo" onClick={() => setScanning(!scanning)}>
-          
-          <img src={barcode} alt=""/>
+        <button className="barcode-logo" onClick={() => setScanning(!scanning)} style={scanning? {display:'none'} : {display: 'block'}}>
+         
+          <img src={barcode} alt="" />
         </button>
-
+      
         <ul className="results">
           {results.map(
             (result) =>
@@ -49,7 +42,6 @@ const DisplayScan = () => {
           ) : null}
         </div>
       </div>
-   
     </div>
   );
 };
