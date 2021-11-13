@@ -55,17 +55,8 @@
   background-color: #ffebb0;
   border-radius: 15px;
   padding: 7px;
-  margin-bottom: 3vh;
+  margin-bottom: 5vh;
   border: solid black 1px;
-}
-
-.barcode-logo {
-  display: flex;
-  justify-content: center;
-  width: 9rem;
-  border: 1px solid black;
-  padding: 5px;
-  border-radius: 5px;
 }
 
 @media screen and (min-width: 500px) {
