@@ -4,9 +4,12 @@ import SearchProductList from "./SearchProductList.jsx";
 import './SearchFunc.css'
 import PageListSetter from '../ProductList/PageListSetter.jsx'
 import SearchProduct from '../Product/SearchProduct.jsx'
+import {useHistory} from "react-router-dom";
+
 let url = "";
 
 const SearchFunc = ({produits}) => {
+  const history = useHistory();
   const [products, setProducts] = useState(null);
   const [page, setPage] = useState(1);
 
@@ -27,14 +30,18 @@ useEffect(() => {
     setPage(1)
 }, [produits])
 
+
 if (/\d/.test(produits)) {
-  return (
-    <div className="Container">
-    <div className='search-bar'>  
-    </div>
-      <SearchProduct products={products}/> 
-    </div>
-  );
+ 
+  {
+    return (
+      <div className="Container">
+      <div className='search-bar'>  
+      </div>
+        {  (products && products.length==0) ? history.push(`/Error`):<SearchProduct products={products}/>} 
+      </div>
+    );
+  }
 } else {
   return (
     <div className="Container">

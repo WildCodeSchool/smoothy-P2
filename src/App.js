@@ -25,7 +25,9 @@ const App = () => {
             exact path="/Product/:product"
             component={Product}
           />
-          <Route path="*" component={NotFound} />
+            <Route path="/Error">
+            <NotFound />
+          </Route>
 
         </Switch>
       </Router>

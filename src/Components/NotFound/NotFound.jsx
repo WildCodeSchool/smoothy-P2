@@ -28,11 +28,7 @@ function NotFound() {
 
   return (  
     <div>
-      <div className="image-SlideNotfound">
-       
-      </div>
-      
-      
+
       <div className="div-GifNotfound">
 
     <img className="img-NotFound" src={sigmund} alt="test"  />
@@ -52,7 +48,6 @@ function NotFound() {
         <img className="barcode-logo" src={barcode} alt="test" />
       
       </div>
-      <Footer />
 </div>
 );
 }
