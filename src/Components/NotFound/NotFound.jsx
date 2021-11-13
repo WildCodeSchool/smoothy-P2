@@ -42,7 +42,7 @@ function NotFound() {
         <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} />
         <DisplayScan />
       </div>
-
+</div>
 </div>
 );
 
