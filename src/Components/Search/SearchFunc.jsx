@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SearchProductList from "./SearchProductList.jsx";
-
-import './SearchFunc.css'
-import PageListSetter from '../ProductList/PageListSetter.jsx'
-import SearchProduct from '../Product/SearchProduct.jsx'
-import {useHistory} from "react-router-dom";
-
+import "./SearchFunc.css";
+import PageListSetter from "../ProductList/PageListSetter.jsx";
+// import SearchProduct from "../Product/SearchProduct.jsx";
+import NotFound from "../NotFound/NotFound.jsx";
+import SearchProduct from "../Product/SearchProduct"
 let url = "";
 
-const SearchFunc = ({produits}) => {
-  const history = useHistory();
-dev
+const SearchFunc = ({ produits }) => {
   const [products, setProducts] = useState(null);
   const [page, setPage] = useState(1);
 
@@ -26,53 +23,28 @@ dev
     getProducts();
   }, [produits, page]);
 
-
-if (/\d/.test(produits)) {
- 
-  {
-    return (
-      <div className="Container">
-      <div className='search-bar'>  
-      </div>
-        {  (products && products.length==0) ? history.push(`/Error`):<SearchProduct products={products}/>} 
-      </div>
-    );
-  }
-} else {
-  return (
-    <div className="Container">
-    <div className='search-bar'>  
-    </div>
-      <SearchProductList products={products} />
-      <PageListSetter page={page} setPage={setPage} produits={produits}/>
-    </div>
-  );
-};
-}
-
   useEffect(() => {
     setPage(1);
   }, [produits]);
-
 
   if (/\d/.test(produits)) {
     return (
       <div className="Container">
         <div className="search-bar"></div>
-        <SearchProduct products={products} />
+        {(products && products.length==0) ? <NotFound/> : <SearchProduct products = {products}/>} 
       </div>
     );
   } else {
     return (
       <div className="Container">
         <div className="search-bar"></div>
-        <SearchProductList products={products} />
-        <PageListSetter page={page} setPage={setPage} produits={produits} />
+        {console.log(products)}
+        {(products && products.length==0) ? <NotFound /> : <SearchProductList products={products} />}
+        {/* {(products && products.length==1) ? <SearchProduct products = {products[0].code}/> : <SearchProductList products={products} />}  */}
+        {/* <PageListSetter page={page} setPage={setPage} produits={produits} /> */}
       </div>
     );
   }
 };
 
-
-export default SearchFunc;    
-
+export default SearchFunc;
