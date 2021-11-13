@@ -25,7 +25,6 @@
 }
 
 .Container {
-  text-align: center;
   margin-bottom: 1rem;
   color: green;
 }
@@ -35,9 +34,9 @@
 }
 
 .map-products {
-  display: flex-end;
+  display: flex;
   flex-wrap: wrap;
-  width: 100vw;
+  flex-direction: column;
   padding-top: 1rem;
 }
 
@@ -61,7 +60,7 @@ figure {
 .items {
   text-align: start;
   align-items: flex-start;
-  width: 50vh;
+  width: 40vh;
 }
 
 .button-css {
@@ -76,16 +75,39 @@ figure {
 }
 
 @media screen and (min-width: 800px) {
-.form-css {
-  margin-right: 3rem;;
-}
-.input-css {
-  width:30vh;
-  height: 3vh;
-}
-.button-css {
-  height: 3vh;
-  
-}
+  .form-css {
+    margin-right: 3rem;
+  }
+  .input-css {
+    width: 30vh;
+    height: 3vh;
+  }
+  .button-css {
+    height: 3vh;
+  }
+  figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .map-products {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+  }
 
+  .images {
+    width: 150px;
+    height: 150px;
+  }
+  .items {
+    text-align: center;
+    align-items: center;
+    width: 40vh;
+  }
+  figcaption {
+    text-align: center;
+    margin-top: 1rem;
+  }
 }
