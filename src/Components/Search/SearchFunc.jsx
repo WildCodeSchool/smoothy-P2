@@ -5,7 +5,7 @@ import "./SearchFunc.css";
 import PageListSetter from "../ProductList/PageListSetter.jsx";
 // import SearchProduct from "../Product/SearchProduct.jsx";
 import NotFound from "../NotFound/NotFound.jsx";
-import SearchProduct from "../Product/SearchProduct"
+import SearchProduct from "../Product/SearchProduct.jsx";
 let url = "";
 let listElt = [];
 
@@ -37,7 +37,11 @@ const SearchFunc = ({ produits }) => {
     return (
       <div className="Container">
         <div className="search-bar"></div>
-        {(products && products.length==0) ? <NotFound/> : <SearchProduct products = {products}/>} 
+        {products && products.length == 0 ? (
+          <NotFound />
+        ) : (
+          <SearchProduct products={products} />
+        )}
       </div>
     );
   } else {
@@ -47,6 +51,7 @@ const SearchFunc = ({ produits }) => {
         {/* {(products && products.length==0) ? <NotFound /> : <SearchProductList products={products} />} */}
         {(products && products.length==0) ? <NotFound /> : <SearchProductList products={listElt} />}
         <PageListSetter page={page} setPage={setPage} produits={produits} />
+
       </div>
     );
   }

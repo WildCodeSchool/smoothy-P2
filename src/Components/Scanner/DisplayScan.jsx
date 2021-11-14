@@ -18,11 +18,15 @@ const DisplayScan = () => {
   return (
     <div className="displayScan">
       <div className="container">
-        <button className="barcode-logo" onClick={() => setScanning(!scanning)} style={scanning? {display:'none'} : {display: 'block'}}>
-         
+        <button
+          className="barcode-logo"
+          onClick={() => setScanning(!scanning)}
+          style={scanning ? { display: "none" } : { display: "block" }}
+        >
+          Cliquez sur le barcode pour scanner votre produit.
           <img src={barcode} alt="" />
         </button>
-      
+
         <ul className="results">
           {results.map(
             (result) =>
