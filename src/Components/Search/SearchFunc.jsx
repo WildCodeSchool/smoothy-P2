@@ -3,8 +3,11 @@ import axios from "axios";
 import SearchProductList from "./SearchProductList.jsx";
 import "./SearchFunc.css";
 import PageListSetter from "../ProductList/PageListSetter.jsx";
-import SearchProduct from "../Product/SearchProduct.jsx";
+// import SearchProduct from "../Product/SearchProduct.jsx";
+import NotFound from "../NotFound/NotFound.jsx";
+import SearchProduct from "../Product/SearchProduct"
 let url = "";
+let listElt = [];
 
 const SearchFunc = ({ produits }) => {
   const [products, setProducts] = useState(null);
@@ -23,20 +26,27 @@ const SearchFunc = ({ produits }) => {
 
   useEffect(() => {
     setPage(1);
+    listElt = [];
   }, [produits]);
+
+  useEffect(() => {
+    products && products.map((elt) => listElt.push(elt))
+  }, [products])
 
   if (/\d/.test(produits)) {
     return (
       <div className="Container">
         <div className="search-bar"></div>
-        <SearchProduct products={products} />
+        {(products && products.length==0) ? <NotFound/> : <SearchProduct products = {products}/>} 
       </div>
     );
   } else {
     return (
       <div className="Container">
         <div className="search-bar"></div>
-        <SearchProductList products={products} />
+        {products && console.log(listElt)}
+        {/* {(products && products.length==0) ? <NotFound /> : <SearchProductList products={products} />} */}
+        {(products && products.length==0) ? <NotFound /> : <SearchProductList products={listElt} />}
         <PageListSetter page={page} setPage={setPage} produits={produits} />
       </div>
     );

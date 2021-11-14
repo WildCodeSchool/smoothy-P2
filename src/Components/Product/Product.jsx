@@ -11,7 +11,7 @@ const Product = (props) => {
       <NavBar />
       <SearchFunc produits={res} />
       <ArrowUp />
-      {console.log(`Product : ${res}`)}
+      {/* {console.log(`Product : ${res}`)} */}
       <Footer />
     </div>
   );

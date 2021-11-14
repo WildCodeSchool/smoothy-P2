@@ -63,13 +63,24 @@ figure {
   width: 40vh;
 }
 
+
+a {
+  text-decoration: none;
+  color: green;
+}
+
+a:hover {
+  text-decoration: none;
+  color: rgb(0, 65, 0);
+}
+
 .button-css {
   background-color: #ffebb0;
   border-radius: 7px;
 }
 
 .input-css {
-  background-color: #fff1c5;
+  background-color: white;
   width: 20vh;
   border-radius: 7px;
 }

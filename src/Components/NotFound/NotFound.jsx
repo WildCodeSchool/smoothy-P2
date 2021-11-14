@@ -20,7 +20,7 @@ function NotFound() {
 
   return (
     <div>
-      <div className="image-SlideNotfound"></div>
+      {/* <div className="image-SlideNotfound"></div> */}
 
       <div className="div-GifNotfound">
         <img className="img-NotFound" src={sigmund} alt="test" />
@@ -40,7 +40,7 @@ function NotFound() {
         <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} />
         <DisplayScan />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

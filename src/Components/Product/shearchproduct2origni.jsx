@@ -59,20 +59,15 @@ const Searchproduct = ({ products }) => {
               )
             )}
           </p>
-
-          <p>
-            Nutri-score : {products[0].nutrition_grade_fr}
-            {products[0].nutrition_grade_fr}
-          </p>
+          <p>Nutri-score : {products[0].nutrition_grade_fr}</p>
+                <img src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + products[0].nutrition_grade_fr + ".svg"} alt={''} />
           <div id="score"></div>
 
-          <p>
-            Classification Nova (transformation des aliments) :{" "}
-            {products[0].nova_group}
-          </p>
-
+          <p>Classification Nova (transformation des aliments) : {products[0].nova_group}</p>
+                <img src={"https://fr.openfoodfacts.org/images/misc/nova-group-" + products[0].nova_group + ".svg"} alt={''} />
           <p>Eco Score : {products[0].ecoscore_grade}</p>
-
+                <img src={"https://fr.openfoodfacts.org/images/icons/ecoscore-" + products[0].ecoscore_grade + ".svg"} alt={''} />
+          
           <p>repères nutritionnels pour 100 g ???</p>
 
           <p>Additifs </p>
@@ -126,6 +121,6 @@ const Searchproduct = ({ products }) => {
   );
 };
 
-export default Searchproductsasas; //!retirer sasasa
+export default Searchproduct; //!retirer sasasa
 
 //3274080005003
