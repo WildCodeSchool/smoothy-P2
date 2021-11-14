@@ -9,7 +9,7 @@ function SearchBar(props) {
         <input
           value={term}
           type="text"
-          placeholder="Rechercher"
+          placeholder="Rechercher..."
           onChange={handleChange}
           className="input-css"
         />

@@ -4,6 +4,7 @@
   align-items: center;
   background-color: #ffebb0;
   border-top: solid black 1px;
+  width: 100%;
 }
 
 .main-logo1 {
@@ -29,4 +30,16 @@ a.instagram {
 
 a.social {
   margin-right: 1.5rem;
+}
+
+@media screen and (min-width: 800px) {
+  .footer {
+    height: 9vh;
+  }
+  .main-logo1 {
+    width: 5rem;
+  }
+  a.social {
+    margin-right: 3.5rem;
+  }
 }

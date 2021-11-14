@@ -4,6 +4,7 @@
   justify-content: space-around;
   align-items: center;
   border-bottom: solid black 1px;
+  width: 100%
 }
 
 .main-logo {
@@ -18,8 +19,14 @@
 @media screen and (min-width: 800px) {
   .navbar {
     justify-content: space-between;
+    padding-right: 2rem;
+    height: 12vh;
   }
   .main-logo {
     margin-left: 3rem;
+    width: 6rem;
+  }
+  .barcode-logo2 {
+    width: 5rem;
   }
 }
