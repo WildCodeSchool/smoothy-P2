@@ -44,7 +44,6 @@ const SearchFunc = ({ produits }) => {
     return (
       <div className="Container">
         <div className="search-bar"></div>
-        {products && console.log(listElt)}
         {/* {(products && products.length==0) ? <NotFound /> : <SearchProductList products={products} />} */}
         {(products && products.length==0) ? <NotFound /> : <SearchProductList products={listElt} />}
         <PageListSetter page={page} setPage={setPage} produits={produits} />

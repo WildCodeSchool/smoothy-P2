@@ -12,10 +12,21 @@ const App = () => {
         <Switch>
           <Route exact path="/">
             <HomePage />
+
+          </Route> 
+            <Route 
+            exact path="/ProductList/:product"
+            component={ProductList} 
+          /> 
+          <Route 
+            exact path="/Product/:product"
+            component={Product}
+          />
+            <Route path="/Error">
+            <NotFound />
           </Route>
-          <Route exact path="/ProductList/:product" component={ProductList} />
-          <Route exact path="/Product/:product" component={Product} />
-          <Route path="*" component={NotFound} />
+
+
         </Switch>
       </Router>
     </>
