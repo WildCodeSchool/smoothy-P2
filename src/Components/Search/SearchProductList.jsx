@@ -35,7 +35,7 @@ function SearchProductList({ products }) {
                   {product.product_name_fr} - {product.quantity}
                 </p>
                 <p>
-                  {console.log(!!product.brands)}
+                  {/* {console.log(!!product.brands)} */}
                   {/* {product.brands ?  product.brands_tags[0].replaceAll('-',' '): 'none'} */}
                 </p>
               </figcaption>
