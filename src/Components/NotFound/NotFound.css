@@ -41,10 +41,20 @@
 .barcode-logo {
   display: flex;
   justify-content: center;
-  width: 15rem;
-  height: 15rem;
+  width: 30vh;
+  height: 30vh;
   border: 1px solid black;
   padding: 5px;
   border-radius: 5px;
-  margin-top: 7vh;
+  margin-top: 8vh;
+  margin-bottom: 8vh;
+  font-size: 0.8rem;
+}
+
+@media screen and (min-width: 800px) {
+  .barcode-logo {
+    width: 45vh;
+    height: 45vh;
+    font-size: 1.2rem;
+  }
 }

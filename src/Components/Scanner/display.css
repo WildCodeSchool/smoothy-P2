@@ -11,17 +11,23 @@
 }
 
 .drawingBuffer {
-  position: absolute;
-  top: 10rem;
+  position: fixed;
 }
 
 video {
   display: flex;
   justify-content: center;
-  height: 15rem;
-  width: 15rem;
+  height: 30vh;
+  width: 30vh;
   border: solid 1px black;
   border-radius: 5px;
   margin-top: 7vh;
   object-fit: cover;
+}
+
+@media screen and (min-width: 800px) {
+  video {
+    height: 45vh;
+    width: 45vh;
+  }
 }

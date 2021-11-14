@@ -42,12 +42,11 @@
 
 figure {
   display: flex;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  border: solid 1px black;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+  border: solid 1px green;
   padding: 0.3rem;
+  background-color: #fff1c5;
 }
 
 .images {
@@ -65,30 +64,33 @@ figure {
 
 .button-css {
   background-color: #ffebb0;
-  border-radius: 7px;
+  border-radius: 20px;
 }
 
 .input-css {
   background-color: #fff1c5;
   width: 20vh;
-  border-radius: 7px;
+  border-radius: 20px;
 }
 
 @media screen and (min-width: 800px) {
-  .form-css {
-    margin-right: 3rem;
-  }
   .input-css {
-    width: 30vh;
-    height: 3vh;
+    width: 42vh;
+    height: 4vh;
+    font-size: 1.2rem;
   }
   .button-css {
-    height: 3vh;
+    width: 7vh;
+    height: 4vh;
+    font-size: 1.2rem;
   }
   figure {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 35vh;
+    margin-left: 1vh;
+    margin-right: 1vh;
   }
   .map-products {
     display: flex;
@@ -104,10 +106,14 @@ figure {
   .items {
     text-align: center;
     align-items: center;
-    width: 40vh;
+    width: 35vh;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
   }
   figcaption {
     text-align: center;
     margin-top: 1rem;
+    font-size: 1.2rem;
+   
   }
 }
