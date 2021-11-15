@@ -32,11 +32,6 @@ const SearchFunc = ({ produits }) => {
   }, [produits, page]);
 
   useEffect(() => {
-
-    setPage(1);
-  }, [produits]);
-  
-  useEffect(() => {
     if (page==1 && products) {setListElt([...products])}
     if (page!=1 && products) {setListElt([...listElt, ...products])}
   }, [products])

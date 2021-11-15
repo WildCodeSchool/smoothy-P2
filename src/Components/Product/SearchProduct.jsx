@@ -25,6 +25,8 @@ const Searchproduct = ({ products }) => {
 
   console.log("useswitch", useswitch); // a retirer apres merg
 
+  let arrayFilter=[];
+
   return (
     <div>
       {products && (
@@ -86,7 +88,8 @@ const Searchproduct = ({ products }) => {
                     {" "}
                     ⚠️{" "}
                   </span>{" "}
-                  Ce produit contient :{products[0].allergens_from_ingredients}
+                  {products[0].allergens_from_ingredients.split(',').forEach(elt => !elt.startsWith('en:') && arrayFilter.push(elt.trim()))}
+                  Ce produit contient : {[...new Set(arrayFilter)].join(", ")}
                 </p>
               </div>
             </div>
@@ -96,7 +99,6 @@ const Searchproduct = ({ products }) => {
               <div className="container-Img-Bestchoic">
                 <p> img </p>
               </div>
-
               <div className="container-Infos-Bestchoic">
                 <p>nom de l'ingredient</p>
                 <p>marque </p>
