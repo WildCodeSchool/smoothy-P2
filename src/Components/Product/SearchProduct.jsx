@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
 import downchevron from "../../Assets/downchevron.png";
 import "./SearchProduct.css";
@@ -6,6 +6,9 @@ import "./SearchProduct.css";
 const dashRemover = (str) => {
   return str.replaceAll(("-", "_"), " ");
 };
+
+let arrayFilter =  []
+
 
 const Searchproduct = ({ products }) => {
   const [useswitch, setSwitch] = useState("Composition");
@@ -24,6 +27,16 @@ const Searchproduct = ({ products }) => {
   };
 
   console.log("useswitch", useswitch); // a retirer apres merg
+
+
+  useEffect(() => {
+
+    return(
+
+   arrayFilter = []
+    )
+
+  }, [arrayFilter])
 
   return (
     <div>
@@ -86,7 +99,8 @@ const Searchproduct = ({ products }) => {
                     {" "}
                     ⚠️{" "}
                   </span>{" "}
-                  Ce produit contient :{products[0].allergens_from_ingredients}
+                  {products[0].allergens_from_ingredients.split(',').forEach(elt => !elt.startsWith('en:') ? arrayFilter.push(elt.trim()):'none')}
+                  Ce produit contient : {[...new Set (arrayFilter)].join(", ").toUpperCase()}
                 </p>
               </div>
             </div>
@@ -141,6 +155,7 @@ export default Searchproduct;
 //3274080005003
 //8032862870028
 //3700281615746
+//12454143
 
 // a recuperrer : produit bio ou non
 // pour environement => origine
