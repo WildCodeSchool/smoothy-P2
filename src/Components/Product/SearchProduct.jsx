@@ -3,21 +3,26 @@ import React from "react";
 const Searchproduct = ({products}) => {
 
 // exemples gen code
-//     737628064502 : Rice Noodles
+//     marche pas 737628064502 : Rice Noodles
 //     3017620425035 : Pâte à tartiner aux noisettes
 //     8032862870028 : Pâte à tartiner Gonuts sans sucre
 //     3019081238643 : Sardines à l'huile d'olive
 //     3587220002252 : La Gâche Tranchée au Beurre Frais et à la Crème Fraîche
 //     3242274001056 : Salade & Compagnie - Montmartre - Sodebo - 320 g
+//     3274080005003 : Eau de source - Cristaline - 1,5 l
 
 // ToDo
-//     fiche à brancher à l'architecture : 
+//     fiche produit à brancher à l'architecture : 
 //     ✅ barres de recherche (accueil et header)
 //     - choix parmi une sélection
 //     ✅ code barre
 
 //     ✅ affichage nutriscore/Nova/Ecoscore
 //     (Fonction affichage tableaux)
+
+//     Liens vers 404 en cas de produit non répertorié
+//      - depuis le scann
+//      - depuis une recherche de code barre
 
     return (
 
