@@ -1,7 +1,34 @@
 import React, { useState } from "react";
 
+
+const Searchproduct = ({products}) => {
+
+// exemples gen code
+//     marche pas 737628064502 : Rice Noodles
+//     3017620425035 : Pâte à tartiner aux noisettes
+//     8032862870028 : Pâte à tartiner Gonuts sans sucre
+//     3019081238643 : Sardines à l'huile d'olive
+//     3587220002252 : La Gâche Tranchée au Beurre Frais et à la Crème Fraîche
+//     3242274001056 : Salade & Compagnie - Montmartre - Sodebo - 320 g
+//     3274080005003 : Eau de source - Cristaline - 1,5 l
+//     3700281615746 : surprise !
+
+// ToDo
+//     fiche produit à brancher à l'architecture : 
+//     ✅ barres de recherche (accueil et header)
+//     ✅ choix parmi une sélection
+//     ✅ code barre
+
+//     ✅ affichage nutriscore/Nova/Ecoscore
+//     (Fonction affichage tableaux)
+
+//     Liens vers 404 en cas de produit non répertorié
+//      - depuis le scann
+//     ✅ depuis une recherche de code barre
+
 import downchevron from "../../Assets/downchevron.png";
 import "./SearchProduct.css";
+
 
 const dashRemover = (str) => {
   return str.replaceAll(("-", "_"), " ");
@@ -28,6 +55,7 @@ const Searchproduct = ({ products }) => {
   return (
     <div>
       {products && (
+
         <div className="container-Product">
           <div className="header-Product">
             <div className="img-Left-Product">
@@ -40,6 +68,8 @@ const Searchproduct = ({ products }) => {
             <div className="header-Right-Product">
               <p className="generic-Name-Product">{products[0].generic_name}</p>
                 <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + products[0].nutrition_grade_fr + ".svg"} alt={''} />
+                <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nova-group-" + products[0].nova_group + ".svg"} alt={''} />
+                <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/icons/ecoscore-" + products[0].ecoscore_grade + ".svg"} alt={''} />
             </div>
           </div>
 
@@ -68,7 +98,7 @@ const Searchproduct = ({ products }) => {
                 ) : (
                   <p>{products[0].ingredients_url}</p>
                 )}
-              </div>
+              </div>Pour éviter de supprimer la moindre ligne de ton travail, e
             </div>
 
             <div className="alergen-Product">
@@ -129,7 +159,8 @@ const Searchproduct = ({ products }) => {
             </div>
           </div>
 
-          <p className="goproductlist">vour tout</p>
+          <p className="goproductlist">voi  r tout</p>
+
         </div>
       )}
     </div>
@@ -137,10 +168,3 @@ const Searchproduct = ({ products }) => {
 };
 
 export default Searchproduct;
-
-//3274080005003
-//8032862870028
-//3700281615746
-
-// a recuperrer : produit bio ou non
-// pour environement => origine
