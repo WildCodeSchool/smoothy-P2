@@ -63,12 +63,11 @@ const Searchproduct = ({ products }) => {
     )
 
   }, [arrayFilter])
-
+  
 
   return (
     <div>
       {products && (
-
         <div className="container-Product">
           <div className="header-Product">
             <div className="img-Left-Product">
@@ -106,8 +105,9 @@ const Searchproduct = ({ products }) => {
               </div>
 
               <div className="composition-environement-Product show-Environement-Product ">
+                {console.log(products[0])}
                 {useswitch === "Composition" ? (
-                  <p>{dashRemover(products[0].ingredients_text)}</p>
+                  products[0].ingredients_text ? <p>{dashRemover(products[0].ingredients_text)}</p> : <p>Aucune information présente sur le produit</p>
                 ) : (
                   <p>{products[0].ingredients_url}</p>
                 )}
