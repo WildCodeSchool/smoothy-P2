@@ -25,21 +25,16 @@ function HomePage() {
       ? history.push(`/Product/${term}`)
       : history.push(`/ProductList/${term}`);
   };
-console.log(handleClick)
+  console.log(handleClick);
   return (
-    
     <div>
       <button className={classImg} onClick={handleClick}>
         {" "}
-        {/*Modifier div car pa bon en jsv Onclick => evenement pas bon sur balise statike ex: possible button */}
         <p className={classText}>
-          Hello, cliquez sur écran pour chercher un produit.
+          Hello, cliquez sur l&apos;écran pour chercher un produit.
         </p>
       </button>
       <div className={classSearch}>
-        <button className="food-pref" id="food-pref">
-          Préférences Alimentaires
-        </button>
         <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} />
 
         <DisplayScan />
