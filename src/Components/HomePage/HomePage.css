@@ -28,11 +28,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+  border: 1px solid black;
 }
 
 @keyframes imageUp {
   100% {
     height: 34vh;
+
   }
 }
 
@@ -54,18 +56,9 @@
 .food-pref {
   background-color: #ffebb0;
   border-radius: 15px;
-  padding: 7px;
-  margin-bottom: 3vh;
+  padding: 0.4rem;
+  margin-bottom: 5vh;
   border: solid black 1px;
-}
-
-.barcode-logo {
-  display: flex;
-  justify-content: center;
-  width: 9rem;
-  border: 1px solid black;
-  padding: 5px;
-  border-radius: 5px;
 }
 
 @media screen and (min-width: 500px) {
@@ -92,5 +85,10 @@
     100% {
       height: 38vh;
     }
+  }
+  .food-pref {
+    margin-bottom: 6vh;
+    margin-top: 5vh;
+    font-size: 1.2rem;
   }
 }
