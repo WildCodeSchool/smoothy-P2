@@ -4,6 +4,8 @@ import HomePage from "./Components/HomePage/HomePage.jsx";
 import ProductList from "./Components/ProductList/ProductList.jsx";
 import Product from "./Components/Product/Product.jsx";
 import NotFound from "./Components/NotFound/NotFound.jsx";
+import OpenPage from "./Components/OpenPage/OpenPage.jsx";
+import BarCode from "./Components/BarCode/BarCode.jsx";
 
 const App = () => {
   return (
@@ -14,15 +16,23 @@ const App = () => {
             <HomePage />
 
           </Route> 
+          <Route exact path="/openpage">
+            <OpenPage />
+
+          </Route>
+          <Route exact path="/barcode">
+            <BarCode />
+
+          </Route>
             <Route 
-            exact path="/ProductList/:product"
+            exact path="/productList/:product"
             component={ProductList} 
           /> 
           <Route 
-            exact path="/Product/:product"
+            exact path="/product/:product"
             component={Product}
           />
-            <Route path="/Error">
+            <Route path="/error">
             <NotFound />
           </Route>
 

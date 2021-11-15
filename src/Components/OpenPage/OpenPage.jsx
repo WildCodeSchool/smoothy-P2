@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import MainLogo from "../../Assets/logo2.png";
-import BarCode from "../../Assets/barcode3.svg";
 import SearchBar from "../Search/SearchBar.jsx";
-import "./NavBar.css";
 import { useHistory } from "react-router-dom";
+import "./OpenPage.css";
+import DisplayScan from "../Scanner/DisplayScan.jsx";
 
-const NavBar = () => {
+function HomePage() {
   const history = useHistory();
+
   const [term, setTerm] = useState("");
   const handleChange = (event) => setTerm(event.target.value);
 
@@ -19,22 +18,15 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="navbar">
-      <div>
-        <Link to="/openpage">
-          <img className="main-logo" src={MainLogo} alt="test"></img>
-        </Link>
-      </div>
-      <div>
-        <Link to="/barcode">
-          <img className="barcode-logo2" src={BarCode} alt="test" />
-        </Link>
-      </div>
-      <div>
+    <div>
+      <button className="image-Head1"> </button>
+      <div className="search-Location1">
         <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} />
-      </div>
-    </nav>
-  );
-};
 
-export default NavBar;
+        <DisplayScan />
+      </div>
+    </div>
+  );
+}
+
+export default HomePage;

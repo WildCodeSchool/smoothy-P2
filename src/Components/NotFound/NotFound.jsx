@@ -20,26 +20,21 @@ function NotFound() {
 
   return (
     <div>
-      {/* <div className="image-SlideNotfound"></div> */}
+      <div className="image-SlideNotfound"></div>
       <div className="div-GifNotfound">
         <img className="img-NotFound" src={sigmund} alt="test" />
       </div>
 
       <p className="txt-Pnotfound">
         La page ou la recherche que vous demandez n&apos;existe pas, vous pouvez
-        toujours effectuer une nouvelle recherche ou nous contacter afin de
-        résoudre le probleme.{" "}
+        toujours effectuer une nouvelle recherche.{" "}
       </p>
 
       <div className="search-Location">
-        <button className="food-pref" id="food-pref">
-          Préférences Alimentaires
-        </button>
-
         <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} />
         <DisplayScan />
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

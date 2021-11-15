@@ -123,7 +123,7 @@ const Searchproduct = ({ products }) => {
               </div>
 
               <div className="container-Infos-Bestchoic">
-                <p>nom de l'ingredient</p>
+                <p>nom de l&apos;ingredient</p>
                 <p>marque </p>
                 <p>qualidades</p>
               </div>
@@ -135,7 +135,7 @@ const Searchproduct = ({ products }) => {
               </div>
 
               <div className="container-Infos-Bestchoic">
-                <p>nom de l'ingredient</p>
+                <p>nom de l&apos;ingredient</p>
                 <p>marque </p>
                 <p>qualidades</p>
               </div>
@@ -147,7 +147,7 @@ const Searchproduct = ({ products }) => {
               </div>
 
               <div className="container-Infos-Bestchoic">
-                <p>nom de l'ingredient</p>
+                <p>nom de l&apos;ingredient</p>
                 <p>marque </p>
                 <p>qualidades</p>
               </div>
