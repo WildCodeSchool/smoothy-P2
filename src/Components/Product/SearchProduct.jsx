@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-
-
-const Searchproduct = ({products}) => {
+import downchevron from "../../Assets/downchevron.png";
+import "./SearchProduct.css";
 
 // exemples gen code
 //     marche pas 737628064502 : Rice Noodles
@@ -25,10 +24,6 @@ const Searchproduct = ({products}) => {
 //     Liens vers 404 en cas de produit non répertorié
 //      - depuis le scann
 //     ✅ depuis une recherche de code barre
-
-import downchevron from "../../Assets/downchevron.png";
-import "./SearchProduct.css";
-
 
 const dashRemover = (str) => {
   return str.replaceAll(("-", "_"), " ");
@@ -159,7 +154,7 @@ const Searchproduct = ({ products }) => {
             </div>
           </div>
 
-          <p className="goproductlist">voi  r tout</p>
+          <p className="goproductlist">voir tout</p>
 
         </div>
       )}
