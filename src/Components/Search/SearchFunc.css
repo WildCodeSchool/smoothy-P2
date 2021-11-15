@@ -46,11 +46,9 @@ figure {
   margin-top: 1vh;
   border-bottom: solid 1px green;
   padding: 0.3rem;
-  /* background-color: #fff1c559;   */
-  /* background-color: #fff1c58f; */
 }
 
-figure:hover{
+figure:hover {
   opacity: 0.6;
 }
 
@@ -67,7 +65,6 @@ figure:hover{
   width: 40vh;
 }
 
-
 a {
   text-decoration: none;
   color: green;
@@ -81,12 +78,25 @@ a:hover {
 .button-css {
   background-color: #ffebb0;
   border-radius: 20px;
+  padding-left: 0.4rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  border: solid 1px black;
+}
+
+.button-css:hover {
+  background-color: green;
+  color: white;
 }
 
 .input-css {
-  background-color: white;
+  background-color: #f8f1dd;
   width: 20vh;
   border-radius: 20px;
+  padding-left: 0.6rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  border: solid 1px black;
 }
 
 @media screen and (min-width: 800px) {
@@ -109,13 +119,12 @@ a:hover {
     margin-left: 1vh;
     margin-right: 1vh;
     margin-top: 2vh;
-    background-color: #fff1c500;  
-
+    background-color: #fff1c500;
   }
   .nutri-list {
     display: none;
   }
-  
+
   .map-products {
     display: flex;
     flex-wrap: wrap;
@@ -138,7 +147,6 @@ a:hover {
     text-align: center;
     margin-top: 1rem;
     font-size: 1.2rem;
-   
   }
 }
 

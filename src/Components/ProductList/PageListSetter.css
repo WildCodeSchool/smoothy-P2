@@ -1,8 +1,9 @@
 .more-button {
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   opacity: 0.8;
+  height: 4rem;
 }
 
 .more-button-style:hover {
@@ -11,4 +12,10 @@
 
 .hidden-button-style {
   display: none;
+}
+
+@media screen and (min-width: 800px) {
+.more-button {
+  height: 7rem;
+  }
 }
