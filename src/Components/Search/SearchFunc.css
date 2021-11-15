@@ -44,9 +44,14 @@ figure {
   display: flex;
   margin-bottom: 1vh;
   margin-top: 1vh;
-  border: solid 1px green;
+  border-bottom: solid 1px green;
   padding: 0.3rem;
-  background-color: #fff1c5;
+  /* background-color: #fff1c559;   */
+  /* background-color: #fff1c58f; */
+}
+
+figure:hover{
+  opacity: 0.6;
 }
 
 .images {
@@ -99,10 +104,18 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 35vh;
+    width: 40vh;
+    height: 15rem;
     margin-left: 1vh;
     margin-right: 1vh;
+    margin-top: 2vh;
+    background-color: #fff1c500;  
+
   }
+  .nutri-list {
+    display: none;
+  }
+  
   .map-products {
     display: flex;
     flex-wrap: wrap;
@@ -127,4 +140,9 @@ a:hover {
     font-size: 1.2rem;
    
   }
+}
+
+.nutri-list {
+  width: 15vw;
+  height: auto;
 }
