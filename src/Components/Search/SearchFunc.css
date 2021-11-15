@@ -38,6 +38,8 @@
   flex-wrap: wrap;
   flex-direction: column;
   padding-top: 1rem;
+  margin-left: 2vh;
+  margin-right: 2vh;
 }
 
 figure {
@@ -46,6 +48,7 @@ figure {
   margin-top: 1vh;
   border-bottom: solid 1px green;
   padding: 0.3rem;
+  padding-bottom: 1rem;
 }
 
 figure:hover {
@@ -63,6 +66,7 @@ figure:hover {
   text-align: start;
   align-items: flex-start;
   width: 40vh;
+  margin-left: 3vh;
 }
 
 a {
@@ -99,6 +103,16 @@ a:hover {
   border: solid 1px black;
 }
 
+.nutri-list {
+  height: 4vh;
+  width: 20vw;
+  margin-left: 1vh;
+  margin-top: 2vh;
+}
+figcaption {
+  font-size: 0.8rem;
+}
+
 @media screen and (min-width: 800px) {
   .input-css {
     width: 42vh;
@@ -113,16 +127,13 @@ a:hover {
   figure {
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
     width: 40vh;
-    height: 15rem;
+    height: 35vh;
     margin-left: 1vh;
     margin-right: 1vh;
-    margin-top: 2vh;
     background-color: #fff1c500;
-  }
-  .nutri-list {
-    display: none;
   }
 
   .map-products {
@@ -139,18 +150,20 @@ a:hover {
   .items {
     text-align: center;
     align-items: center;
-    width: 35vh;
+    width: 40vh;
     padding-left: 0.4rem;
     padding-right: 0.4rem;
   }
+
   figcaption {
     text-align: center;
     margin-top: 1rem;
     font-size: 1.2rem;
   }
-}
 
-.nutri-list {
-  width: 15vw;
-  height: auto;
+  .nutri-list {
+    height: 6vh;
+    width: 10vw;
+    margin-top: 2vh;
+  }
 }
