@@ -23,7 +23,9 @@ const DisplayScan = () => {
           onClick={() => setScanning(!scanning)}
           style={scanning ? { display: "none" } : { display: "block" }}
         >
-          Cliquez sur le barcode pour scanner votre produit.
+          <p className="barcode-p">
+            Cliquez sur le barcode pour scanner votre produit.
+          </p>
           <img src={barcode} alt="" />
         </button>
 
