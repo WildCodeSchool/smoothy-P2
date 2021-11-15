@@ -35,10 +35,9 @@ function SearchProductList({ products }) {
                   {product.product_name_fr} - {product.quantity}
                 </p>
                 <p>
-                  {/* {console.log(!!product.brands)} */}
                   {/* {product.brands ?  product.brands_tags[0].replaceAll('-',' '): 'none'} */}
                 </p>
-                <img className='nutri-list' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + products[0].nutrition_grade_fr + ".svg"} alt={''} />
+                <img className='nutri-list' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + product.nutrition_grade_fr + ".svg"} alt={''} />
 
               </figcaption>
             </figure>
