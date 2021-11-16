@@ -20,6 +20,9 @@ h3 {
   color: #3cb371;
 }
 
+.additives{
+  margin-left: 7px;
+}
 
 .header-Product {
   display: flex;
