@@ -92,6 +92,29 @@ const Searchproduct = ({ products }) => {
     )
   }, [arrayFilter])
 
+    const replace = (qual) => { if (qual == "fat")
+   {return "Matière grasse"}
+   else {
+     if (qual == "salt") {return "Sel"}
+      else {
+        if (qual == "saturated-fat") {return "Graisse saturée"}
+        else {
+          if (qual == "sugars") {return "Sucre"}
+          else {return "non défini"}
+        }
+      }
+   }
+  }
+
+  const level = (qual) => {if (qual == "low") {return "faible"}
+    else {
+      if (qual == "moderate") {return "modéré"}
+      else {
+        if (qual == "high") {return "élevé"}
+        else {return "non défini"}
+      }
+    }
+  }
 
 
   return (
