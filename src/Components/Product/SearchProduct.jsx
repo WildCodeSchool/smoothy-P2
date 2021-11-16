@@ -1,4 +1,3 @@
-
 import React, { useState,useEffect } from "react";
 import axios from "axios";
 import downchevron from "../../Assets/downchevron.png";
@@ -50,15 +49,11 @@ const Searchproduct = ({ products }) => {
   const [arowDownEndAlergen, setArowDownEndAlergen] =
     useState("arow-Down-Product");
 
-    // const [isActiv, setActiv] = useState("environement-Switch-Product");🚀
-
   const handleClick = () => {
     setAlergenComponent("alergene-Component-lvlup-Product");
     setaAlergenetxt("alergene-Text-Unhide-Product");
     setArowDownEndAlergen("arow-Down-Hide-Product");
-    // setActiv("environement-Switch-Product2")🚀
   };
-
 
   const [cat, setCat] = useState(null)
   const [equivProducts, setEquivProducts] = useState(null);
@@ -91,40 +86,12 @@ const Searchproduct = ({ products }) => {
   // console.log(cat)
   console.log(equivProducts)
 
-  // console.log('isactiv', !setActiv); A tchek 🚀
-
-
   useEffect(() => {
     return(
       arrayFilter = []
     )
   }, [arrayFilter])
 
-
-
-  const replace = (qual) => { if (qual == "fat")
-   {return "Matière grasse"}
-   else {
-     if (qual == "salt") {return "Sel"}
-      else {
-        if (qual == "saturated-fat") {return "Graisse saturée"}
-        else {
-          if (qual == "sugars") {return "Sucre"}
-          else {return "non défini"}
-        }
-      }
-   }
-  }
-
-  const level = (qual) => {if (qual == "low") {return "faible"}
-    else {
-      if (qual == "moderate") {return "modéré"}
-      else {
-        if (qual == "high") {return "élevé"}
-        else {return "non défini"}
-      }
-    }
-  }
 
 
   return (
@@ -143,12 +110,9 @@ const Searchproduct = ({ products }) => {
             </div>
             <div className="header-Right-Product">
               <p className="generic-Name-Product">{products[0].generic_name}</p>
-              <div className="labellls">
-
                 <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + products[0].nutrition_grade_fr + ".svg"} alt={''} />
-                <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/icons/ecoscore-" + products[0].ecoscore_grade + ".svg"} alt={''} />
                 <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nova-group-" + products[0].nova_group + ".svg"} alt={''} />
-              </div>
+                <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/icons/ecoscore-" + products[0].ecoscore_grade + ".svg"} alt={''} />
             </div>
           </div>
 
@@ -159,43 +123,24 @@ const Searchproduct = ({ products }) => {
                   className="composiotion-Switch-Product show-Composition-Product"
                   onClick={() => setSwitch("Composition")}
                 >
-                  Compositon {" "}
+                  Compositon |{" "}
                 </p>
-                    <p>|</p>
+
                 <p
-                  className="environement-Switch-Product"
+                  className="environement-Switch-Product "
                   onClick={() => setSwitch("Environement")}
                 >
                   {" "}
-
-                  Santé
-                  
+                  Environement
                 </p>
-              </div> 
+              </div>
 
               <div className="composition-environement-Product show-Environement-Product ">
-
+                {/* {console.log(products[0])} */}
                 {useswitch === "Composition" ? (
                   products[0].ingredients_text ? <p>{dashRemover(products[0].ingredients_text)}</p> : <p>Aucune information présente sur le produit</p>
                 ) : (
-                  <section className="nutrientLevel">
-                  <h3>Valeurs nutritives</h3>
-                  {products[0].nutrient_levels !== undefined ?
-                    Object.entries(products[0].nutrient_levels).map(e =>
-                    <div className="label">
-                    <span className="label-key">{replace(e[0])} : </span>
-                    <span className={`label--value ${e[1]}`}>{level(e[1])}</span>
-                    </div>)
-                  :
-                    <div className="unknown">Unknown <span role="img" aria-label="question emoji">❓</span></div>
-                  }
-                  <h3 className="AddSection">Additifs</h3>
-                  {products[0] &&
-                    products[0].additives_tags.map(e =>
-                    <p className="additives">{e.replace('en:','').toUpperCase()}</p>)}
-
-                  </section>
-                  // <p>{products[0].ingredients_url}</p>
+                  <p>{products[0].ingredients_url}</p>
                 )}
               </div>
             </div>
@@ -240,14 +185,12 @@ const Searchproduct = ({ products }) => {
 
               </div>
               <div className="container-Infos-Bestchoic">
-              
               <p className='healthy-name'>{(equivProducts.map((nameP)=>nameP.generic_name)[1])}</p>
               <p >{(equivProducts.map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[1])}</p>
               <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (equivProducts.map((nameP)=>nameP.nutrition_grade_fr)[1])+ ".svg"} alt={''} />
               </div>
             </div>
                        
-
 
             <div className="propos1 bestchoic">
               <div className="container-Img-Bestchoic">
@@ -271,9 +214,7 @@ const Searchproduct = ({ products }) => {
               </div>
 
               <div className="container-Infos-Bestchoic">
-
                 <p>nom de l&apos;ingredient</p>
-
                 <p>marque </p>
                 <p>qualidades</p>
               </div>
