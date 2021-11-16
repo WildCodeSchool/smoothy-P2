@@ -1,6 +1,6 @@
 
 import React, { useState,useEffect } from "react";
-
+import axios from "axios";
 
 import downchevron from "../../Assets/downchevron.png";
 import "./SearchProduct.css";
@@ -51,19 +51,40 @@ const Searchproduct = ({ products }) => {
     setArowDownEndAlergen("arow-Down-Hide-Product");
   };
 
-  console.log("useswitch", useswitch); // a retirer apres merg
+  // const [cat, setCat] = useState("")
+  // const [equivProducts, setEquivProducts] = useState(null);
 
+  // console.log("useswitch", useswitch); // a retirer apres merge
 
+  // useEffect(()=>{
+  //   products && setCat(products[0].categories.split(",")[products[0].categories.split(",").length-1])
+  // }, [products])
 
-  useEffect(() => {
-
-    return(
-
-   arrayFilter = []
-    )
-
-  }, [arrayFilter])
+  //  products && console.log(products[0].categories.split(",").length())
   
+
+//   useEffect(() => {
+
+//     const url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=categories&tag_contains_0=contains&tag_0=${cat}&tagtype_1=nutrition_grade_fr&tag_contains_1=contains&tag_1=a&fields=categories,_id,code,product_name_fr,brands_tags,image_front_small_url,quantity,nutriscore_grade,labels_old,brands,_keywords,nutrition_grade_fr&page_size=6&json=true`;
+// true
+//     const getProducts = async () => {
+//       await axios.get(url).then(({ data }) => setEquivProducts(data.products));
+//     };
+//     getProducts();
+  
+//   }, [cat]);
+
+//   // console.log(cat)
+//   console.log(equivProducts)
+
+  
+  useEffect(() => {
+    return(
+      arrayFilter = []
+    )
+  }, [arrayFilter])
+
+
 
   return (
     <div>
@@ -106,12 +127,30 @@ const Searchproduct = ({ products }) => {
 
               <div className="composition-environement-Product show-Environement-Product ">
                 {console.log(products[0])}
+                {console.log(products[0].additives_tags.map(e => console.log(e)))}
                 {useswitch === "Composition" ? (
                   products[0].ingredients_text ? <p>{dashRemover(products[0].ingredients_text)}</p> : <p>Aucune information présente sur le produit</p>
                 ) : (
-                  <p>{products[0].ingredients_url}</p>
+                  <section className="nutrientLevel">
+                  <h3>Valeurs nutritives</h3>
+                  {products[0].nutrient_levels !== undefined ?
+                    Object.entries(products[0].nutrient_levels).map(e =>
+                    <div className="label">
+                    <span className="label-key">{e[0]} : </span>
+                    <span className={`label--value ${e[1]}`}>{e[1]}</span>
+                    </div>)
+                  :
+                    <div className="unknown">Unknown <span role="img" aria-label="question emoji">❓</span></div>
+                  }
+                  <h3>Additifs</h3>
+                  {products[0] &&
+                    products[0].additives_tags.map(e =>
+                    <p className="additives">{e.replace('en:','').toUpperCase()}</p>)}
+
+                  </section>
+                  // <p>{products[0].ingredients_url}</p>
                 )}
-              </div>Pour éviter de supprimer la moindre ligne de ton travail, e
+              </div>
             </div>
 
             <div className="alergen-Product">
@@ -143,12 +182,13 @@ const Searchproduct = ({ products }) => {
                 <p> img </p>
               </div>
               <div className="container-Infos-Bestchoic">
+
                 <p>nom de l&apos;ingredient</p>
                 <p>marque </p>
                 <p>qualidades</p>
               </div>
             </div>
-
+ 
             <div className="propos1 bestchoic">
               <div className="container-Img-Bestchoic">
                 <p> img </p>
@@ -167,7 +207,9 @@ const Searchproduct = ({ products }) => {
               </div>
 
               <div className="container-Infos-Bestchoic">
+
                 <p>nom de l&apos;ingredient</p>
+
                 <p>marque </p>
                 <p>qualidades</p>
               </div>
