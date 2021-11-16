@@ -14,14 +14,20 @@
   position: fixed;
 }
 
+.barcode-p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
 video {
   display: flex;
   justify-content: center;
-  height: 30vh;
-  width: 30vh;
+  height: 35vh;
+  width: 35vh;
   border: solid 1px black;
   border-radius: 5px;
-  margin-top: 7vh;
+  margin-top: 8vh;
+  margin-bottom: 8vh;
   object-fit: cover;
 }
 
@@ -29,5 +35,9 @@ video {
   video {
     height: 45vh;
     width: 45vh;
+  }
+  
+  .barcode-p {
+    font-size: 1.2rem;
   }
 }
