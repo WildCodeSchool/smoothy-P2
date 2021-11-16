@@ -101,14 +101,15 @@ h3 {
   border-radius: 10px;
   width: 100%;
   margin-top: 0.5rem;
-  background-color: #ffebb0;
+  background-color: #ffebb05d;
   color: black;
 }
 
 .alergene-Component-Product {
   border: solid 1px black;
   border-radius: 5px;
-  background-color: #ffebb0;
+  /* background-color: #ffebb0; */
+  background-color: #ffebb05d;
   margin-top: 0.5rem;
   display: flex;
   flex-direction: row;
@@ -135,7 +136,7 @@ h3 {
 .alergene-Component-lvlup-Product {
   border: solid 1px black;
   border-radius: 5px;
-  background-color: #ffebb0;
+  background-color: #ffebb05d;
   margin-top: 0.5rem;
   display: flex;
   padding: 1.5rem;
@@ -150,26 +151,54 @@ h3 {
 }
 
 .le-grid {
-  margin-top: 1rem;
+  margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(6, 80vw);
+
+  height: 30vh;
   overflow-x: scroll;
-  scrollbar-width: none;
-  height: 15vh;
+  scrollbar-width: none;;
+
 }
 
 .le-grid > .bestchoic {
-  border: solid 2px black;
+  /* border: solid 2px black; */
   margin-left: 1rem;
   width: 70%;
+  margin-bottom: 2rem;  
+  background-color: #ffebb03a;
+  border-bottom: solid 2px rgb(0, 0, 0);
+  border-right: solid 2px rgb(0, 0, 0);
+  border-top: solid 2px rgba(0, 0, 0, 0.253);
+  border-left: solid 2px rgba(0, 0, 0, 0.253);
+
+
+
 }
+.le-grid > .bestchoic:hover {
+  background-color: #ffebb05d;
+  border: solid 2px rgba(0, 0, 0, 0.609);
+  color: rgb(0, 65, 0);
+
+
+}
+
+
+@media screen and (min-width: 800px) {
+  .le-grid  {
+
+    height: 30vh
+  }
+}
+    
+  
 
 .propos1 {
   display: flex;
 }
 
 .container-Img-Bestchoic {
-  border: solid 1px black;
+  /* border: solid 1px black; */
   border-radius: 5%;
   padding: 1.2rem;
   margin: 2%;
@@ -179,7 +208,7 @@ h3 {
   margin-left: 0.2rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between;<<<<<<< NutriScoreProductList
 }
 
 .goproductlist {
@@ -192,6 +221,32 @@ h3 {
 .nutri-score{
   display: flex;
   width: 10rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+}
+
+
+
+
+.healthy-name{
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
+
+@media screen and (min-width: 800px) {
+  .healthy-name  {
+
+    font-size: 1rem;
+    margin-top: 1rem;
+  }/*
+  .nutri-score{
+    display: flex;
+    width: 10rem;
+    height: 4rem;
+    margin-bottom: 1rem;
+  }*/
+}
+
   height: auto;
 }
 @media (max-width: 750px){
@@ -208,4 +263,5 @@ justify-content: space-evenly;
 align-items: center;
 width: inherit;
 }
+
 

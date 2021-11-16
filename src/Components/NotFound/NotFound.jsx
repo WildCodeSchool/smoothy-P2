@@ -26,13 +26,13 @@ function NotFound() {
       </div>
 
       <p className="txt-Pnotfound">
-        La page ou la recherche que vous demandez n&apos;éxiste pas. Vous pouvez
+        Le produit que vous demandez n&apos;existe pas. Vous pouvez
         toujours effectuer une nouvelle recherche.{" "}
       </p>
 
       <p className="txt-Pnotfound">
         Si vous ne trouvez pas votre produit, <a href="https://fr.openfoodfacts.org/contribuer">Cliquez ici</a> si
-        vous voulez contribuer à l&apos;ajouter. {" "}
+        vous souhaitez contribuer à l&apos;ajouter. {" "}
       </p>
 
       <div className="search-Location">
