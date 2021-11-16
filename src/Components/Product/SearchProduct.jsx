@@ -206,10 +206,10 @@ const Searchproduct = ({ products }) => {
                     {" "}
                     ⚠️{" "}
                   </span>{" "}
-
                   {products[0].allergens_from_ingredients.split(',').forEach(elt => !elt.startsWith('en:') ? arrayFilter.push(elt.trim()):'none')}
-                  Ce produit contient : {[...new Set (arrayFilter)].join(", ").toUpperCase()}
-
+                  {products[0].allergens_from_ingredients 
+                  ? `Ce produit contient : ${[...new Set (arrayFilter)].join(", ").toUpperCase()}`
+                  : "Pas d'allergène renseigné sur ce produit"}
                 </p>
               </div>
             </div>
