@@ -41,6 +41,11 @@ const App = () => {
             <NotFound />
           </Route>
 
+          <Route 
+            exact path="*"
+            component={NotFound}
+          />
+
 
         </Switch>
       </Router>

@@ -3,7 +3,7 @@ import "./SearchProduct.css";
 
 const Searchproduct = ({ products }) => {
   return (
-    <div>
+    <div> 
       {products && (
         <div>
           {console.log(products[0])}

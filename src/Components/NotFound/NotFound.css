@@ -53,6 +53,10 @@
   font-size: 0.8rem;
 }
 
+.barcode-logo :hover {
+  opacity: 0.4;
+}
+
 @media screen and (min-width: 800px) {
   .barcode-logo {
     width: 45vh;

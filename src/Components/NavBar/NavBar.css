@@ -16,7 +16,7 @@
   margin: 1rem 0 0 1.5rem;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 700px) {
   .navbar {
     justify-content: space-between;
     padding-right: 2rem;
