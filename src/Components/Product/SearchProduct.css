@@ -20,9 +20,14 @@ h3 {
   color: #3cb371;
 }
 
+.AddSection{
+  margin-top:10px;
+}
+
 .additives{
   margin-left: 7px;
 }
+
 
 .header-Product {
   display: flex;
@@ -86,6 +91,7 @@ h3 {
 .composition-environement-Product {
   border: solid 1px black;
   border-radius: 10px;
+  width: 100%;
   margin-top: 0.5rem;
   background-color: #ffebb0;
   color: black;

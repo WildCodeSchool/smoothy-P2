@@ -142,7 +142,7 @@ const Searchproduct = ({ products }) => {
                   :
                     <div className="unknown">Unknown <span role="img" aria-label="question emoji">❓</span></div>
                   }
-                  <h3>Additifs</h3>
+                  <h3 className="AddSection">Additifs</h3>
                   {products[0] &&
                     products[0].additives_tags.map(e =>
                     <p className="additives">{e.replace('en:','').toUpperCase()}</p>)}
