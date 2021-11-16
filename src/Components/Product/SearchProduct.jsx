@@ -45,11 +45,16 @@ const Searchproduct = ({ products }) => {
   const [arowDownEndAlergen, setArowDownEndAlergen] =
     useState("arow-Down-Product");
 
+    // const [isActiv, setActiv] = useState("environement-Switch-Product");🚀
+
   const handleClick = () => {
     setAlergenComponent("alergene-Component-lvlup-Product");
     setaAlergenetxt("alergene-Text-Unhide-Product");
     setArowDownEndAlergen("arow-Down-Hide-Product");
+    // setActiv("environement-Switch-Product2")🚀
   };
+
+  // console.log('isactiv', !setActiv); A tchek 🚀
 
   // const [cat, setCat] = useState("")
   // const [equivProducts, setEquivProducts] = useState(null);
@@ -73,7 +78,7 @@ const Searchproduct = ({ products }) => {
 //     getProducts();
   
 //   }, [cat]);
-
+// Stan le roi ? 
 //   // console.log(cat)
 //   console.log(equivProducts)
 
@@ -126,9 +131,12 @@ const Searchproduct = ({ products }) => {
             </div>
             <div className="header-Right-Product">
               <p className="generic-Name-Product">{products[0].generic_name}</p>
+              <div className="labellls">
+
                 <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + products[0].nutrition_grade_fr + ".svg"} alt={''} />
-                <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nova-group-" + products[0].nova_group + ".svg"} alt={''} />
                 <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/icons/ecoscore-" + products[0].ecoscore_grade + ".svg"} alt={''} />
+                <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nova-group-" + products[0].nova_group + ".svg"} alt={''} />
+              </div>
             </div>
           </div>
 
@@ -139,17 +147,19 @@ const Searchproduct = ({ products }) => {
                   className="composiotion-Switch-Product show-Composition-Product"
                   onClick={() => setSwitch("Composition")}
                 >
-                  Compositon |{" "}
+                  Compositon {" "}
                 </p>
-
+                    <p>|</p>
                 <p
-                  className="environement-Switch-Product "
+                  className="environement-Switch-Product"
                   onClick={() => setSwitch("Environement")}
                 >
                   {" "}
+
                   Santé
+                  
                 </p>
-              </div>
+              </div> 
 
               <div className="composition-environement-Product show-Environement-Product ">
                 {/* {Object.entries(products[0].nutrient_levels).map(e => console.log(level(e[1])))} */}

@@ -74,15 +74,23 @@ h3 {
 
 .environement-Switch-Product {
   margin-left: 5px;
+  
 }
+
+
 
 .environement-Switch-Product:hover {
   color: #7a5c00;
+  font-weight: bold;
+
+}
+.show-Composition-Product:hover{
+  color: #7a5c00;
+  font-weight: bold;
 }
 
-.composiotion-Switch-Product:hover {
-  color: #7a5c00;
-}
+
+
 
 .composiotion-Product {
   display: flex;
@@ -186,3 +194,18 @@ h3 {
   width: 10rem;
   height: auto;
 }
+@media (max-width: 750px){
+  .nutri-score{
+    display: flex;
+    width: 33%;
+    height: auto;
+  }
+}
+.labellls{
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+align-items: center;
+width: inherit;
+}
+
