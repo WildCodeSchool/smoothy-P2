@@ -10,7 +10,7 @@ const Product = (props) => {
     <div>
       <NavBar />
       <SearchFunc produits={res} />
-      <ArrowUp />
+        {/* <ArrowUp /> */}
       <Footer />
     </div>
   );
