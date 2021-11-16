@@ -78,7 +78,7 @@ const Searchproduct = ({ products }) => {
 //     getProducts();
   
 //   }, [cat]);
-
+// Stan le roi ? 
 //   // console.log(cat)
 //   console.log(equivProducts)
 
@@ -131,7 +131,7 @@ const Searchproduct = ({ products }) => {
                   {" "}
                   Infos complementaires
                 </p>
-              </div>
+              </div> 
 
               <div className="composition-environement-Product show-Environement-Product ">
                 {console.log(products[0])}
