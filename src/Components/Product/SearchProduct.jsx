@@ -130,7 +130,7 @@ const Searchproduct = ({ products }) => {
               />
             </div>
             <div className="header-Right-Product">
-              <p className="generic-Name-Product">{products[0].generic_name}</p>
+              <h1 className="generic-Name-Product">{products[0].generic_name}</h1>
               <div className="labellls">
                 <div className="labels-1">
                 <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + products[0].nutrition_grade_fr + ".svg"} alt={''} />
