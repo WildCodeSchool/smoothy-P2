@@ -1,9 +1,42 @@
+
+h1 {
+  text-align:center;
+}
+
+h3 {
+  color:darkgreen;
+  font-size:0.9em;
+  margin-left: 7px;
+}
+
+.label{
+  margin-left: 7px;
+}
+
+.label--value.high{
+  color: #ff6347;
+}
+
+.label--value.moderate{
+  color: #ffa500;
+}
+
+.label--value.low{
+  color: #3cb371;
+}
+
+.AddSection{
+  margin-top:10px;
+}
+
+.additives{
+  margin-left: 7px;
+}
+
 .header-Product {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
 }
 
 .img-Left-Product {
@@ -23,7 +56,7 @@
   justify-content: space-evenly;
   align-items:flex-start;
   width: 50vw;
-  height: 50vh;
+  height: 40vh;
 }
 
 .header-Right-Product p {
@@ -46,11 +79,13 @@
 }
 
 .environement-Switch-Product:hover {
-  color: #7a5c00;
+  color: darkgreen;
+  font-weight: bold;
 }
 
-.composiotion-Switch-Product:hover {
-  color: #7a5c00;
+.show-Composition-Product:hover{
+  color: darkgreen;
+  font-weight: bold;
 }
 
 .composiotion-Product {
@@ -63,7 +98,11 @@
   margin-top: 0.5rem;
   background-color: #ffebb05d;
   color: black;
+  padding: 7px;
+  font-size: 1rem;
+  text-align: justify;
 }
+
 
 .alergene-Component-Product {
   border: solid 1px black;
@@ -177,22 +216,43 @@
 
 .nutri-score{
   display: flex;
-  width: 10rem;
-  height: 3rem;
-  margin-bottom: 1rem;
+  width: 33%;
+  height: auto;
+  margin-bottom: 1.5vh;
+}
+
+.eco-score{
+  display: flex;
+  width: 33%;
+  height: auto;
+}
+
+@media (max-width: 750px){
+  .nutri-score{
+    display: flex;
+    width: 60%;
+    height: auto;
+} 
+  .eco-score{
+    display: flex;
+    width: 60%;
+    height: auto;
+  }
+  .nova-group{
+    display: flex;
+    width: auto;
+    height: 17vh;
+  }
 }
 
 
-
-
-.healthy-name{
+.healthy-name{  /*check start*/
   font-size: 0.8rem;
   margin-top: 1rem;
 }
 
 @media screen and (min-width: 800px) {
-  .healthy-name  {
-
+   .healthy-name  {
     font-size: 1rem;
     margin-top: 1rem;
   }
@@ -203,3 +263,19 @@
     margin-bottom: 1rem;
   }
 }
+  /*check end*/
+
+.labellls{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+}
+
+.labels-1{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
