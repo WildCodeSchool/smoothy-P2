@@ -6,6 +6,7 @@ import Product from "./Components/Product/Product.jsx";
 import NotFound from "./Components/NotFound/NotFound.jsx";
 import OpenPage from "./Components/OpenPage/OpenPage.jsx";
 import BarCode from "./Components/BarCode/BarCode.jsx";
+import Searchproduct from "./Components/Product/SearchProduct.jsx";
 
 const App = () => {
   return (
@@ -32,9 +33,18 @@ const App = () => {
             exact path="/product/:product"
             component={Product}
           />
+                    <Route 
+            exact path="/product/:product"
+            component={Searchproduct}
+          />
             <Route path="/error">
             <NotFound />
           </Route>
+
+          <Route 
+            exact path="*"
+            component={NotFound}
+          />
 
 
         </Switch>
