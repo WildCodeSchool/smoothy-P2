@@ -139,16 +139,34 @@ const Searchproduct = ({ products }) => {
                   onClick={() => setSwitch("Environement")}
                 >
                   {" "}
-                  Environement
+                  Santé
+                  
                 </p>
-              </div>
+              </div> 
 
               <div className="composition-environement-Product show-Environement-Product ">
-                {/* {console.log(products[0])} */}
+                {/* {Object.entries(products[0].nutrient_levels).map(e => console.log(level(e[1])))} */}
                 {useswitch === "Composition" ? (
                   products[0].ingredients_text ? <p>{dashRemover(products[0].ingredients_text)}</p> : <p>Aucune information présente sur le produit</p>
                 ) : (
-                  <p>{products[0].ingredients_url}</p>
+                  <section className="nutrientLevel">
+                  <h3>Valeurs nutritives</h3>
+                  {products[0].nutrient_levels !== undefined ?
+                    Object.entries(products[0].nutrient_levels).map(e =>
+                    <div className="label">
+                    <span className="label-key">{replace(e[0])} : </span>
+                    <span className={`label--value ${e[1]}`}>{level(e[1])}</span>
+                    </div>)
+                  :
+                    <div className="unknown">Unknown <span role="img" aria-label="question emoji">❓</span></div>
+                  }
+                  <h3 className="AddSection">Additifs</h3>
+                  {products[0] &&
+                    products[0].additives_tags.map(e =>
+                    <p className="additives">{e.replace('en:','').toUpperCase()}</p>)}
+
+                  </section>
+                  // <p>{products[0].ingredients_url}</p>
                 )}
               </div>
             </div>
