@@ -132,10 +132,13 @@ const Searchproduct = ({ products }) => {
             <div className="header-Right-Product">
               <p className="generic-Name-Product">{products[0].generic_name}</p>
               <div className="labellls">
-
+                <div className="labels-1">
                 <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + products[0].nutrition_grade_fr + ".svg"} alt={''} />
-                <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/icons/ecoscore-" + products[0].ecoscore_grade + ".svg"} alt={''} />
-                <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nova-group-" + products[0].nova_group + ".svg"} alt={''} />
+                <img className='eco-score' src={"https://fr.openfoodfacts.org/images/icons/ecoscore-" + products[0].ecoscore_grade + ".svg"} alt={''} />
+                </div >
+                <div className="labels-2">
+                <img className='nova-group' src={"https://fr.openfoodfacts.org/images/misc/nova-group-" + products[0].nova_group + ".svg"} alt={''} />
+              </div>
               </div>
             </div>
           </div>
@@ -190,7 +193,7 @@ const Searchproduct = ({ products }) => {
 
             <div className="alergen-Product">
               <div className={alergenComponent}>
-                <p className={arowDownEndAlergen}>Alèrgenes</p>
+                <p className={arowDownEndAlergen}>Allergènes</p>
 
                 <button className={arowDownEndAlergen} onClick={handleClick}>
                   <img src={downchevron} alt="" />
