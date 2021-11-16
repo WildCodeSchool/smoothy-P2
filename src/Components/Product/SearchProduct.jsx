@@ -90,6 +90,32 @@ const Searchproduct = ({ products }) => {
   }, [arrayFilter])
 
 
+  const replace = (qual) => { if (qual == "fat")
+   {return "Matière grasse"}
+   else {
+     if (qual == "salt") {return "Sel"}
+      else {
+        if (qual == "saturated-fat") {return "Graisse saturée"}
+        else {
+          if (qual == "sugars") {return "Sucre"}
+          else {return "non défini"}
+        }
+      }
+   }
+  }
+
+  const level = (qual) => {if (qual == "low") {return "faible"}
+    else {
+      if (qual == "moderate") {return "modéré"}
+      else {
+        if (qual == "high") {return "élevé"}
+        else {return "non défini"}
+      }
+    }
+  }
+
+
+
 
   return (
     <div>
@@ -129,13 +155,14 @@ const Searchproduct = ({ products }) => {
                   onClick={() => setSwitch("Environement")}
                 >
                   {" "}
-                  Infos complementaires
+
+                  Santé
+                  
                 </p>
               </div> 
 
               <div className="composition-environement-Product show-Environement-Product ">
-                {console.log(products[0])}
-                {console.log(products[0].additives_tags.map(e => console.log(e)))}
+                {/* {Object.entries(products[0].nutrient_levels).map(e => console.log(level(e[1])))} */}
                 {useswitch === "Composition" ? (
                   products[0].ingredients_text ? <p>{dashRemover(products[0].ingredients_text)}</p> : <p>Aucune information présente sur le produit</p>
                 ) : (
@@ -144,13 +171,13 @@ const Searchproduct = ({ products }) => {
                   {products[0].nutrient_levels !== undefined ?
                     Object.entries(products[0].nutrient_levels).map(e =>
                     <div className="label">
-                    <span className="label-key">{e[0]} : </span>
-                    <span className={`label--value ${e[1]}`}>{e[1]}</span>
+                    <span className="label-key">{replace(e[0])} : </span>
+                    <span className={`label--value ${e[1]}`}>{level(e[1])}</span>
                     </div>)
                   :
                     <div className="unknown">Unknown <span role="img" aria-label="question emoji">❓</span></div>
                   }
-                  <h3>Additifs</h3>
+                  <h3 className="AddSection">Additifs</h3>
                   {products[0] &&
                     products[0].additives_tags.map(e =>
                     <p className="additives">{e.replace('en:','').toUpperCase()}</p>)}
