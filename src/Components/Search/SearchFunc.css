@@ -65,7 +65,7 @@ figure:hover {
 .items {
   text-align: start;
   align-items: flex-start;
-  width: 40vh;
+  width: 35vh;
   margin-left: 3vh;
 }
 
@@ -113,9 +113,9 @@ figcaption {
   font-size: 0.8rem;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 700px) {
   .input-css {
-    width: 42vh;
+    width: 38vh;
     height: 4vh;
     font-size: 1.2rem;
   }
@@ -129,8 +129,8 @@ figcaption {
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    width: 40vh;
-    height: 35vh;
+    width: 32vh;
+    height: 40vh;
     margin-left: 1vh;
     margin-right: 1vh;
     background-color: #fff1c500;
@@ -144,15 +144,16 @@ figcaption {
   }
 
   .images {
-    width: 150px;
-    height: 150px;
+    width: 15vw;
+    height: 18vh;
   }
   .items {
     text-align: center;
     align-items: center;
-    width: 40vh;
+    width: 29vh;
     padding-left: 0.4rem;
     padding-right: 0.4rem;
+    margin-left: none;
   }
 
   figcaption {
@@ -162,8 +163,8 @@ figcaption {
   }
 
   .nutri-list {
-    height: 6vh;
-    width: 10vw;
+    height: 4vh;
+    width: 17vw;
     margin-top: 2vh;
   }
 }
