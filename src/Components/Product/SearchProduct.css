@@ -1,3 +1,26 @@
+h3 {
+  color:darkgreen;
+  font-size:0.9em;
+  margin-left: 7px;
+}
+
+.label{
+  margin-left: 7px;
+}
+
+.label--value.high{
+  color: #ff6347;
+}
+
+.label--value.moderate{
+  color: #ffa500;
+}
+
+.label--value.low{
+  color: #3cb371;
+}
+
+
 .header-Product {
   display: flex;
   justify-content: space-evenly;
