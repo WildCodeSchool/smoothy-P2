@@ -79,17 +79,17 @@ h3 {
   margin-left: 5px;
 }
 
-.environement-Switch-Product:hover {
-  color: darkgreen;
-  font-weight: bold;
+
+.environement-Switch-Product2 {
+  margin-left: 5px;
+  color:#3cb371
+
+  
 }
 
-.show-Composition-Product:hover{
-  color: darkgreen;
-  font-weight: bold;
-}
 
-.composiotion-Product {
+
+.composition-Product {
   display: flex;
 }
 
@@ -169,10 +169,8 @@ h3 {
   border-right: solid 2px rgb(0, 0, 0);
   border-top: solid 2px rgba(0, 0, 0, 0.253);
   border-left: solid 2px rgba(0, 0, 0, 0.253);
-
-
-
 }
+
 .le-grid > .bestchoic:hover {
   background-color: #ffebb05d;
   border: solid 2px rgba(0, 0, 0, 0.609);
