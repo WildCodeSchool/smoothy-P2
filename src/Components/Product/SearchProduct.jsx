@@ -161,14 +161,13 @@ else {
           </div>         
           <div className="midll-Product">
             <div className="switch-Midllproduct">
-              <div className="composiotion-Product">
+              <div className="composition-Product">
                 <p
-                
                   className={isActive ? "environement-Switch-Product2" : "environement-Switch-Product" }
                   onClick={handleChange}
                 >
 
-                  Compositon |{" "}
+                  Composition |{" "}
 
                 </p>
 
