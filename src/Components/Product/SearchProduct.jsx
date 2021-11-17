@@ -4,37 +4,6 @@ import downchevron from "../../Assets/downchevron.png";
 import "./SearchProduct.css";
 import { Link } from "react-router-dom";
 
-// exemples gen code
-//     marche pas 737628064502 : Rice Noodles
-//     3017620425035 : Pâte à tartiner aux noisettes
-//     8032862870028 : Pâte à tartiner Gonuts sans sucre
-//     3019081238643 : Sardines à l'huile d'olive
-//     3587220002252 : La Gâche Tranchée au Beurre Frais et à la Crème Fraîche
-//     3242274001056 : Salade & Compagnie - Montmartre - Sodebo - 320 g
-//     3274080005003 : Eau de source - Cristaline - 1,5 l
-//     3700281615746 : surprise !
-
-//    Test Bio fr AB : 3036811364403 Bio Velouté de 10 Légumes - Liebig - 2 * 35 cl
-//    Test EU organic : 3302957002029 Sauce Salade a La Moutarde a L'ancienne - LA CUISINE D'AUTREFOIS
-//    Test Max Havelar : 3700214617045 chocolat noir au gingembre confit
-//    Test Fair trade : 3700214617045 chocolat noir au gingembre confit
-//    Test pas d'image/pas de nutriscore dans liste : biscote
-
-
-// ToDo
-//     fiche produit à brancher à l'architecture : 
-//     ✅ barres de recherche (accueil et header)
-//     ✅ choix parmi une sélection
-//     ✅ code barre
-
-//     ✅ affichage nutriscore/Nova/Ecoscore
-//     ✅ affichage labels bio
-//     (Fonction affichage tableaux)
-
-//     Liens vers 404 en cas de produit non répertorié
-//      - depuis le scann
-//     ✅ depuis une recherche de code barre
-
 let stringNoSpace;
 
 const dashRemover = (str) => {
@@ -146,7 +115,7 @@ const Searchproduct = ({ products }) => {
               <h1 className="generic-Name-Product">{products[0].name}</h1>
               <div className="labellls">
                 <div className="labels-1">
-                  <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + product.nutrition_grade_fr + ".svg"} />
+                <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + products[0].nutrition_grade_fr + ".svg"} alt={''} />
                   {/* {products[0].nutrition_grade_fr
                   ?<img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + product.nutrition_grade_fr + ".svg"} alt={''} />
                   :<img className='nutri-score' src="https://static.openfoodfacts.org/images/attributes/nutriscore-unknown.svg" />} */}

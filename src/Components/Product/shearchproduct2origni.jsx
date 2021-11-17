@@ -1,20 +1,22 @@
 import React from "react";
 
+
 // exemples gen code
 //     marche pas 737628064502 : Rice Noodles
+//     marche pas 3760082197216 : Biscote artisanale
+//     3587220002252 : La Gâche Tranchée au Beurre Frais et à la Crème Fraîche
 //     3017620425035 : Pâte à tartiner aux noisettes
 //     8032862870028 : Pâte à tartiner Gonuts sans sucre
 //     3019081238643 : Sardines à l'huile d'olive
-//     3587220002252 : La Gâche Tranchée au Beurre Frais et à la Crème Fraîche
 //     3242274001056 : Salade & Compagnie - Montmartre - Sodebo - 320 g
 //     3274080005003 : Eau de source - Cristaline - 1,5 l
 
-//    Test Bio fr AB : 3036811364403 Bio Velouté de 10 Légumes - Liebig - 2 * 35 cl
-//    Test EU organic : 3302957002029 Sauce Salade a La Moutarde a L'ancienne - LA CUISINE D'AUTREFOIS
+//    Test Bio fr AB : 3222477478497 Crème de marrons - Casino Bio
+                // : 3452200002600 Confiturelle abricots bio 100% fruits allégée en sucres - 290 g
+//    Test EU organic : 3036811364403 Bio Velouté de 10 Légumes - Liebig - 2 * 35 cl
 //    Test Max Havelar : 3700214617045 chocolat noir au gingembre confit
 //    Test Fair trade : 3700214617045 chocolat noir au gingembre confit
 //    Test pas d'image/pas de nutriscore dans liste : biscote
-
 
 // ToDo
 //     fiche produit à brancher à l'architecture : 
@@ -125,16 +127,50 @@ import React from "react";
             <h2>Environnement</h2>
                 <p></p>
             <h2>Synthèse</h2>
+            <h2>Labels</h2>
+                <p>Bio France AB{product.fr:ab-agriculture-biologique}</p>
+                <img src="https://static.openfoodfacts.org/images/lang/en/labels/ab-agriculture-biologique.74x90.svg" alt="" />
+                <p>Eu Organic{product.en:eu-organic}</p>
+                <img src="https://world.openfoodfacts.org/images/lang/en/labels/eu-organic.135x90.svg" alt="" />
+                <p>Fair trade {product.en:fair-trade}</p>
+                <img src="https://world.openfoodfacts.org/images/lang/en/labels/fairtrade-international.77x90.svg" alt="" />
+                <p>Commerce équitable{product.en:max-havelaar}</p>
+                <img src="https://world.openfoodfacts.org/images/lang/en/labels/max-havelaar.64x90.svg" alt="" />
       
         </div>
+              )}
+              </div>)}
+             {/*<h2>Labels</h2>
+                {/* <p>Bio France AB{products[0].ab-agriculture-biologique}</p>
+                <p>Eu Organic{products[0].eu-organic}</p>
+                <p>Fair trade {product.en:fair-trade}</p>
+                <p>Commerce équitable{products[0].max-havelaar}</p>
+
+{stringNoSpace = products[0].labels.replace(/ /g, "")}
+{stringNoSpace.indexOf('ABAgricultureBiologique')!== -1
+?<img src="https://static.openfoodfacts.org/images/lang/en/labels/ab-agriculture-biologique.74x90.svg" alt="" />
+:<span></span>}
+
+{stringNoSpace.indexOf('EUOrganic')!== -1
+?<img src="https://world.openfoodfacts.org/images/lang/en/labels/eu-organic.135x90.svg" alt="" />
+:<span></span>
+}
+
+{stringNoSpace.indexOf('FairtradeInternational')!== -1
+?<img src="https://world.openfoodfacts.org/images/lang/en/labels/fairtrade-international.77x90.svg" alt="" />
+:<span></span>             
+}
+
+{stringNoSpace.indexOf('MaxHavelaar')!== -1
+?<img src="https://world.openfoodfacts.org/images/lang/en/labels/max-havelaar.64x90.svg" alt="" />
+:<span></span>                  
+}
+      
+ <p>Végétalien, Végétarien, sans graisse, Casher... : {products[0].labels}</p>*/}
+
         
       
-      )}
-        </div>)}
 
-      
-      
-   
 
 export default Searchproduct
 
