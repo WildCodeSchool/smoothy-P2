@@ -1,9 +1,8 @@
-
 import React, { useState,useEffect } from "react";
 import axios from "axios";
-
 import downchevron from "../../Assets/downchevron.png";
 import "./SearchProduct.css";
+import { Link } from "react-router-dom";
 
 // exemples gen code
 //     marche pas 737628064502 : Rice Noodles
@@ -32,6 +31,11 @@ const dashRemover = (str) => {
   return str.replaceAll(("-", "_"), " ");
 };
 
+
+const fistLetterUpperCase = (a) => {
+  return (a + "").charAt(0).toUpperCase() + a.substr(1);
+};
+
 let arrayFilter =  []
 
 
@@ -51,39 +55,66 @@ const Searchproduct = ({ products }) => {
     setArowDownEndAlergen("arow-Down-Hide-Product");
   };
 
-  // const [cat, setCat] = useState("")
-  // const [equivProducts, setEquivProducts] = useState(null);
+  const [cat, setCat] = useState(null)
+  const [equivProducts, setEquivProducts] = useState(null);
 
-  // console.log("useswitch", useswitch); // a retirer apres merge
-
-  // useEffect(()=>{
-  //   products && setCat(products[0].categories.split(",")[products[0].categories.split(",").length-1])
-  // }, [products])
-
-  //  products && console.log(products[0].categories.split(",").length())
-  
-
-//   useEffect(() => {
-
-//     const url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=categories&tag_contains_0=contains&tag_0=${cat}&tagtype_1=nutrition_grade_fr&tag_contains_1=contains&tag_1=a&fields=categories,_id,code,product_name_fr,brands_tags,image_front_small_url,quantity,nutriscore_grade,labels_old,brands,_keywords,nutrition_grade_fr&page_size=6&json=true`;
-// true
-//     const getProducts = async () => {
-//       await axios.get(url).then(({ data }) => setEquivProducts(data.products));
-//     };
-//     getProducts();
-  
-//   }, [cat]);
-
-//   // console.log(cat)
-//   console.log(equivProducts)
+  // console.log("useswitch", useswitch); // a retirer apres merg
 
   
+  
+  useEffect(()=>{
+    // products && setCat(products[0].categories.split(",").pop())
+    products && setCat(products[0].categories.split(",")[products[0].categories.split(",").length-2])
+  }, [products])
+  
+
+  useEffect(() => {
+    
+  
+
+    const url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=categories&tag_contains_0=contains&tag_0=${cat}&tagtype_1=nutrition_grade_fr&tag_contains_1=contains&tag_1=a&fields=categories,_id,code,product_name_fr,brands_tags,image_front_small_url,image_url,quantity,nutrition_grade_fr,nutrition_grade_fr,nutrition_grades,labels_old,brands,generic_name,_keywords,nutrition_grade_fr,brands_tags&page_size=6&json=true`;
+
+    const getProducts = async () => {
+      
+    await axios
+    .get(url).then(({ data }) => setEquivProducts(data.products))
+    }
+    getProducts()
+  
+  }, [cat]);
+
+  // console.log(cat)
+  console.log(equivProducts)
+
   useEffect(() => {
     return(
       arrayFilter = []
     )
   }, [arrayFilter])
 
+    const replace = (qual) => { if (qual == "fat")
+   {return "Matière grasse"}
+   else {
+     if (qual == "salt") {return "Sel"}
+      else {
+        if (qual == "saturated-fat") {return "Graisse saturée"}
+        else {
+          if (qual == "sugars") {return "Sucre"}
+          else {return "non défini"}
+        }
+      }
+   }
+  }
+
+  const level = (qual) => {if (qual == "low") {return "faible"}
+    else {
+      if (qual == "moderate") {return "modéré"}
+      else {
+        if (qual == "high") {return "élevé"}
+        else {return "non défini"}
+      }
+    }
+  }
 
 
   return (
@@ -98,11 +129,21 @@ const Searchproduct = ({ products }) => {
                 alt={""}
               />
             </div>
+            <div>
+            </div>
             <div className="header-Right-Product">
-              <p className="generic-Name-Product">{products[0].generic_name}</p>
+
+              <h1 className="generic-Name-Product">{products[0].generic_name}</h1>
+              <div className="labellls">
+                <div className="labels-1">
                 <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + products[0].nutrition_grade_fr + ".svg"} alt={''} />
-                <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nova-group-" + products[0].nova_group + ".svg"} alt={''} />
-                <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/icons/ecoscore-" + products[0].ecoscore_grade + ".svg"} alt={''} />
+                <img className='eco-score' src={"https://fr.openfoodfacts.org/images/icons/ecoscore-" + products[0].ecoscore_grade + ".svg"} alt={''} />
+                </div >
+                <div className="labels-2">
+                <img className='nova-group' src={"https://fr.openfoodfacts.org/images/misc/nova-group-" + products[0].nova_group + ".svg"} alt={''} />
+              </div>
+              </div>
+
             </div>
           </div>
 
@@ -121,13 +162,13 @@ const Searchproduct = ({ products }) => {
                   onClick={() => setSwitch("Environement")}
                 >
                   {" "}
-                  Environement
+                  Santé
+                  
                 </p>
-              </div>
+              </div> 
 
               <div className="composition-environement-Product show-Environement-Product ">
-                {console.log(products[0])}
-                {console.log(products[0].additives_tags.map(e => console.log(e)))}
+                {/* {Object.entries(products[0].nutrient_levels).map(e => console.log(level(e[1])))} */}
                 {useswitch === "Composition" ? (
                   products[0].ingredients_text ? <p>{dashRemover(products[0].ingredients_text)}</p> : <p>Aucune information présente sur le produit</p>
                 ) : (
@@ -136,13 +177,13 @@ const Searchproduct = ({ products }) => {
                   {products[0].nutrient_levels !== undefined ?
                     Object.entries(products[0].nutrient_levels).map(e =>
                     <div className="label">
-                    <span className="label-key">{e[0]} : </span>
-                    <span className={`label--value ${e[1]}`}>{e[1]}</span>
+                    <span className="label-key">{replace(e[0])} : </span>
+                    <span className={`label--value ${e[1]}`}>{level(e[1])}</span>
                     </div>)
                   :
                     <div className="unknown">Unknown <span role="img" aria-label="question emoji">❓</span></div>
                   }
-                  <h3>Additifs</h3>
+                  <h3 className="AddSection">Additifs</h3>
                   {products[0] &&
                     products[0].additives_tags.map(e =>
                     <p className="additives">{e.replace('en:','').toUpperCase()}</p>)}
@@ -155,7 +196,7 @@ const Searchproduct = ({ products }) => {
 
             <div className="alergen-Product">
               <div className={alergenComponent}>
-                <p className={arowDownEndAlergen}>Alèrgenes</p>
+                <p className={arowDownEndAlergen}>Allergènes</p>
 
                 <button className={arowDownEndAlergen} onClick={handleClick}>
                   <img src={downchevron} alt="" />
@@ -168,48 +209,61 @@ const Searchproduct = ({ products }) => {
                     {" "}
                     ⚠️{" "}
                   </span>{" "}
-
                   {products[0].allergens_from_ingredients.split(',').forEach(elt => !elt.startsWith('en:') ? arrayFilter.push(elt.trim()):'none')}
-                  Ce produit contient : {[...new Set (arrayFilter)].join(", ").toUpperCase()}
-
+                  {products[0].allergens_from_ingredients 
+                  ? `Ce produit contient : ${[...new Set (arrayFilter)].join(", ").toUpperCase()}`
+                  : "Pas d'allergène renseigné sur ce produit"}
                 </p>
               </div>
             </div>
           </div>
           <div className="le-grid">
+        
+
             <div className="propos1 bestchoic">
               <div className="container-Img-Bestchoic">
-                <p> img </p>
+              <Link to={`/Product/${equivProducts.map((pr)=>pr._id)[1]}`}>
+
+              <img
+              className="img-Left-Prod"
+              
+              src={(equivProducts.map((nameP)=>nameP.image_front_small_url)[1])}
+                alt={""}
+              />
+              </Link>  
+
               </div>
               <div className="container-Infos-Bestchoic">
+              <p className='healthy-name'>{(equivProducts.map((nameP)=>nameP.generic_name)[1])}</p>
+              <p >{(equivProducts.map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[1])}</p>
+              <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (equivProducts.map((nameP)=>nameP.nutrition_grade_fr)[1])+ ".svg"} alt={''} />
+              </div>
+            </div>
+                       
 
+            <div className="propos1 bestchoic">
+              <div className="container-Img-Bestchoic">
+              <Link to={`/Product/${equivProducts.map((pr)=>pr._id)[2]}`}>
+              <p> img </p>  
+              </Link>
+              </div>
+
+              <div className="container-Infos-Bestchoic">
                 <p>nom de l&apos;ingredient</p>
                 <p>marque </p>
                 <p>qualidades</p>
               </div>
             </div>
- 
+
             <div className="propos1 bestchoic">
               <div className="container-Img-Bestchoic">
-                <p> img </p>
+              <Link to={`/Product/${equivProducts.map((pr)=>pr._id)[3]}`}>
+              <p> img </p>  
+              </Link>
               </div>
 
               <div className="container-Infos-Bestchoic">
                 <p>nom de l&apos;ingredient</p>
-                <p>marque </p>
-                <p>qualidades</p>
-              </div>
-            </div>
-
-            <div className="propos1 bestchoic">
-              <div className="container-Img-Bestchoic">
-                <p> img </p>
-              </div>
-
-              <div className="container-Infos-Bestchoic">
-
-                <p>nom de l&apos;ingredient</p>
-
                 <p>marque </p>
                 <p>qualidades</p>
               </div>
