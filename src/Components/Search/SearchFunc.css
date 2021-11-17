@@ -57,15 +57,15 @@ figure:hover {
 
 .images {
   display: block;
-  width: 8.5rem;
-  height: 8.5rem;
+  width: 78px;
+  height: 78px;
   object-fit: contain;
 }
 
 .items {
   text-align: start;
   align-items: flex-start;
-  width: 25vh;
+  width: 35vh;
   font-size: 1rem;
   margin-left: 3vh;
 }
@@ -73,6 +73,7 @@ figure:hover {
 a {
   text-decoration: none;
   color: green;
+  font-size: 1.1rem;
 }
 
 a:hover {
@@ -87,6 +88,7 @@ a:hover {
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
   border: solid 1px black;
+  font-size: 1rem;
 }
 
 .button-css:hover {
@@ -102,36 +104,37 @@ a:hover {
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
   border: solid 1px black;
+  font-size: 1rem;
 }
 
 .nutri-list {
-  height: 4.5vh;
-  width: 20vw;
-  margin-left: 1vh;
+  height: 4vh;
+  width: 18vw;
+  margin-left: 1.6vh;
   margin-top: 2vh;
 }
 .figcaption {
   font-size: 0.8rem;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 700px) {
   .input-css {
-    width: 42vh;
+    width: 38vh;
     height: 4vh;    
-    font-size: 1.2rem;
+    font-size: 1.8rem;
   }
   .button-css {
     width: 7vh;
     height: 4vh;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
   }
   figure {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    width: 40vh;
-    height: 35vh;
+    width: 33vh;
+    height: 40vh;
     margin-left: 1vh;
     margin-right: 1vh;
     background-color: #fff1c500;
@@ -145,15 +148,17 @@ a:hover {
   }
 
   .images {
-    width: 150px;
-    height: 150px;
+    width: 15vw;
+    height: 18vh;
   }
   .items {
     text-align: center;
     align-items: center;
-    width: 40vh;
+    width: 34vh;
     padding-left: 0.4rem;
     padding-right: 0.4rem;
+    margin-left: none;
+    font-size: 1.8rem;
   }
 
   figcaption {
@@ -163,8 +168,11 @@ a:hover {
   }
 
   .nutri-list {
-    height: 6vh;
-    width: 10vw;
+    height: 4vh;
+    width: 17vw;
     margin-top: 2vh;
+  }
+  a {
+    font-size: 1.8rem;
   }
 }
