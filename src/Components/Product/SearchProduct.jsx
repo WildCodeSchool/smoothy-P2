@@ -4,8 +4,6 @@ import downchevron from "../../Assets/downchevron.png";
 import "./SearchProduct.css";
 import { Link } from "react-router-dom";
 
-let stringNoSpace;
-
 const dashRemover = (str) => {
   return str.replaceAll(("-", "_"), " ");
 };
