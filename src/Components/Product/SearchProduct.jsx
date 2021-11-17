@@ -28,9 +28,6 @@ const Searchproduct = ({ products }) => {
 
   const [isActive, setActive] = useState(true);
 
-
-   /***/  const [isActive, setActive] = useState(true);
-
    const handleClick = () => {
     setAlergenComponent("alergene-Component-lvlup-Product");
     setaAlergenetxt("alergene-Text-Unhide-Product");
