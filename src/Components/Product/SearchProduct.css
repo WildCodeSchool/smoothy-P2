@@ -81,11 +81,14 @@ h3 {
 
 .environement-Switch-Product2 {
   margin-left: 5px;
+  color:#3cb371
+
+  
 }
 
 
 
-.composiotion-Product {
+.composition-Product {
   display: flex;
 }
 
