@@ -74,21 +74,13 @@ h3 {
 
 .environement-Switch-Product {
   margin-left: 5px;
-  
 }
 
-
-
-.environement-Switch-Product:hover {
-  color: #7a5c00;
+.environement-Switch-Product2 {
+  margin-left: 5px;
   font-weight: bold;
-
+  color: red;
 }
-.show-Composition-Product:hover{
-  color: #7a5c00;
-  font-weight: bold;
-}
-
 
 
 
@@ -162,7 +154,7 @@ h3 {
   border: solid 2px black;
   margin-left: 1rem;
   width: 70%;
-}
+}        
 
 .propos1 {
   display: flex;

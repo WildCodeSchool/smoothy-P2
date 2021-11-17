@@ -1,6 +1,8 @@
 
 import React, { useState,useEffect } from "react";
-import axios from "axios";
+import axios, { Axios } from "axios";
+
+
 
 import downchevron from "../../Assets/downchevron.png";
 import "./SearchProduct.css";
@@ -42,77 +44,62 @@ const Searchproduct = ({ products }) => {
     "alergene-Component-Product"
   );
   const [alergenetxt, setaAlergenetxt] = useState("alergene-Text-Product");
-  const [arowDownEndAlergen, setArowDownEndAlergen] =
-    useState("arow-Down-Product");
+  const [arowDownEndAlergen, setArowDownEndAlergen] = useState("arow-Down-Product");
 
-    // const [isActiv, setActiv] = useState("environement-Switch-Product");🚀
+  // const [isActiv, setActiv] = useState("environement-Switch-Product2");
+  
+  
+  const [isActive, setActive] = useState(true);
 
   const handleClick = () => {
     setAlergenComponent("alergene-Component-lvlup-Product");
     setaAlergenetxt("alergene-Text-Unhide-Product");
     setArowDownEndAlergen("arow-Down-Hide-Product");
-    // setActiv("environement-Switch-Product2")🚀
   };
 
-  // console.log('isactiv', !setActiv); A tchek 🚀
+  const handleChange = () => {
+    setActive(!isActive);
+    useswitch==="Composition"? setSwitch("environement") : setSwitch("Composition");
+  };
 
-  // const [cat, setCat] = useState("")
-  // const [equivProducts, setEquivProducts] = useState(null);
-
-  // console.log("useswitch", useswitch); // a retirer apres merge
-
-  // useEffect(()=>{
-  //   products && setCat(products[0].categories.split(",")[products[0].categories.split(",").length-1])
-  // }, [products])
-
-  //  products && console.log(products[0].categories.split(",").length())
-  
-
-//   useEffect(() => {
-
-//     const url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=categories&tag_contains_0=contains&tag_0=${cat}&tagtype_1=nutrition_grade_fr&tag_contains_1=contains&tag_1=a&fields=categories,_id,code,product_name_fr,brands_tags,image_front_small_url,quantity,nutriscore_grade,labels_old,brands,_keywords,nutrition_grade_fr&page_size=6&json=true`;
-// true
-//     const getProducts = async () => {
-//       await axios.get(url).then(({ data }) => setEquivProducts(data.products));
-//     };
-//     getProducts();
-  
-//   }, [cat]);
-// Stan le roi ? 
-//   // console.log(cat)
-//   console.log(equivProducts)
-
-  
+  console.log("useswitch", useswitch)
   useEffect(() => {
     return(
       arrayFilter = []
     )
   }, [arrayFilter])
 
-
   const replace = (qual) => { if (qual == "fat")
-   {return "Matière grasse"}
+{return "Matière grasse"}
+else {
+  if (qual == "salt") {return "Sel"}
    else {
-     if (qual == "salt") {return "Sel"}
-      else {
-        if (qual == "saturated-fat") {return "Graisse saturée"}
-        else {
-          if (qual == "sugars") {return "Sucre"}
-          else {return "non défini"}
-        }
-      }
+     if (qual == "saturated-fat") {return "Graisse saturée"}
+     else {
+       if (qual == "sugars") {return "Sucre"}
+       else {return "non défini"}
+     }
    }
-  }
+}
+}
 
-  const level = (qual) => {if (qual == "low") {return "faible"}
-    else {
-      if (qual == "moderate") {return "modéré"}
-      else {
-        if (qual == "high") {return "élevé"}
-        else {return "non défini"}
-      }
-    }
+
+
+const level = (qual) => {if (qual == "low") {return "faible"}
+else {
+  if (qual == "moderate") {return "modéré"}
+  else {
+    if (qual == "high") {return "élevé"}
+    else {return "non défini"}
   }
+}
+}
+
+  
+  
+  console.log("isActive", {isActive});
+  
+ 
 
 
 
@@ -133,26 +120,27 @@ const Searchproduct = ({ products }) => {
               <p className="generic-Name-Product">{products[0].generic_name}</p>
               <div className="labellls">
 
-                <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + products[0].nutrition_grade_fr + ".svg"} alt={''} />
+              <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + products[0].nutrition_grade_fr + ".svg"} alt={''} />
                 <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/icons/ecoscore-" + products[0].ecoscore_grade + ".svg"} alt={''} />
                 <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nova-group-" + products[0].nova_group + ".svg"} alt={''} />
-              </div>
+                </div>
             </div>
-          </div>
-
+          </div>         
           <div className="midll-Product">
             <div className="switch-Midllproduct">
               <div className="composiotion-Product">
                 <p
-                  className="composiotion-Switch-Product show-Composition-Product"
-                  onClick={() => setSwitch("Composition")}
+                
+                  className={isActive ? "environement-Switch-Product2" : "environement-Switch-Product" }
+                  onClick={handleChange}
                 >
+                  
                   Compositon {" "}
                 </p>
                     <p>|</p>
                 <p
-                  className="environement-Switch-Product"
-                  onClick={() => setSwitch("Environement")}
+                className={!isActive ? "environement-Switch-Product2" : "environement-Switch-Product" }
+                onClick={handleChange}
                 >
                   {" "}
 
@@ -160,7 +148,7 @@ const Searchproduct = ({ products }) => {
                   
                 </p>
               </div> 
-
+              
               <div className="composition-environement-Product show-Environement-Product ">
                 {/* {Object.entries(products[0].nutrient_levels).map(e => console.log(level(e[1])))} */}
                 {useswitch === "Composition" ? (
