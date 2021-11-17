@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from "react";
-import axios from "axios";
+import axios, { Axios } from "axios";
+
 import downchevron from "../../Assets/downchevron.png";
 import "./SearchProduct.css";
 import { Link } from "react-router-dom";
@@ -46,8 +47,10 @@ const Searchproduct = ({ products }) => {
     "alergene-Component-Product"
   );
   const [alergenetxt, setaAlergenetxt] = useState("alergene-Text-Product");
-  const [arowDownEndAlergen, setArowDownEndAlergen] =
-    useState("arow-Down-Product");
+  const [arowDownEndAlergen, setArowDownEndAlergen] = useState("arow-Down-Product");
+
+  const [isActive, setActive] = useState(true);
+
 
   const handleClick = () => {
     setAlergenComponent("alergene-Component-lvlup-Product");
@@ -55,12 +58,17 @@ const Searchproduct = ({ products }) => {
     setArowDownEndAlergen("arow-Down-Hide-Product");
   };
 
+
+  const handleChange = () => {
+    setActive(!isActive);
+    useswitch==="Composition"? setSwitch("environement") : setSwitch("Composition");
+  };
+
+
   const [cat, setCat] = useState(null)
   const [equivProducts, setEquivProducts] = useState(null);
 
-  // console.log("useswitch", useswitch); // a retirer apres merg
 
-  
   
   useEffect(()=>{
     // products && setCat(products[0].categories.split(",").pop())
@@ -83,8 +91,9 @@ const Searchproduct = ({ products }) => {
   
   }, [cat]);
 
-  // console.log(cat)
-  console.log(equivProducts)
+   // console.log(cat)
+  // console.log(equivProducts)
+
 
   useEffect(() => {
     return(
@@ -92,30 +101,33 @@ const Searchproduct = ({ products }) => {
     )
   }, [arrayFilter])
 
-    const replace = (qual) => { if (qual == "fat")
-   {return "Matière grasse"}
+
+  const replace = (qual) => { if (qual == "fat")
+{return "Matière grasse"}
+else {
+  if (qual == "salt") {return "Sel"}
    else {
-     if (qual == "salt") {return "Sel"}
-      else {
-        if (qual == "saturated-fat") {return "Graisse saturée"}
-        else {
-          if (qual == "sugars") {return "Sucre"}
-          else {return "non défini"}
-        }
-      }
+     if (qual == "saturated-fat") {return "Graisse saturée"}
+     else {
+       if (qual == "sugars") {return "Sucre"}
+       else {return "non défini"}
+     }
    }
-  }
+}
+}
 
-  const level = (qual) => {if (qual == "low") {return "faible"}
-    else {
-      if (qual == "moderate") {return "modéré"}
-      else {
-        if (qual == "high") {return "élevé"}
-        else {return "non défini"}
-      }
-    }
-  }
 
+const level = (qual) => {if (qual == "low") {return "faible"}
+else {
+  if (qual == "moderate") {return "modéré"}
+  else {
+    if (qual == "high") {return "élevé"}
+    else {return "non défini"}
+  }
+}
+}
+
+  
 
   return (
     <div>
@@ -133,6 +145,7 @@ const Searchproduct = ({ products }) => {
             </div>
             <div className="header-Right-Product">
 
+
               <h1 className="generic-Name-Product">{products[0].generic_name}</h1>
               <div className="labellls">
                 <div className="labels-1">
@@ -145,28 +158,32 @@ const Searchproduct = ({ products }) => {
               </div>
 
             </div>
-          </div>
-
+          </div>         
           <div className="midll-Product">
             <div className="switch-Midllproduct">
               <div className="composiotion-Product">
                 <p
-                  className="composiotion-Switch-Product show-Composition-Product"
-                  onClick={() => setSwitch("Composition")}
+                
+                  className={isActive ? "environement-Switch-Product2" : "environement-Switch-Product" }
+                  onClick={handleChange}
                 >
+
                   Compositon |{" "}
+
                 </p>
 
                 <p
-                  className="environement-Switch-Product "
-                  onClick={() => setSwitch("Environement")}
+
+                className={!isActive ? "environement-Switch-Product2" : "environement-Switch-Product" }
+                onClick={handleChange}
+
                 >
                   {" "}
                   Santé
                   
                 </p>
               </div> 
-
+              
               <div className="composition-environement-Product show-Environement-Product ">
                 {/* {Object.entries(products[0].nutrient_levels).map(e => console.log(level(e[1])))} */}
                 {useswitch === "Composition" ? (
