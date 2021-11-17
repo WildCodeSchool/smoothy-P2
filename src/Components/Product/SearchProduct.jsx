@@ -20,22 +20,9 @@ let arrayFilter =  []
 const Searchproduct = ({ products }) => {
   const [useswitch, setSwitch] = useState("Composition");
 
-  const [alergenComponent, setAlergenComponent] = useState(
-    "alergene-Component-Product"
-  );
-  const [alergenetxt, setaAlergenetxt] = useState("alergene-Text-Product");
-  const [arowDownEndAlergen, setArowDownEndAlergen] = useState("arow-Down-Product");
-
   const [isActive, setActive] = useState(true);
 
-   const handleClick = () => {
-    setAlergenComponent("alergene-Component-lvlup-Product");
-    setaAlergenetxt("alergene-Text-Unhide-Product");
-    setArowDownEndAlergen("arow-Down-Hide-Product");
-  };
-
-
-
+  
   const handleChange = () => {
     setActive(!isActive);
     useswitch==="Composition"? setSwitch("environement") : setSwitch("Composition");
@@ -94,6 +81,7 @@ else {
 }
 
 
+
 const level = (qual) => {if (qual == "low") {return "faible"}
 else {
   if (qual == "moderate") {return "modéré"}
@@ -103,6 +91,30 @@ else {
   }
 }
 }
+
+const ComponentAlergenes = () => {
+ 
+  return (
+    <div className="allAlergenes">
+               
+              
+    {" "}
+    {/*obligation de placer span afin de placer emoji propre a jsx */}
+    <span role="img" aria-label="warning">
+      {" "}
+      ⚠️{" "}
+    </span>{" "}
+    {products[0].allergens_from_ingredients.split(',').forEach(elt => !elt.startsWith('en:') ? arrayFilter.push(elt.trim()):'none')}
+    {products[0].allergens_from_ingredients 
+    ? `Ce produit contient : ${[...new Set (arrayFilter)].join(", ").toUpperCase()}`
+    : "Pas d'allergène renseigné sur ce produit"}
+  </div>
+
+  )
+};
+
+
+const [visible, setVisible] = useState(false);
 
   
 
@@ -220,14 +232,17 @@ else {
             </div>
 
             <div className="alergen-Product">
-              <div className={alergenComponent}>
-                <p className={arowDownEndAlergen}>Allergènes</p>
+              <div className='alergene-Component-Product'>
 
-                <button className={arowDownEndAlergen} onClick={handleClick}>
-                  <img src={downchevron} alt="" />
-                </button>
+                <div>
+      <button onClick={() => setVisible(prev => !prev)}>Alergenes ? </button>
+      {visible && <ComponentAlergenes />}
+    </div>
 
-                <p className={alergenetxt}>
+                
+                <p className="alergene-Text-Product">
+               
+              
                   {" "}
                   {/*obligation de placer span afin de placer emoji propre a jsx */}
                   <span role="img" aria-label="warning">
