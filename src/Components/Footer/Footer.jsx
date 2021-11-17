@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div>
-        <Link to="/">
+        <Link to="/openpage">
           <img className="main-logo1" src={MainLogo} alt="test"></img>
         </Link>
       </div>

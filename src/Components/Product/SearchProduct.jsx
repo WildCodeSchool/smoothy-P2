@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from "react";
-import axios from "axios";
+import axios, { Axios } from "axios";
+
 import downchevron from "../../Assets/downchevron.png";
 import "./SearchProduct.css";
 import { Link } from "react-router-dom";
@@ -46,21 +47,31 @@ const Searchproduct = ({ products }) => {
     "alergene-Component-Product"
   );
   const [alergenetxt, setaAlergenetxt] = useState("alergene-Text-Product");
-  const [arowDownEndAlergen, setArowDownEndAlergen] =
-    useState("arow-Down-Product");
+  const [arowDownEndAlergen, setArowDownEndAlergen] = useState("arow-Down-Product");
 
-  const handleClick = () => {
+  const [isActive, setActive] = useState(true);
+
+
+   /***/  const [isActive, setActive] = useState(true);
+
+   const handleClick = () => {
     setAlergenComponent("alergene-Component-lvlup-Product");
     setaAlergenetxt("alergene-Text-Unhide-Product");
     setArowDownEndAlergen("arow-Down-Hide-Product");
   };
 
+
+
+  const handleChange = () => {
+    setActive(!isActive);
+    useswitch==="Composition"? setSwitch("environement") : setSwitch("Composition");
+  };
+
+
   const [cat, setCat] = useState(null)
   const [equivProducts, setEquivProducts] = useState(null);
 
-  // console.log("useswitch", useswitch); // a retirer apres merg
 
-  
   
   useEffect(()=>{
     // products && setCat(products[0].categories.split(",").pop())
@@ -83,8 +94,9 @@ const Searchproduct = ({ products }) => {
   
   }, [cat]);
 
-  // console.log(cat)
-  console.log(equivProducts)
+   // console.log(cat)
+  // console.log(equivProducts)
+
 
   useEffect(() => {
     return(
@@ -92,30 +104,33 @@ const Searchproduct = ({ products }) => {
     )
   }, [arrayFilter])
 
-    const replace = (qual) => { if (qual == "fat")
-   {return "Matière grasse"}
+
+  const replace = (qual) => { if (qual == "fat")
+{return "Matière grasse"}
+else {
+  if (qual == "salt") {return "Sel"}
    else {
-     if (qual == "salt") {return "Sel"}
-      else {
-        if (qual == "saturated-fat") {return "Graisse saturée"}
-        else {
-          if (qual == "sugars") {return "Sucre"}
-          else {return "non défini"}
-        }
-      }
+     if (qual == "saturated-fat") {return "Graisse saturée"}
+     else {
+       if (qual == "sugars") {return "Sucre"}
+       else {return "non défini"}
+     }
    }
-  }
+}
+}
 
-  const level = (qual) => {if (qual == "low") {return "faible"}
-    else {
-      if (qual == "moderate") {return "modéré"}
-      else {
-        if (qual == "high") {return "élevé"}
-        else {return "non défini"}
-      }
-    }
-  }
 
+const level = (qual) => {if (qual == "low") {return "faible"}
+else {
+  if (qual == "moderate") {return "modéré"}
+  else {
+    if (qual == "high") {return "élevé"}
+    else {return "non défini"}
+  }
+}
+}
+
+  
 
   return (
     <div>
@@ -133,6 +148,7 @@ const Searchproduct = ({ products }) => {
             </div>
             <div className="header-Right-Product">
 
+
               <h1 className="generic-Name-Product">{products[0].generic_name}</h1>
               <div className="labellls">
                 <div className="labels-1">
@@ -149,24 +165,28 @@ const Searchproduct = ({ products }) => {
 
           <div className="midll-Product">
             <div className="switch-Midllproduct">
-              <div className="composiotion-Product">
+              <div className="composition-Product">
                 <p
-                  className="composiotion-Switch-Product show-Composition-Product"
-                  onClick={() => setSwitch("Composition")}
+                  className={isActive ? "environement-Switch-Product2" : "environement-Switch-Product" }
+                  onClick={handleChange}
                 >
-                  Compositon |{" "}
+
+                  Composition |{" "}
+
                 </p>
 
                 <p
-                  className="environement-Switch-Product "
-                  onClick={() => setSwitch("Environement")}
+
+                className={!isActive ? "environement-Switch-Product2" : "environement-Switch-Product" }
+                onClick={handleChange}
+
                 >
                   {" "}
                   Santé
                   
                 </p>
               </div> 
-
+              
               <div className="composition-environement-Product show-Environement-Product ">
                 {/* {Object.entries(products[0].nutrient_levels).map(e => console.log(level(e[1])))} */}
                 {useswitch === "Composition" ? (
@@ -218,17 +238,33 @@ const Searchproduct = ({ products }) => {
             </div>
           </div>
           <div className="le-grid">
+
+          <div className="propos1 bestchoic">
+              <div className="container-Img-Bestchoic">
+              <Link to={`/Product/${equivProducts.map((pr)=>pr._id)[0]}`}>
+              <img
+              className="img-Left-Prod"
+              src={(equivProducts.map((nameP)=>nameP.image_front_small_url)[0])}
+              alt={""}
+              />
+              </Link>  
+
+              </div>
+              <div className="container-Infos-Bestchoic">
+              <p className='healthy-name'>{(equivProducts.map((nameP)=>nameP.generic_name)[0])}</p>
+              <p >{(equivProducts.map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[0])}</p>
+              <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (equivProducts.map((nameP)=>nameP.nutrition_grade_fr)[0])+ ".svg"} alt={''} />
+              </div>
+            </div>
         
 
             <div className="propos1 bestchoic">
               <div className="container-Img-Bestchoic">
               <Link to={`/Product/${equivProducts.map((pr)=>pr._id)[1]}`}>
-
               <img
               className="img-Left-Prod"
-              
               src={(equivProducts.map((nameP)=>nameP.image_front_small_url)[1])}
-                alt={""}
+              alt={""}
               />
               </Link>  
 
@@ -244,30 +280,96 @@ const Searchproduct = ({ products }) => {
             <div className="propos1 bestchoic">
               <div className="container-Img-Bestchoic">
               <Link to={`/Product/${equivProducts.map((pr)=>pr._id)[2]}`}>
-              <p> img </p>  
+              <img
+              className="img-Left-Prod"
+              src={(equivProducts.map((nameP)=>nameP.image_front_small_url)[2])}
+              alt={""}
+              />
               </Link>
               </div>
 
               <div className="container-Infos-Bestchoic">
-                <p>nom de l&apos;ingredient</p>
-                <p>marque </p>
-                <p>qualidades</p>
+              <p className='healthy-name'>{(equivProducts.map((nameP)=>nameP.generic_name)[2])}</p>
+              <p >{(equivProducts.map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[2])}</p>
+              <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (equivProducts.map((nameP)=>nameP.nutrition_grade_fr)[2])+ ".svg"} alt={''} />
               </div>
             </div>
 
             <div className="propos1 bestchoic">
               <div className="container-Img-Bestchoic">
               <Link to={`/Product/${equivProducts.map((pr)=>pr._id)[3]}`}>
-              <p> img </p>  
+              <img
+              className="img-Left-Prod"
+              src={(equivProducts.map((nameP)=>nameP.image_front_small_url)[3])}
+              alt={""}
+              />
               </Link>
               </div>
 
               <div className="container-Infos-Bestchoic">
-                <p>nom de l&apos;ingredient</p>
-                <p>marque </p>
-                <p>qualidades</p>
+              <p className='healthy-name'>{(equivProducts.map((nameP)=>nameP.generic_name)[3])}</p>
+              <p >{(equivProducts.map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[3])}</p>
+              <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (equivProducts.map((nameP)=>nameP.nutrition_grade_fr)[3])+ ".svg"} alt={''} />
               </div>
             </div>
+          
+            <div className="propos1 bestchoic">
+              <div className="container-Img-Bestchoic">
+              <Link to={`/Product/${equivProducts.map((pr)=>pr._id)[4]}`}>
+              <img
+              className="img-Left-Prod"
+              src={(equivProducts.map((nameP)=>nameP.image_front_small_url)[4])}
+              alt={""}
+              />
+              </Link>
+              </div>
+
+              <div className="container-Infos-Bestchoic">
+              <p className='healthy-name'>{(equivProducts.map((nameP)=>nameP.generic_name)[4])}</p>
+              <p >{(equivProducts.map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[4])}</p>
+              <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (equivProducts.map((nameP)=>nameP.nutrition_grade_fr)[4])+ ".svg"} alt={''} />
+              </div>
+            </div>
+          
+            <div className="propos1 bestchoic">
+              <div className="container-Img-Bestchoic">
+              <Link to={`/Product/${equivProducts.map((pr)=>pr._id)[5]}`}>
+              <img
+              className="img-Left-Prod"
+              src={(equivProducts.map((nameP)=>nameP.image_front_small_url)[5])}
+              alt={""}
+              />
+              </Link>
+              </div>
+
+              <div className="container-Infos-Bestchoic">
+              <p className='healthy-name'>{(equivProducts.map((nameP)=>nameP.generic_name)[5])}</p>
+              <p >{(equivProducts.map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[5])}</p>
+              <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (equivProducts.map((nameP)=>nameP.nutrition_grade_fr)[5])+ ".svg"} alt={''} />
+              </div>
+            </div>
+
+            {/* <div className="propos1 bestchoic">
+              <div className="container-Img-Bestchoic">
+              <Link to={`/Product/${equivProducts.map((pr)=>pr._id)[6]}`}>
+              <img
+              className="img-Left-Prod"
+              src={(equivProducts.map((nameP)=>nameP.image_front_small_url)[6])}
+              alt={""}
+              />
+              </Link>  
+
+              </div>
+              <div className="container-Infos-Bestchoic">
+              <p className='healthy-name'>{(equivProducts.map((nameP)=>nameP.generic_name)[6])}</p>
+              <p >{(equivProducts.map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[6])}</p>
+              <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (equivProducts.map((nameP)=>nameP.nutrition_grade_fr)[6])+ ".svg"} alt={''} />
+              </div>
+            </div> */}
+
+
+
+          
           </div>
 
           <p className="goproductlist">voir tout</p>
