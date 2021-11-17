@@ -24,12 +24,13 @@ function SearchProductList({ products }) {
               <Link to={`/Product/${product.code}`}>
               <figure key={product.id}>
                 
+              {product.image_front_small_url?
                 <img
                   className="images"
                   key={product.id}
                   src={product.image_front_small_url}
                   alt={"product-img"}
-                />
+                />:<img className="images" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Pas_d%27image_disponible.svg" />}  
               <figcaption>
                 <p className="items" key={product.id}>
                   {product.product_name_fr} - {product.quantity}
@@ -37,7 +38,7 @@ function SearchProductList({ products }) {
                 <p>
                   {/* {product.brands ?  product.brands_tags[0].replaceAll('-',' '): 'none'} */}
                 </p>
-                <img className='nutri-list' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + product.nutrition_grade_fr + ".svg"} alt={''} />
+                {product.nutrition_grade_fr?<img className='nutri-list' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + product.nutrition_grade_fr + ".svg"} alt={''} />:<img className='nutri-list' src="https://static.openfoodfacts.org/images/attributes/nutriscore-unknown.svg" />}
 
               </figcaption>
             </figure>

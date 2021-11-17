@@ -15,6 +15,13 @@ import "./SearchProduct.css";
 //     3274080005003 : Eau de source - Cristaline - 1,5 l
 //     3700281615746 : surprise !
 
+//    Test Bio fr AB : 3036811364403 Bio Velouté de 10 Légumes - Liebig - 2 * 35 cl
+//    Test EU organic : 3302957002029 Sauce Salade a La Moutarde a L'ancienne - LA CUISINE D'AUTREFOIS
+//    Test Max Havelar : 3700214617045 chocolat noir au gingembre confit
+//    Test Fair trade : 3700214617045 chocolat noir au gingembre confit
+//    Test pas d'image/pas de nutriscore dans liste : biscote
+
+
 // ToDo
 //     fiche produit à brancher à l'architecture : 
 //     ✅ barres de recherche (accueil et header)
@@ -22,6 +29,7 @@ import "./SearchProduct.css";
 //     ✅ code barre
 
 //     ✅ affichage nutriscore/Nova/Ecoscore
+//     ✅ affichage labels bio
 //     (Fonction affichage tableaux)
 
 //     Liens vers 404 en cas de produit non répertorié
@@ -103,6 +111,23 @@ const Searchproduct = ({ products }) => {
                 <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + products[0].nutrition_grade_fr + ".svg"} alt={''} />
                 <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nova-group-" + products[0].nova_group + ".svg"} alt={''} />
                 <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/icons/ecoscore-" + products[0].ecoscore_grade + ".svg"} alt={''} />
+                 
+                 <h2>Labels</h2>
+                {/* <p>Bio France AB{products[0].ab-agriculture-biologique}</p>
+                <p>Eu Organic{products[0].eu-organic}</p>
+                <p>Fair trade {products[0].en:fair-trade}</p>
+                <p>Commerce équitable{products[0].max-havelaar}</p> */}
+
+                <img src="https://static.openfoodfacts.org/images/lang/en/labels/ab-agriculture-biologique.74x90.svg" alt="" />
+                
+                <img src="https://world.openfoodfacts.org/images/lang/en/labels/eu-organic.135x90.svg" alt="" />
+                
+                <img src="https://world.openfoodfacts.org/images/lang/en/labels/fairtrade-international.77x90.svg" alt="" />
+                
+                <img src="https://world.openfoodfacts.org/images/lang/en/labels/max-havelaar.64x90.svg" alt="" />
+      
+                <p>Végétalien, Végétarien, sans graisse, Casher... : {products[0].labels}</p>
+
             </div>
           </div>
 

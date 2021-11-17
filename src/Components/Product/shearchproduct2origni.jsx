@@ -11,13 +11,21 @@ const Searchproduct = ({products}) => {
 //     3242274001056 : Salade & Compagnie - Montmartre - Sodebo - 320 g
 //     3274080005003 : Eau de source - Cristaline - 1,5 l
 
+//    Test Bio fr AB : 3036811364403 Bio Velouté de 10 Légumes - Liebig - 2 * 35 cl
+//    Test EU organic : 3302957002029 Sauce Salade a La Moutarde a L'ancienne - LA CUISINE D'AUTREFOIS
+//    Test Max Havelar : 3700214617045 chocolat noir au gingembre confit
+//    Test Fair trade : 3700214617045 chocolat noir au gingembre confit
+//    Test pas d'image/pas de nutriscore dans liste : biscote
+
+
 // ToDo
 //     fiche produit à brancher à l'architecture : 
 //     ✅ barres de recherche (accueil et header)
-//     - choix parmi une sélection
+//     ✅ choix parmi une sélection
 //     ✅ code barre
 
 //     ✅ affichage nutriscore/Nova/Ecoscore
+//     ✅ affichage labels bio
 //     (Fonction affichage tableaux)
 
 //     Liens vers 404 en cas de produit non répertorié
