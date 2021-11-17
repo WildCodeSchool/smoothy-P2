@@ -1,7 +1,5 @@
 import React from "react";
 
-const Searchproduct = ({products}) => {
-
 // exemples gen code
 //     marche pas 737628064502 : Rice Noodles
 //     3017620425035 : Pâte à tartiner aux noisettes
