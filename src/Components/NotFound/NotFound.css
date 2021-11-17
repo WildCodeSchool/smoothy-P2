@@ -15,7 +15,7 @@
   font-size: 1.1rem;
   padding-top: 1.5rem;
   padding-left: 0.5rem;
-  padding-right:0.5rem;
+  padding-right: 0.5rem;
 }
 
 .image-SlideNotfound {
@@ -46,13 +46,12 @@
 .barcode-logo {
   display: flex;
   justify-content: center;
-  width: 33vh;
-  height: 35vh;
+  width: 16rem;
+  height: 17rem;
   border: 1px solid black;
   border-radius: 5px;
-  margin-top: 8vh;
-  margin-bottom: 8vh;
-  font-size: 0.8rem;
+  margin-top: 4rem;
+  margin-bottom: 6rem;
 }
 
 .barcode-logo :hover {
@@ -61,14 +60,11 @@
 
 @media screen and (min-width: 700px) {
   .barcode-logo {
-    width: 45vh;
-    height: 45vh;
+    width: 30rem;
+    height: 31rem;
   }
   .image-SlideNotfound {
     height: 38vh;
-  }
-  .txt-Pnotfound {
-    font-size: 1.8rem;
   }
 }
 

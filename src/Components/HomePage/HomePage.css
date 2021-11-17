@@ -29,7 +29,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  border: 1px solid black;
+  border: none;
+  border-bottom: 1px solid black;
   margin-bottom: 4rem;
 }
 
@@ -58,9 +59,7 @@
   .image-Slide {
     background-image: url("../../Assets/slide2.png");
   }
-  .text-Slide {
-    font-size: 1.8rem;
-  }
+
   .image-Head {
     background-image: url("../../Assets/slide2.png");
     margin-bottom: 6rem;
@@ -73,9 +72,6 @@
 }
 
 @media screen and (min-width: 800px) {
-  .text-Slide {
-    font-size: 1.8rem;
-  }
   .image-Slide {
     background-image: url("../../Assets/slide3.png");
   }

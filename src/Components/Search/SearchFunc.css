@@ -38,14 +38,14 @@
   flex-wrap: wrap;
   flex-direction: column;
   padding-top: 1rem;
-  margin-left: 2vh;
-  margin-right: 2vh;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 figure {
   display: flex;
-  margin-bottom: 1vh;
-  margin-top: 1vh;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
   border-bottom: solid 1px green;
   padding: 0.3rem;
   padding-bottom: 1rem;
@@ -56,18 +56,16 @@ figure:hover {
 }
 
 .images {
-  display: block;
-  width: 78px;
-  height: 78px;
+  display: flex;
+  width: 4rem;
+  height: 5rem;
   object-fit: contain;
 }
 
 .items {
-  text-align: start;
-  align-items: flex-start;
-  width: 35vh;
-  font-size: 1rem;
-  margin-left: 3vh;
+  align-items: flex-end;
+  margin-left: 2rem;
+  font-size: 0.9rem;
 }
 
 a {
@@ -85,6 +83,7 @@ a:hover {
   background-color: #ffebb0;
   border-radius: 20px;
   padding-left: 0.4rem;
+  padding-right: 0.4rem;
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
   border: solid 1px black;
@@ -98,7 +97,7 @@ a:hover {
 
 .input-css {
   background-color: #f8f1dd;
-  width: 20vh;
+  width: 10rem;
   border-radius: 20px;
   padding-left: 0.6rem;
   padding-top: 0.2rem;
@@ -108,42 +107,40 @@ a:hover {
 }
 
 .nutri-list {
-  height: 4vh;
-  width: 18vw;
-  margin-left: 1.6vh;
-  margin-top: 2vh;
+  height: 2rem;
+  width: 5rem;
+  margin-left: 1.7rem;
+  margin-top: 0.9rem;
 }
 
-.nutri-listNone{
-  height: 4vh;
-  width: 10.5vw;
-  margin-left: 3.8vh;
-  margin-top: 2vh;
+.nutri-listNone {
+  height: 2.4rem;
+  width: 3.5rem;
+  margin-left: 2.5rem;
+  margin-top: 1rem;
 }
 .figcaption {
   font-size: 0.8rem;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 650px) {
   .input-css {
-    width: 38vh;
-    height: 4vh;    
-    font-size: 1.8rem;
+    width: 22rem;
+    height: 2.8rem;
   }
   .button-css {
-    width: 7vh;
-    height: 4vh;
-    font-size: 1.8rem;
+    width: 3.5rem;
+    height: 2.8rem;
   }
   figure {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    width: 33vh;
-    height: 40vh;
-    margin-left: 1vh;
-    margin-right: 1vh;
+    width: 21rem;
+    height: 23rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
     background-color: #fff1c500;
   }
 
@@ -155,37 +152,36 @@ a:hover {
   }
 
   .images {
-    width: 15vw;
-    height: 18vh;
+    width: 10rem;
+    height: 12rem;
   }
   .items {
     text-align: center;
-    align-items: center;
-    width: 34vh;
-    padding-left: 0.4rem;
-    padding-right: 0.4rem;
-    margin-left: none;
-    font-size: 1.8rem;
+    margin-left: 0;
+    font-size: 1.3rem;
   }
 
   figcaption {
-    text-align: center;
     margin-top: 1rem;
-    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .nutri-list {
-    height: 4vh;
-    width: 17vw;
-    margin-top: 2vh;
+    display: flex;
+    height: 2.5rem;
+    width: 15rem;
+    margin-top: 1.5rem;
+    margin-left: 0;
   }
   a {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
   }
-  .nutri-listNone{
-    height: 4vh;
-    width: 5.5vw;
-    margin-left: 1.6vh;
+  .nutri-listNone {
+    height: 2.5rem;
+    width: 4.5rem;
+    margin-left: 0.5rem;
     margin-top: 2vh;
   }
 }
