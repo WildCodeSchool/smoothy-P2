@@ -12,8 +12,10 @@
 
 .txt-Pnotfound {
   text-align: center;
-  font-size: 0.8rem;
-  padding-top: 1rem;
+  font-size: 1.1rem;
+  padding-top: 1.5rem;
+  padding-left: 0.5rem;
+  padding-right:0.5rem;
 }
 
 .image-SlideNotfound {
@@ -44,7 +46,7 @@
 .barcode-logo {
   display: flex;
   justify-content: center;
-  width: 35vh;
+  width: 33vh;
   height: 35vh;
   border: 1px solid black;
   border-radius: 5px;
@@ -57,16 +59,22 @@
   opacity: 0.4;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 700px) {
   .barcode-logo {
     width: 45vh;
     height: 45vh;
-    font-size: 1.2rem;
   }
   .image-SlideNotfound {
     height: 38vh;
   }
   .txt-Pnotfound {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (min-width: 1030px) {
+  .img-NotFound {
+    width: 65vw;
+    height: 35vh;
   }
 }

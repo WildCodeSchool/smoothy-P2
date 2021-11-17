@@ -14,6 +14,7 @@
 .text-Slide {
   margin-bottom: 5rem;
   text-align: center;
+  font-size: 1rem;
 }
 
 .image-Head {
@@ -58,7 +59,7 @@
     background-image: url("../../Assets/slide2.png");
   }
   .text-Slide {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
   }
   .image-Head {
     background-image: url("../../Assets/slide2.png");
@@ -73,7 +74,7 @@
 
 @media screen and (min-width: 800px) {
   .text-Slide {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
   }
   .image-Slide {
     background-image: url("../../Assets/slide3.png");

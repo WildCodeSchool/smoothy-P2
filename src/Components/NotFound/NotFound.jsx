@@ -3,7 +3,7 @@ import DisplayScan from "../Scanner/DisplayScan.jsx";
 import SearchBar from "../Search/SearchBar.jsx";
 import { useHistory } from "react-router-dom";
 import Footer from "../Footer/Footer.jsx";
-import sigmund from "../../Assets/sigmund.png";
+import sigmund from "../../Assets/giphy.gif";
 import "./NotFound.css";
 
 function NotFound() {
@@ -31,7 +31,7 @@ function NotFound() {
       </p>
 
       <p className="txt-Pnotfound">
-        Si vous ne trouvez pas votre produit, <a href="https://fr.openfoodfacts.org/contribuer">Cliquez ici</a> si
+        Si vous ne trouvez pas votre produit, <a href="https://fr.openfoodfacts.org/contribuer">cliquez ici</a> si
         vous souhaitez contribuer à l&apos;ajouter. {" "}
       </p>
 
