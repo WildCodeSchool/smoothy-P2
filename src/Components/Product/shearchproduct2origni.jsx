@@ -32,6 +32,7 @@ import React from "react";
 //      - depuis le scann
 //      - depuis une recherche de code barre
 
+const Searchproduct = ({products}) => {
     return (
 
       <div>
@@ -127,15 +128,7 @@ import React from "react";
             <h2>Environnement</h2>
                 <p></p>
             <h2>Synthèse</h2>
-            <h2>Labels</h2>
-                <p>Bio France AB{product.fr:ab-agriculture-biologique}</p>
-                <img src="https://static.openfoodfacts.org/images/lang/en/labels/ab-agriculture-biologique.74x90.svg" alt="" />
-                <p>Eu Organic{product.en:eu-organic}</p>
-                <img src="https://world.openfoodfacts.org/images/lang/en/labels/eu-organic.135x90.svg" alt="" />
-                <p>Fair trade {product.en:fair-trade}</p>
-                <img src="https://world.openfoodfacts.org/images/lang/en/labels/fairtrade-international.77x90.svg" alt="" />
-                <p>Commerce équitable{product.en:max-havelaar}</p>
-                <img src="https://world.openfoodfacts.org/images/lang/en/labels/max-havelaar.64x90.svg" alt="" />
+
       
         </div>
               )}

@@ -128,6 +128,7 @@ const Searchproduct = ({ products }) => {
 
 
 {stringNoSpace = products[0].labels.replace(/ /g, "")}
+
 {stringNoSpace.indexOf('ABAgricultureBiologique')!== -1
 ?<img src="https://static.openfoodfacts.org/images/lang/en/labels/ab-agriculture-biologique.74x90.svg" alt="" />
 :<span></span>}
