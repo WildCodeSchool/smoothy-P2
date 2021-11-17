@@ -33,9 +33,6 @@ a.social {
 }
 
 @media screen and (min-width: 700px) {
-  .footer {
-    height: 9vh;
-  }
   .main-logo1 {
     width: 5rem;
   }

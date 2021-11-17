@@ -21,8 +21,8 @@
     height: 7.5rem;
     width: 7.5rem;
     position: fixed;
-    right: 2vw;
-    margin-bottom: 7rem;
+    right: 1rem;
+    margin-bottom: 4.5rem;
     animation: infinite alternate 2s bump;
   }
 
