@@ -113,6 +113,13 @@ a:hover {
   margin-left: 1.6vh;
   margin-top: 2vh;
 }
+
+.nutri-listNone{
+  height: 4vh;
+  width: 10.5vw;
+  margin-left: 3.8vh;
+  margin-top: 2vh;
+}
 .figcaption {
   font-size: 0.8rem;
 }
@@ -174,5 +181,11 @@ a:hover {
   }
   a {
     font-size: 1.8rem;
+  }
+  .nutri-listNone{
+    height: 4vh;
+    width: 5.5vw;
+    margin-left: 1.6vh;
+    margin-top: 2vh;
   }
 }
