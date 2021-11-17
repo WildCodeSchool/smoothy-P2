@@ -5,29 +5,6 @@ import downchevron from "../../Assets/downchevron.png";
 import "./SearchProduct.css";
 import { Link } from "react-router-dom";
 
-// exemples gen code
-//     marche pas 737628064502 : Rice Noodles
-//     3017620425035 : Pâte à tartiner aux noisettes
-//     8032862870028 : Pâte à tartiner Gonuts sans sucre
-//     3019081238643 : Sardines à l'huile d'olive
-//     3587220002252 : La Gâche Tranchée au Beurre Frais et à la Crème Fraîche
-//     3242274001056 : Salade & Compagnie - Montmartre - Sodebo - 320 g
-//     3274080005003 : Eau de source - Cristaline - 1,5 l
-//     3700281615746 : surprise !
-
-// ToDo
-//     fiche produit à brancher à l'architecture : 
-//     ✅ barres de recherche (accueil et header)
-//     ✅ choix parmi une sélection
-//     ✅ code barre
-
-//     ✅ affichage nutriscore/Nova/Ecoscore
-//     (Fonction affichage tableaux)
-
-//     Liens vers 404 en cas de produit non répertorié
-//      - depuis le scann
-//     ✅ depuis une recherche de code barre
-
 const dashRemover = (str) => {
   return str.replaceAll(("-", "_"), " ");
 };
@@ -149,16 +126,47 @@ else {
             <div className="header-Right-Product">
 
 
+
               <h1 className="generic-Name-Product">{products[0].generic_name}</h1>
+
               <div className="labellls">
                 <div className="labels-1">
                 <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + products[0].nutrition_grade_fr + ".svg"} alt={''} />
-                <img className='eco-score' src={"https://fr.openfoodfacts.org/images/icons/ecoscore-" + products[0].ecoscore_grade + ".svg"} alt={''} />
+                  {/* {products[0].nutrition_grade_fr
+                  ?<img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + product.nutrition_grade_fr + ".svg"} alt={''} />
+                  :<img className='nutri-score' src="https://static.openfoodfacts.org/images/attributes/nutriscore-unknown.svg" />} */}
+                  <img className='eco-score' src={"https://fr.openfoodfacts.org/images/icons/ecoscore-" + products[0].ecoscore_grade + ".svg"} alt={''} />
                 </div >
                 <div className="labels-2">
-                <img className='nova-group' src={"https://fr.openfoodfacts.org/images/misc/nova-group-" + products[0].nova_group + ".svg"} alt={''} />
+                  <img className='nova-group' src={"https://fr.openfoodfacts.org/images/misc/nova-group-" + products[0].nova_group + ".svg"} alt={''} />
+                </div>
+            
+
+
+
+
+{products[0].labels.replace(/ /g, "").indexOf('ABAgricultureBiologique')!== -1
+?<img src="https://static.openfoodfacts.org/images/lang/en/labels/ab-agriculture-biologique.74x90.svg" alt="" />
+:<span></span>
+}
+
+
+{products[0].labels.replace(/ /g, "").indexOf('EUOrganic')!== -1
+?<img src="https://world.openfoodfacts.org/images/lang/en/labels/eu-organic.135x90.svg" alt="" />
+:<span></span>
+}
+
+{products[0].labels.replace(/ /g, "").indexOf('FairtradeInternational')!== -1
+?<img src="https://world.openfoodfacts.org/images/lang/en/labels/fairtrade-international.77x90.svg" alt="" />
+:<span></span>             
+}
+
+{/* {products[0].labels.replace(/ /g, "").indexOf('MaxHavelaar')!== -1
+?<img src="https://world.openfoodfacts.org/images/lang/en/labels/max-havelaar.64x90.svg" alt="" />
+:<span></span>                  
+} */}
               </div>
-              </div>
+
 
             </div>
           </div>
@@ -289,6 +297,7 @@ else {
               </div>
 
               <div className="container-Infos-Bestchoic">
+
               <p className='healthy-name'>{(equivProducts.map((nameP)=>nameP.generic_name)[2])}</p>
               <p >{(equivProducts.map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[2])}</p>
               <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (equivProducts.map((nameP)=>nameP.nutrition_grade_fr)[2])+ ".svg"} alt={''} />
@@ -328,6 +337,7 @@ else {
               <p className='healthy-name'>{(equivProducts.map((nameP)=>nameP.generic_name)[4])}</p>
               <p >{(equivProducts.map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[4])}</p>
               <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (equivProducts.map((nameP)=>nameP.nutrition_grade_fr)[4])+ ".svg"} alt={''} />
+
               </div>
             </div>
           
