@@ -49,10 +49,10 @@ const Searchproduct = ({ products }) => {
   const [alergenetxt, setaAlergenetxt] = useState("alergene-Text-Product");
   const [arowDownEndAlergen, setArowDownEndAlergen] = useState("arow-Down-Product");
 
-  const [isActive, setActive] = useState(true);
+  const [Active, setActive] = useState(true);
 
 
-   /***/  const [isActive, setActive] = useState(true);
+   /**  const [Active, setActive] = useState(true);*/
 
    const handleClick = () => {
     setAlergenComponent("alergene-Component-lvlup-Product");
@@ -63,7 +63,7 @@ const Searchproduct = ({ products }) => {
 
 
   const handleChange = () => {
-    setActive(!isActive);
+    setActive(!Active);
     useswitch==="Composition"? setSwitch("environement") : setSwitch("Composition");
   };
 
@@ -167,7 +167,7 @@ else {
             <div className="switch-Midllproduct">
               <div className="composition-Product">
                 <p
-                  className={isActive ? "environement-Switch-Product2" : "environement-Switch-Product" }
+                  className={Active ? "environement-Switch-Product2" : "environement-Switch-Product" }
                   onClick={handleChange}
                 >
 
@@ -177,7 +177,7 @@ else {
 
                 <p
 
-                className={!isActive ? "environement-Switch-Product2" : "environement-Switch-Product" }
+                className={!Active ? "environement-Switch-Product2" : "environement-Switch-Product" }
                 onClick={handleChange}
 
                 >
