@@ -1,6 +1,6 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    font-family: 'Courier New', Courier, monospace;
-
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Lora", serif;
+  font-size: 1rem;
 }
