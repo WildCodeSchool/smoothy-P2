@@ -127,26 +127,28 @@ const Searchproduct = ({ products }) => {
             
 
 
-{stringNoSpace = products[0].labels.replace(/ /g, "")}
 
-{stringNoSpace.indexOf('ABAgricultureBiologique')!== -1
+
+{products[0].labels.replace(/ /g, "").indexOf('ABAgricultureBiologique')!== -1
 ?<img src="https://static.openfoodfacts.org/images/lang/en/labels/ab-agriculture-biologique.74x90.svg" alt="" />
-:<span></span>}
+:<span></span>
+}
 
-{stringNoSpace.indexOf('EUOrganic')!== -1
+
+{products[0].labels.replace(/ /g, "").indexOf('EUOrganic')!== -1
 ?<img src="https://world.openfoodfacts.org/images/lang/en/labels/eu-organic.135x90.svg" alt="" />
 :<span></span>
 }
 
-{stringNoSpace.indexOf('FairtradeInternational')!== -1
+{products[0].labels.replace(/ /g, "").indexOf('FairtradeInternational')!== -1
 ?<img src="https://world.openfoodfacts.org/images/lang/en/labels/fairtrade-international.77x90.svg" alt="" />
 :<span></span>             
 }
 
-{stringNoSpace.indexOf('MaxHavelaar')!== -1
+{/* {products[0].labels.replace(/ /g, "").indexOf('MaxHavelaar')!== -1
 ?<img src="https://world.openfoodfacts.org/images/lang/en/labels/max-havelaar.64x90.svg" alt="" />
 :<span></span>                  
-}
+} */}
               </div>
 
 
@@ -255,21 +257,7 @@ const Searchproduct = ({ products }) => {
               </div>
 
               <div className="container-Infos-Bestchoic">
-                <p>nom de l&apos;ingredient</p>
-                <p>marque </p>
-                <p>qualidades</p>
-              </div>
-            </div>
-
-            <div className="propos1 bestchoic">
-              <div className="container-Img-Bestchoic">
-              <Link to={`/Product/${equivProducts.map((pr)=>pr._id)[3]}`}>
-              <p> img </p>  
-              </Link>
-              </div>
-
-              <div className="container-Infos-Bestchoic">
-                <p>nom de l&apos;ingredient</p>
+                <p>nom de l&apos;ingredient</p>N
                 <p>marque </p>
                 <p>qualidades</p>
               </div>
