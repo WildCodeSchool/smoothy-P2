@@ -9,6 +9,7 @@ let url = "";
 
 const SearchFunc = ({ produits }) => {
   const [products, setProducts] = useState(null);
+  const [favorites, setFavorites] = useState([]);
   const [page, setPage] = useState(1);
   const [listElt, setListElt] = useState([]);
   const history = useHistory();
@@ -23,18 +24,23 @@ const SearchFunc = ({ produits }) => {
       ? (url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=_id&tag_contains_0=contains&tag_0=${produits}&json=true`)
       : (url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=_keywords&tag_contains_0=contains&tag_0=${produits}&fields=categories,_id,code,product_name_fr,brands_tags,image_front_small_url,quantity,nutriscore_grade,labels_old,brands,_keywords,nutrition_grade_fr,categories,generic_name&page_size=15&page=${page}&json=true`);
 
-
     const getProducts = async () => {
       await axios.get(url).then(({ data }) => setProducts(data.products));
+      axios
+        .get("http://localhost:5000/favorites")
+        .then((data) => setFavorites(data.data));
     };
     getProducts();
   }, [produits, page]);
 
   useEffect(() => {
-    if (page==1 && products) {setListElt([...products])}
-    if (page!=1 && products) {setListElt([...listElt, ...products])}
-  }, [products])
-
+    if (page == 1 && products) {
+      setListElt([...products]);
+    }
+    if (page != 1 && products) {
+      setListElt([...listElt, ...products]);
+    }
+  }, [products]);
 
   useEffect(() => {
     if (page == 1 && products) {
@@ -64,7 +70,7 @@ const SearchFunc = ({ produits }) => {
         {products && products.length == 0 ? (
           history.push(`/error/`)
         ) : (
-          <SearchProductList products={listElt} />
+          <SearchProductList products={listElt} favorites={favorites} />
         )}
 
         <PageListSetter page={page} setPage={setPage} produits={produits} />
