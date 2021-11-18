@@ -3,7 +3,7 @@ import NavBar from "../NavBar/NavBar.jsx";
 import SearchFunc from "../Search/SearchFunc.jsx";
 import ArrowUp from "./Arrows/ArrowUp.jsx";
 import Footer from "../Footer/Footer.jsx";
-import SearchHealthyList from "../Search/SearchHealthyLIst.jsx";
+import SearchHealthyList from "../Search/SearchHealthyList.jsx";
 import PageListSetter from "../ProductList/PageListSetter.jsx"
 
 const ProductListEquiv = (props) => {
