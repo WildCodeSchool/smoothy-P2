@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from "react";
 import axios, { Axios } from "axios";
+import { useHistory } from "react-router-dom";
 
 import downchevron from "../../Assets/downchevron.png";
 import "./SearchProduct.css";
@@ -10,7 +11,31 @@ const dashRemover = (str) => {
 };
 
 
-const fistLetterUpperCase = (a) => {
+// 3273120030609
+// 5053827192699
+
+function sortByProperty(objArray, prop, direction){
+  if (arguments.length<2) throw new Error("ARRAY, AND OBJECT PROPERTY MINIMUM ARGUMENTS, OPTIONAL DIRECTION");
+  if (!Array.isArray(objArray)) throw new Error("FIRST ARGUMENT NOT AN ARRAY");
+  const clone = objArray.slice(0);
+  const direct = arguments.length>2 ? arguments[2] : 1; //Default to ascending
+  const propPath = (prop.constructor===Array) ? prop : prop.split(".");
+  clone.sort(function(a,b){
+      for (let p in propPath){
+              if (a[propPath[p]] && b[propPath[p]]){
+                  a = a[propPath[p]];
+                  b = b[propPath[p]];
+              }
+      }
+      // convert numeric strings to integers
+      a = a.match(/^\d+$/) ? +a : a;
+      b = b.match(/^\d+$/) ? +b : b;
+      return ( (a < b) ? -1*direct : ((a > b) ? 1*direct : 0) );
+  });
+  return clone;
+}
+
+const firstLetterUpperCase = (a) => {
   return (a + "").charAt(0).toUpperCase() + a.substr(1);
 };
 
@@ -19,7 +44,6 @@ let arrayFilter =  []
 
 const Searchproduct = ({ products }) => {
   const [useswitch, setSwitch] = useState("Composition");
-
   const [isActive, setActive] = useState(true);
 
   
@@ -30,32 +54,29 @@ const Searchproduct = ({ products }) => {
 
 
   const [cat, setCat] = useState(null)
+  const [code, setCode] = useState(null)
   const [equivProducts, setEquivProducts] = useState(null);
 
 
-  
+ 
   useEffect(()=>{
-    // products && setCat(products[0].categories.split(",").pop())
     products && setCat(products[0].categories.split(",")[products[0].categories.split(",").length-2])
+    products && setCode(products[0]._id.slice(0,5)+'xxxxxxxx')
+
   }, [products])
   
 
   useEffect(() => {
-    
-  
-
-    const url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=categories&tag_contains_0=contains&tag_0=${cat}&tagtype_1=nutrition_grade_fr&tag_contains_1=contains&tag_1=a&fields=categories,_id,code,product_name_fr,brands_tags,image_front_small_url,image_url,quantity,nutrition_grade_fr,nutrition_grade_fr,nutrition_grades,labels_old,brands,generic_name,_keywords,nutrition_grade_fr,brands_tags&page_size=6&json=true`;
-
+    const url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=codes_tags&tag_contains_0=contains&tag_0=${code}&fields=categories,_id,code,product_name_fr,brands_tags,image_front_small_url,image_url,quantity,nutrition_grade_fr,nutrition_grade_fr,nutrition_grades,labels_old,brands,generic_name,_keywords,nutrition_grade_fr,brands_tags&page_size=1&json=true`;
     const getProducts = async () => {
       
     await axios
     .get(url).then(({ data }) => setEquivProducts(data.products))
     }
     getProducts()
-  
   }, [cat]);
-
-   // console.log(cat)
+  /* {const equivProdructsFiltered = sortByProperty(equivProducts, 'attributes.nutrition_grade_fr')} */
+  // console.log(cat)
   // console.log(equivProducts)
 
 
@@ -67,20 +88,18 @@ const Searchproduct = ({ products }) => {
 
 
   const replace = (qual) => { if (qual == "fat")
-{return "Matière grasse"}
-else {
-  if (qual == "salt") {return "Sel"}
-   else {
-     if (qual == "saturated-fat") {return "Graisse saturée"}
-     else {
-       if (qual == "sugars") {return "Sucre"}
-       else {return "non défini"}
-     }
-   }
-}
-}
-
-
+    {return "Matière grasse"}
+      else {
+        if (qual == "salt") {return "Sel"}
+          else {
+            if (qual == "saturated-fat") {return "Graisse saturée"}
+              else {
+                if (qual == "sugars") {return "Sucre"}
+                  else {return "non défini"}
+              }
+          }
+      }
+  }
 
 const level = (qual) => {if (qual == "low") {return "faible"}
 else {
@@ -115,8 +134,10 @@ const ComponentAlergenes = () => {
 
 
 const [visible, setVisible] = useState(false);
+const history = useHistory();
+// console.log(code)
+// (products) && history.push(`/productListEquiv/${products[0].code}`)
 
-  
 
   return (
     <div>
@@ -136,8 +157,8 @@ const [visible, setVisible] = useState(false);
 
 
 
-              <h1 className="generic-Name-Product">{products[0].generic_name}</h1>
-
+              {/* <h1 className="generic-Name-Product">{products[0].generic_name.length>=81?products[0].generic_name.substring(0,81):products[0].generic_name}</h1> */}
+              <h1 className="generic-Name-Product">{products[0].product_name_fr.length>=81?products[0].product_name_fr.substring(0,81):products[0].product_name_fr}</h1>
               <div className="labellls">
                 <div className="labels-1">
                 <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + products[0].nutrition_grade_fr + ".svg"} alt={''} />
@@ -258,51 +279,51 @@ const [visible, setVisible] = useState(false);
             </div>
           </div>
           <div className="le-grid">
-
+          {/* {const equivProdructsFiltered = sortByProperty(equivProducts, 'attributes.nutrition_grade_fr')} */}
           <div className="propos1 bestchoic">
               <div className="container-Img-Bestchoic">
-              <Link to={`/Product/${equivProducts.map((pr)=>pr._id)[0]}`}>
+              <Link to={`/Product/${sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((pr)=>pr._id)[0]}`}>
               <img
               className="img-Left-Prod"
-              src={(equivProducts.map((nameP)=>nameP.image_front_small_url)[0])}
+              src={(sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.image_front_small_url)[0])}
               alt={""}
               />
               </Link>  
 
               </div>
               <div className="container-Infos-Bestchoic">
-              <p className='healthy-name'>{(equivProducts.map((nameP)=>nameP.generic_name)[0])}</p>
-              <p >{(equivProducts.map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[0])}</p>
-              <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (equivProducts.map((nameP)=>nameP.nutrition_grade_fr)[0])+ ".svg"} alt={''} />
+              <p className='healthy-name'>{(sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.product_name_fr)[0])}</p>
+              <p >{(sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[0])}</p>
+              <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.nutrition_grade_fr)[0])+ ".svg"} alt={''} />
               </div>
             </div>
         
 
             <div className="propos1 bestchoic">
               <div className="container-Img-Bestchoic">
-              <Link to={`/Product/${equivProducts.map((pr)=>pr._id)[1]}`}>
+              <Link to={`/Product/${sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((pr)=>pr._id)[1]}`}>
               <img
               className="img-Left-Prod"
-              src={(equivProducts.map((nameP)=>nameP.image_front_small_url)[1])}
+              src={(sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.image_front_small_url)[1])}
               alt={""}
               />
               </Link>  
 
               </div>
               <div className="container-Infos-Bestchoic">
-              <p className='healthy-name'>{(equivProducts.map((nameP)=>nameP.generic_name)[1])}</p>
-              <p >{(equivProducts.map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[1])}</p>
-              <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (equivProducts.map((nameP)=>nameP.nutrition_grade_fr)[1])+ ".svg"} alt={''} />
+              <p className='healthy-name'>{(sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.product_name_fr)[1])}</p>
+              <p >{(sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[1])}</p>
+              <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.nutrition_grade_fr)[1])+ ".svg"} alt={''} />
               </div>
             </div>
                        
 
             <div className="propos1 bestchoic">
               <div className="container-Img-Bestchoic">
-              <Link to={`/Product/${equivProducts.map((pr)=>pr._id)[2]}`}>
+              <Link to={`/Product/${sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((pr)=>pr._id)[2]}`}>
               <img
               className="img-Left-Prod"
-              src={(equivProducts.map((nameP)=>nameP.image_front_small_url)[2])}
+              src={(sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.image_front_small_url)[2])}
               alt={""}
               />
               </Link>
@@ -310,64 +331,64 @@ const [visible, setVisible] = useState(false);
 
               <div className="container-Infos-Bestchoic">
 
-              <p className='healthy-name'>{(equivProducts.map((nameP)=>nameP.generic_name)[2])}</p>
-              <p >{(equivProducts.map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[2])}</p>
-              <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (equivProducts.map((nameP)=>nameP.nutrition_grade_fr)[2])+ ".svg"} alt={''} />
+              <p className='healthy-name'>{(sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.product_name_fr)[2])}</p>
+              <p >{(sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[2])}</p>
+              <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.nutrition_grade_fr)[2])+ ".svg"} alt={''} />
               </div>
             </div>
 
             <div className="propos1 bestchoic">
               <div className="container-Img-Bestchoic">
-              <Link to={`/Product/${equivProducts.map((pr)=>pr._id)[3]}`}>
+              <Link to={`/Product/${sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((pr)=>pr._id)[3]}`}>
               <img
               className="img-Left-Prod"
-              src={(equivProducts.map((nameP)=>nameP.image_front_small_url)[3])}
+              src={(sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.image_front_small_url)[3])}
               alt={""}
               />
               </Link>
               </div>
 
               <div className="container-Infos-Bestchoic">
-              <p className='healthy-name'>{(equivProducts.map((nameP)=>nameP.generic_name)[3])}</p>
-              <p >{(equivProducts.map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[3])}</p>
-              <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (equivProducts.map((nameP)=>nameP.nutrition_grade_fr)[3])+ ".svg"} alt={''} />
-              </div>
-            </div>
-          
-            <div className="propos1 bestchoic">
-              <div className="container-Img-Bestchoic">
-              <Link to={`/Product/${equivProducts.map((pr)=>pr._id)[4]}`}>
-              <img
-              className="img-Left-Prod"
-              src={(equivProducts.map((nameP)=>nameP.image_front_small_url)[4])}
-              alt={""}
-              />
-              </Link>
-              </div>
-
-              <div className="container-Infos-Bestchoic">
-              <p className='healthy-name'>{(equivProducts.map((nameP)=>nameP.generic_name)[4])}</p>
-              <p >{(equivProducts.map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[4])}</p>
-              <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (equivProducts.map((nameP)=>nameP.nutrition_grade_fr)[4])+ ".svg"} alt={''} />
-
+              <p className='healthy-name'>{(sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.product_name_fr)[3])}</p>
+              <p >{(sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[3])}</p>
+              <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.nutrition_grade_fr)[3])+ ".svg"} alt={''} />
               </div>
             </div>
           
             <div className="propos1 bestchoic">
               <div className="container-Img-Bestchoic">
-              <Link to={`/Product/${equivProducts.map((pr)=>pr._id)[5]}`}>
+              <Link to={`/Product/${sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((pr)=>pr._id)[4]}`}>
               <img
               className="img-Left-Prod"
-              src={(equivProducts.map((nameP)=>nameP.image_front_small_url)[5])}
+              src={(sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.image_front_small_url)[4])}
               alt={""}
               />
               </Link>
               </div>
 
               <div className="container-Infos-Bestchoic">
-              <p className='healthy-name'>{(equivProducts.map((nameP)=>nameP.generic_name)[5])}</p>
-              <p >{(equivProducts.map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[5])}</p>
-              <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (equivProducts.map((nameP)=>nameP.nutrition_grade_fr)[5])+ ".svg"} alt={''} />
+              <p className='healthy-name'>{(sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.product_name_fr)[4])}</p>
+              <p >{(sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[4])}</p>
+              <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.nutrition_grade_fr)[4])+ ".svg"} alt={''} />
+
+              </div>
+            </div>
+          
+            <div className="propos1 bestchoic">
+              <div className="container-Img-Bestchoic">
+              <Link to={`/Product/${sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((pr)=>pr._id)[5]}`}>
+              <img
+              className="img-Left-Prod"
+              src={(sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.image_front_small_url)[5])}
+              alt={""}
+              />
+              </Link>
+              </div>
+
+              <div className="container-Infos-Bestchoic">
+              <p className='healthy-name'>{(sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.generic_name)[5])}</p>
+              <p>{(sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((brandP)=>brandP.brands_tags[0].replaceAll('-',' '))[5])}</p>
+              <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + (sortByProperty(equivProducts, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.nutrition_grade_fr)[5])+ ".svg"} alt={''} />
               </div>
             </div>
 
@@ -393,8 +414,13 @@ const [visible, setVisible] = useState(false);
 
           
           </div>
+          
+          {/* {console.log(code)}   */}
+          <Link to={`/productListEquiv/${code}`}>voir tout</Link> 
+          {/* <Link to={`/Product/${product.code}`}> */}
 
-          <p className="goproductlist">voir tout</p>
+
+          {/* <p className="goproductlist">voir tout</p> */}
 
         </div>
       )}

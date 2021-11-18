@@ -42,12 +42,12 @@ h3 {
 .img-Left-Product {
   width: 20vw;
   max-width: 25vw;
-  border-radius: 15px;
+  /* border-radius: 15px; */
 }
 
 .img-Left-Prod {
-  width: 70%;
-  border-radius: 15px;
+  width: 110%;
+  /* border-radius: 15px; */
 }
 
 .header-Right-Product {
@@ -60,7 +60,7 @@ h3 {
 }
 
 .header-Right-Product p {
-  border-radius: 10px;
+  /* border-radius: 10px; */
   color: black;
   display: flex;
   align-items: center;
@@ -170,7 +170,7 @@ h3 {
 
 .container-Img-Bestchoic {
 
-  border-radius: 5%;
+  /* border-radius: 5%; */
   padding: 1.2rem;
   margin: 2%;
 }
@@ -205,7 +205,7 @@ h3 {
   margin: 2rem;
   max-width: 10vw;
   height: auto;
-  border-radius: 15px;
+  /* border-radius: 15px; */
 }
 
 @media (max-width: 750px) {
