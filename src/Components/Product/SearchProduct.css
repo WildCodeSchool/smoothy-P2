@@ -1,16 +1,18 @@
 
 h1 {
   text-align:center;
-  font-size:1.7rem;
+  /* font-size:1.7rem; */
+  font-size: clamp(20px, 5vw, 35px);
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+
 }
 
 h3 {
   color:darkgreen;
   font-size:0.9em;
-  margin-left: 7px;
-}
-
-.label{
   margin-left: 7px;
 }
 
@@ -41,14 +43,13 @@ h3 {
 }
 
 .img-Left-Product {
-  width: 20vw;
-  max-width: 25vw;
-  border-radius: 15px;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .img-Left-Prod {
   width: 70%;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 .header-Right-Product {
@@ -83,11 +84,7 @@ h3 {
 .environement-Switch-Product2 {
   margin-left: 5px;
   color:#3cb371
-
-  
 }
-
-
 
 .composition-Product {
   display: flex;
@@ -104,7 +101,6 @@ h3 {
   text-align: justify;
   width:100%;
 }
-
 
 .alergene-Component-Product {
   border: solid 1px black;
@@ -177,16 +173,6 @@ h3 {
   color: rgb(0, 65, 0);
 }
 
-
-@media screen and (min-width: 800px) {
-  .le-grid  {
-
-    height: 30vh
-  }
-}
-    
-  
-
 .propos1 {
   display: flex;
 }
@@ -225,12 +211,51 @@ h3 {
   height: auto;
 }
 
-@media (max-width: 750px){
+.healthy-name{  /*check start*/
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
+
+.labelsContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 60%;
+}
+
+.label{
+  margin-left: 7px;
+  margin-top: 3px;
+}
+
+
+@media (max-width: 800px){
+
+  .img-Left-Product {
+    min-width: 45vw;
+  }
+
+  .labelsContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 60%;
+  }
+
+  .label{
+    max-height: 5vh;
+  }
+
+  .euorganic{
+    width: 40px;
+  }
+
   .nutri-score{
     display: flex;
     width: 60%;
     height: auto;
-} 
+  }
   .eco-score{
     display: flex;
     width: 60%;
@@ -244,13 +269,21 @@ h3 {
 }
 
 
-.healthy-name{  /*check start*/
-  font-size: 0.8rem;
-  margin-top: 1rem;
-}
-
 @media screen and (min-width: 800px) {
-   .healthy-name  {
+
+  .img-Left-Product {
+    width: 25vw;
+  }
+
+  .label{
+    max-height: 8vh;
+  }
+
+  .le-grid{
+      height: 30vh;
+    }
+
+  .healthy-name  {
     font-size: 1rem;
     margin-top: 1rem;
   }
