@@ -111,6 +111,7 @@ h3 {
   display: flex;
   padding: 0.4rem;
   color: black;
+  flex-direction: column;
 }
 
 .alergene-Component-Product button {
@@ -134,13 +135,12 @@ h3 {
 .button-content {
   display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .allAlergenes {
   display: flex;
-  margin: 1%;
-  margin-bottom: 0.4rem;
-  padding-top:1rem ;
+  margin-bottom: 0.8rem;
   justify-content: flex-start;
   align-items: baseline;
 }
