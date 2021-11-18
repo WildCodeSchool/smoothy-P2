@@ -2,7 +2,8 @@ import React, { useState,useEffect } from "react";
 import axios, { Axios } from "axios";
 import { useHistory } from "react-router-dom";
 
-import downchevron from "../../Assets/downchevron.png";
+import downchevron from "../../Assets/chevron-up-solid.svg";
+import Upchevron from "../../Assets/chevron-down-solid.svg";
 import "./SearchProduct.css";
 import { Link } from "react-router-dom";
 
@@ -140,6 +141,18 @@ const [visible, setVisible] = useState(false);
 const history = useHistory();
 
 
+  
+const change = () => {
+  setText(!isText)
+  useText==="clickme"? setUseText("Reduire les alergenes") : setUseText("Afficher les alergenes")
+  }
+  
+  const [useText, setUseText] = useState("clickme");
+  
+  const [isText, setText] = useState(true)
+
+
+
   return (
     <div>
       {products && (
@@ -243,28 +256,21 @@ const history = useHistory();
               </div>
             </div>
 
-            <div className="alergen-Product">
-              <div className='alergene-Component-Product'>
+           <div className="alergen-Product">
+        <div className='alergene-Component-Product'>
+          <div className='button-content'>
 
-                <div>
-      <button onClick={() => setVisible(prev => !prev)}>Alergenes ? </button>
-      {visible && <ComponentAlergenes />}
-    </div>
+            <button onClick={()=> { setVisible(prev => !prev) ; change();}} > {!isText ? <div className="butonshow">
+                <p>Alergenes</p> <img src={downchevron} alt="" />
+              </div> : <div className="butonshow">
+                <p>Alergenes</p>  <img src={Upchevron} alt="" /> 
+              </div> } </button>
+          </div>
+          <div>
+            {visible &&
+            <ComponentAlergenes />}
+          </div>
 
-                
-                <p className="alergene-Text-Product">
-               
-              
-                  {" "}
-                  <span role="img" aria-label="warning">
-                    {" "}
-                    ⚠️{" "}
-                  </span>{" "}
-                  {products[0].allergens_from_ingredients.split(',').forEach(elt => !elt.startsWith('en:') ? arrayFilter.push(elt.trim()):'none')}
-                  {products[0].allergens_from_ingredients 
-                  ? `Ce produit contient : ${[...new Set (arrayFilter)].join(", ").toUpperCase()}`
-                  : "Pas d'allergène renseigné sur ce produit"}
-                </p>
               </div>
             </div>
           </div>

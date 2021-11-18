@@ -1,3 +1,4 @@
+
 h1 {
   text-align: center;
   overflow: hidden;
@@ -5,31 +6,31 @@ h1 {
 }
 
 h3 {
-  color: darkgreen;
+  color:darkgreen;
   margin-left: 7px;
 }
 
-.label {
+.label{
   margin-left: 7px;
 }
 
-.label--value.high {
+.label--value.high{
   color: #ff6347;
 }
 
-.label--value.moderate {
+.label--value.moderate{
   color: #ffa500;
 }
 
-.label--value.low {
+.label--value.low{
   color: #3cb371;
 }
 
-.AddSection {
-  margin-top: 10px;
+.AddSection{
+  margin-top:10px;
 }
 
-.additives {
+.additives{
   margin-left: 7px;
 }
 
@@ -72,9 +73,20 @@ h3 {
   margin-left: 5px;
 }
 
+
 .environement-Switch-Product2 {
   margin-left: 5px;
-  color: #3cb371;
+  color:#3cb371
+
+  
+}
+
+#root > div > div > div:nth-child(2) > div > div.midll-Product > div.alergen-Product > div > div.button-content > button > div > p{
+  margin-right: 0.3rem;
+}
+
+#root > div > div > div:nth-child(2) > div > div.midll-Product > div.alergen-Product > div > div.button-content > button > div > img{
+  width:1rem;
 }
 
 .composition-Product {
@@ -89,6 +101,7 @@ h3 {
   color: black;
   padding: 7px;
 }
+
 
 .alergene-Component-Product {
   border: solid 1px black;
@@ -108,14 +121,32 @@ h3 {
 
 .allAlergenes {
   margin: 0.8rem;
+  display: flex;
+  justify-content:flex-end
+}
+
+.butonshow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.button-content {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.allAlergenes {
+  display: flex;
+  margin: 1%;
+  margin-bottom: 0.4rem;
+  padding-top:1rem ;
+  justify-content: flex-start;
+  align-items: baseline;
 }
 
 .alergene-Component-Product button:hover {
   background-color: #f1cf68bb;
-}
-
-.alergene-Text-Product {
-  display: none;
 }
 
 .le-grid {
@@ -124,6 +155,7 @@ h3 {
   grid-template-columns: repeat(6, 20rem);
   overflow-x: scroll;
   height: auto;
+  overflow-y: hidden;
 }
 
 .le-grid > .bestchoic {
@@ -168,14 +200,14 @@ h3 {
   margin-right: 0.75rem;
 }
 
-.nutri-score {
+.nutri-score{
   display: flex;
   width: 3.5rem;
   height: auto;
   margin-bottom: 0.7rem;
 }
 
-.eco-score {
+.eco-score{
   display: flex;
   width: 3.5rem;
   height: auto;
@@ -323,3 +355,4 @@ h3 {
       margin-right: 0.5rem;
     }
 }
+ 
