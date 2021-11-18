@@ -184,23 +184,23 @@ const change = () => {
 
 
 
-
+                <div className="bio">
 {products[0].labels.replace(/ /g, "").indexOf('ABAgricultureBiologique')!== -1
-?<img src="https://static.openfoodfacts.org/images/lang/en/labels/ab-agriculture-biologique.74x90.svg" alt="" />
+?<img className='nova-group1'src="https://static.openfoodfacts.org/images/lang/en/labels/ab-agriculture-biologique.74x90.svg" alt="" />
 :<span></span>
 }
 
 
 {products[0].labels.replace(/ /g, "").indexOf('EUOrganic')!== -1
-?<img src="https://world.openfoodfacts.org/images/lang/en/labels/eu-organic.135x90.svg" alt="" />
+?<img className='nova-group2'src="https://world.openfoodfacts.org/images/lang/en/labels/eu-organic.135x90.svg" alt="" />
 :<span></span>
 }
 
 {products[0].labels.replace(/ /g, "").indexOf('FairtradeInternational')!== -1
-?<img src="https://world.openfoodfacts.org/images/lang/en/labels/fairtrade-international.77x90.svg" alt="" />
+?<img className='nova-group3'src="https://world.openfoodfacts.org/images/lang/en/labels/fairtrade-international.77x90.svg" alt="" />
 :<span></span>             
 }
-
+</div>
               </div>
 
 
@@ -279,7 +279,7 @@ const change = () => {
               <div className="container-Img-Bestchoic">
               <Link to={`/Product/${sortByProperty(filterNutrigrade, 'attributes.nutrition_grade_fr').map((pr)=>pr._id)[0]}`}>
               <img
-              className="img-Left-Prod"
+              className="img-Left-Prod1"
               src={(sortByProperty(filterNutrigrade, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.image_front_small_url)[0])}
               alt={""}
               />
@@ -298,7 +298,7 @@ const change = () => {
               <div className="container-Img-Bestchoic">
               <Link to={`/Product/${sortByProperty(filterNutrigrade, 'attributes.nutrition_grade_fr').map((pr)=>pr._id)[1]}`}>
               <img
-              className="img-Left-Prod"
+              className="img-Left-Prod1"
               src={(sortByProperty(filterNutrigrade, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.image_front_small_url)[1])}
               alt={""}
               />
@@ -317,7 +317,7 @@ const change = () => {
               <div className="container-Img-Bestchoic">
               <Link to={`/Product/${sortByProperty(filterNutrigrade, 'attributes.nutrition_grade_fr').map((pr)=>pr._id)[2]}`}>
               <img
-              className="img-Left-Prod"
+              className="img-Left-Prod1"
               src={(sortByProperty(filterNutrigrade, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.image_front_small_url)[2])}
               alt={""}
               />
@@ -336,7 +336,7 @@ const change = () => {
               <div className="container-Img-Bestchoic">
               <Link to={`/Product/${sortByProperty(filterNutrigrade, 'attributes.nutrition_grade_fr').map((pr)=>pr._id)[3]}`}>
               <img
-              className="img-Left-Prod"
+              className="img-Left-Prod1"
               src={(sortByProperty(filterNutrigrade, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.image_front_small_url)[3])}
               alt={""}
               />
@@ -354,7 +354,7 @@ const change = () => {
               <div className="container-Img-Bestchoic">
               <Link to={`/Product/${sortByProperty(filterNutrigrade, 'attributes.nutrition_grade_fr').map((pr)=>pr._id)[4]}`}>
               <img
-              className="img-Left-Prod"
+              className="img-Left-Prod1"
               src={(sortByProperty(filterNutrigrade, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.image_front_small_url)[4])}
               alt={""}
               />
@@ -373,7 +373,7 @@ const change = () => {
               <div className="container-Img-Bestchoic">
               <Link to={`/Product/${sortByProperty(filterNutrigrade, 'attributes.nutrition_grade_fr').map((pr)=>pr._id)[5]}`}>
               <img
-              className="img-Left-Prod"
+              className="img-Left-Prod1"
               src={(sortByProperty(filterNutrigrade, 'attributes.nutrition_grade_fr').map((nameP)=>nameP.image_front_small_url)[5])}
               alt={""}
               />
@@ -392,7 +392,7 @@ const change = () => {
          
           </div>
           
-          <Link to={`/productListEquiv/${code}`}>voir tout</Link> 
+          <Link to={`/productListEquiv/${code}`} className="goproductlist">voir tout</Link> 
 
         </div>
       )}
