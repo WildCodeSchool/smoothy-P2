@@ -4,16 +4,13 @@ import "../Search/SearchFunc.css";
 import moreProducts from "../../Assets/moreProducts.png";
 
 
-function PageListSetter({ page, setPage, produits }) {
+function PageListSetter({ page, setPage }) {
   const handleClick = () => {
     setPage(++page);
   };
   return (
     <div className="more-button">
       <img
-        // className={
-        //   /\d/.test(produits) ? "hidden-button-style" : "more-button-style"
-        // }
         onClick={handleClick}
         src={moreProducts}
         alt="more-products"

@@ -6,7 +6,6 @@ import downchevron from "../../Assets/chevron-up-solid.svg";
 import Upchevron from "../../Assets/chevron-down-solid.svg";
 import "./SearchProduct.css";
 import { Link } from "react-router-dom";
-import SortByProperty from "../Tools/SortByProperty";
 import replace from "../Tools/replace";
 import level from "../Tools/level";
 import Cards from "../Tools/Cards";
