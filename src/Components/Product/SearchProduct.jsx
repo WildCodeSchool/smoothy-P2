@@ -18,6 +18,7 @@ const dashRemover = (str) => {
 let arrayFilter =  []
 
 const Searchproduct = ({ products }) => {
+  const history = useHistory();
   const [useswitch, setSwitch] = useState("Composition");
   const [isActive, setActive] = useState(true);
   const handleChange = () => {
@@ -29,7 +30,6 @@ const Searchproduct = ({ products }) => {
   const [equivProducts, setEquivProducts] = useState(null);
   const [filterNutrigrade, setFilterNutrigrade] = useState(null);
   const [visible, setVisible] = useState(false);
-  const history = useHistory();
   const [useText, setUseText] = useState("clickme");
   const [isText, setText] = useState(true)
  
@@ -39,13 +39,13 @@ const Searchproduct = ({ products }) => {
   }, [products])
   
   useEffect(() => {
-    const url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=codes_tags&tag_contains_0=contains&tag_0=${code}&fields=categories,_id,code,product_name_fr,brands_tags,image_front_small_url,image_url,quantity,nutrition_grade_fr,nutrition_grade_fr,nutrition_grades,labels_old,brands,generic_name,_keywords,nutrition_grade_fr,nutrition_grades_tags,brands_tags&page_size=1&json=true`;
+    const url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=codes_tags&tag_contains_0=contains&tag_0=${code}&fields=categories,_id,code,product_name_fr,brands_tags,image_front_small_url,image_url,quantity,nutrition_grade_fr,nutrition_grade_fr,nutrition_grades,labels_old,brands,generic_name,_keywords,nutrition_grade_fr,nutrition_grades_tags,brands_tags,&page_size=1&json=true`;
     const getProducts = () => {axios.get(url).then(({ data }) => setEquivProducts(data.products))}
     getProducts()
   }, [cat]);
 
   useEffect(() => {
-    equivProducts && setFilterNutrigrade(equivProducts.filter(e => (e.nutrition_grades=="a")||(e.nutrition_grades=="b")||(e.nutrition_grades=="c")||(e.nutrition_grades=="d")||(e.nutrition_grades=="e")))
+    equivProducts && setFilterNutrigrade(equivProducts.filter(e => ((e.nutrition_grades=="a")||(e.nutrition_grades=="b")||(e.nutrition_grades=="c")||(e.nutrition_grades=="d")||(e.nutrition_grades=="e"))).filter(e => (e.brands_tags)))
   },[equivProducts])
 
   useEffect(() => {
@@ -70,7 +70,7 @@ const ComponentAlergenes = () => {
   
 const change = () => {
   setText(!isText)
-  useText==="clickme"? setUseText("Reduire les alergenes") : setUseText("Afficher les alergenes")
+  useText==="clickme"? setUseText("Reduire les allergènes") : setUseText("Afficher les allergènes")
 }
 
 return (
@@ -157,9 +157,9 @@ return (
                 <div className='button-content'>
                   <button onClick={()=> {setVisible(prev => !prev) ; change();}} > {!isText 
                   ? <div className="butonshow">
-                      <p>Alergenes</p> <img src={downchevron} alt="" />
+                      <p>Allergènes</p> <img src={downchevron} alt="" />
                     </div> : <div className="butonshow">
-                      <p>Alergenes</p>  <img src={Upchevron} alt="" /> 
+                      <p>Allergènes</p>  <img src={Upchevron} alt="" /> 
                     </div> } </button>
                 </div>
                 <div>
