@@ -3,13 +3,14 @@ import axios from "axios";
 import SearchProductList from "./SearchProductList.jsx";
 import "./SearchFunc.css";
 import PageListSetter from "../ProductList/PageListSetter.jsx";
-import SearchProduct from "../Product/SearchProduct.jsx";
 import { useHistory } from "react-router-dom";
+import ProductList_Equiv from "../ProductList/ProductList_Equiv.jsx"
+
 let url = "";
 
-const SearchFunc = ({ produits }) => {
+const SearchHealthyList = ({ produits }) => {
   const [products, setProducts] = useState(null);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [listElt, setListElt] = useState([]);
   const history = useHistory();
 
@@ -19,9 +20,7 @@ const SearchFunc = ({ produits }) => {
   }, [produits]);
 
   useEffect(() => {
-    /\d/.test(produits)
-      ? (url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=_id&tag_contains_0=contains&tag_0=${produits}&json=true`)
-      : (url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=_keywords&tag_contains_0=contains&tag_0=${produits}&fields=categories,_id,code,product_name_fr,brands_tags,image_front_small_url,quantity,nutriscore_grade,labels_old,brands,_keywords,nutrition_grade_fr,categories,generic_name&page_size=24&page=${page}&json=true`);
+      url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=codes_tags&tag_contains_0=contains&tag_0=${produits}&fields=categories,_id,code,product_name_fr,brands_tags,image_front_small_url,image_url,quantity,nutrition_grade_fr,nutrition_grade_fr,nutrition_grades,labels_old,brands,generic_name,_keywords,nutrition_grade_fr,brands_tags&page_size=24&page=${page}&json=true`
 
 
     const getProducts = async () => {
@@ -45,18 +44,6 @@ const SearchFunc = ({ produits }) => {
     }
   }, [products]);
 
-  if (/\d/.test(produits)) {
-    return (
-      <div className="Container">
-        <div className="search-bar"></div>
-        {products && products.length == 0 ? (
-          history.push(`/error/`)
-        ) : (
-          <SearchProduct products={products} />
-        )}
-      </div>
-    );
-  } else {
     return (
       <div className="Container">
         <div className="search-bar"></div>
@@ -64,13 +51,12 @@ const SearchFunc = ({ produits }) => {
         {products && products.length == 0 ? (
           history.push(`/error/`)
         ) : (
-          <SearchProductList products={listElt} />
+        <SearchProductList products={listElt} />
         )}
-
         <PageListSetter page={page} setPage={setPage} produits={produits} />
       </div>
     );
-  }
+  
 };
 
-export default SearchFunc;
+export default SearchHealthyList;
