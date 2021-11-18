@@ -1,15 +1,4 @@
 
-h1 {
-  text-align:center;
-  /* font-size:1.7rem; */
-  font-size: clamp(20px, 5vw, 35px);
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-
-}
-
 h3 {
   color:darkgreen;
   font-size:0.9em;
@@ -36,37 +25,7 @@ h3 {
   margin-left: 7px;
 }
 
-.header-Product {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
 
-.img-Left-Product {
-  margin-top: 10px;
-  margin-left: 10px;
-}
-
-.img-Left-Prod {
-  width: 70%;
-  border-radius: 10px;
-}
-
-.header-Right-Product {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items:flex-start;
-  width: 50vw;
-  height: 40vh;
-}
-
-.header-Right-Product p {
-  border-radius: 10px;
-  color: black;
-  display: flex;
-  align-items: center;
-}
 
 .switch-Midllproduct {
   display: flex;
@@ -205,15 +164,53 @@ h3 {
   margin-bottom: 1.5vh;
 }
 
-.eco-score{
-  display: flex;
-  width: 33%;
-  height: auto;
-}
-
 .healthy-name{  /*check start*/
   font-size: 0.8rem;
   margin-top: 1rem;
+}
+
+/* SECTION PHOTO-NOM-LABELS */
+
+.header-Product {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.header-Left-Product {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.img-Left-Prod {
+  width: 70%;
+  border-radius: 10px;
+}
+
+.header-Right-Product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items:flex-start;
+  width: 50vw;
+  height: 40vh;
+}
+
+.header-Right-Product p {
+  border-radius: 10px;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  text-align:center;
+  font-size: clamp(20px, 5vw, 35px);
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+
 }
 
 .labelsContainer{
@@ -231,47 +228,23 @@ h3 {
 
 @media (max-width: 800px){
 
-  .img-Left-Product {
+  .header-Left-Product {
     min-width: 45vw;
   }
 
   .labelsContainer{
-    display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 60%;
   }
 
   .label{
     max-height: 5vh;
-  }
-
-  .euorganic{
-    width: 40px;
-  }
-
-  .nutri-score{
-    display: flex;
-    width: 60%;
-    height: auto;
-  }
-  .eco-score{
-    display: flex;
-    width: 60%;
-    height: auto;
-  }
-  .nova-group{
-    display: flex;
-    width: auto;
-    height: 17vh;
   }
 }
 
 
 @media screen and (min-width: 800px) {
 
-  .img-Left-Product {
+  .header-Left-Product {
     width: 25vw;
   }
 
@@ -287,26 +260,11 @@ h3 {
     font-size: 1rem;
     margin-top: 1rem;
   }
-  .nutri-score{
+  /* .nutri-score{
     display: flex;
     width: 10rem;
     height: 4rem;
     margin-bottom: 1rem;
-  }
-}
-  /*check end*/
-
-.labellls{
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-}
-
-.labels-1{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  } */
 }
 

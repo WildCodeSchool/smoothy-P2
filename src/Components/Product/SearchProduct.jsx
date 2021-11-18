@@ -10,7 +10,7 @@ const dashRemover = (str) => {
 };
 
 
-const fistLetterUpperCase = (a) => {
+const firstLetterUpperCase = (a) => {
   return (a + "").charAt(0).toUpperCase() + a.substr(1);
 };
 
@@ -112,79 +112,33 @@ else {
   return (
     <div>
       {products && (
-        <div className="container-Product">
+        <div>
           <div className="header-Product">
-            <div className="img-Left-Product">
-              <img
-                className="img-Left-Prod"
-                src={products[0].image_url}
-                alt={""}
-              />
+
+            <div className="header-Left-Product">
+              <img className="img-Left-Prod" src={products[0].image_url} alt="image product" />
             </div>
-            <div>
-            </div>
+
             <div className="header-Right-Product">
-
-
-              <h1 className="generic-Name-Product">{products[0].generic_name}</h1>
-
-              {/* <div className="labellls">
-                <div className="labels-1">
-                  <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + products[0].nutrition_grade_fr + ".svg"} alt={''} />
-                    {/* {products[0].nutrition_grade_fr
-                    ?<img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + product.nutrition_grade_fr + ".svg"} alt={''} />
-                    :<img className='nutri-score' src="https://static.openfoodfacts.org/images/attributes/nutriscore-unknown.svg" />} 
-                  <img className='eco-score' src={"https://fr.openfoodfacts.org/images/icons/ecoscore-" + products[0].ecoscore_grade + ".svg"} alt={''} />
-                </div >
-                <div className="labels-2">
-                  <img className='nova-group' src={"https://fr.openfoodfacts.org/images/misc/nova-group-" + products[0].nova_group + ".svg"} alt={''} />
-                </div>
-
-                <div>
-                  {products[0].labels.replace(/ /g, "").indexOf('ABAgricultureBiologique')!== -1
-                  ?<img src="https://static.openfoodfacts.org/images/lang/en/labels/ab-agriculture-biologique.74x90.svg" alt="" />
-                  :<span></span>
-                  }
-
-
-                  {products[0].labels.replace(/ /g, "").indexOf('EUOrganic')!== -1
-                  ?<img src="https://world.openfoodfacts.org/images/lang/en/labels/eu-organic.135x90.svg" alt="" />
-                  :<span></span>
-                  }
-
-                  {products[0].labels.replace(/ /g, "").indexOf('FairtradeInternational')!== -1
-                  ?<img src="https://world.openfoodfacts.org/images/lang/en/labels/fairtrade-international.77x90.svg" alt="" />
-                  :<span></span>             
-                  }
-
-                  {/* {products[0].labels.replace(/ /g, "").indexOf('MaxHavelaar')!== -1
-                  ?<img src="https://world.openfoodfacts.org/images/lang/en/labels/max-havelaar.64x90.svg" alt="" />
-                  :<span></span>                  
-                  } 
-
-                  </div>
-                </div>
-              </div>*/}
-
-
+              <h1 className="generic-Name-Product">{products[0].product_name_fr}</h1>
 
                 <div className="labelsContainer">
-                  <img className='label' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + products[0].nutrition_grade_fr + ".svg"} alt={''} />
-                  <img className='label' src={"https://fr.openfoodfacts.org/images/icons/ecoscore-" + products[0].ecoscore_grade + ".svg"} alt={''} />
-                  <img className='label' src={"https://fr.openfoodfacts.org/images/misc/nova-group-" + products[0].nova_group + ".svg"} alt={''} />
+                  <img className='label' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + products[0].nutrition_grade_fr + ".svg"} alt={'nutriscore'} />
+                  <img className='label' src={"https://fr.openfoodfacts.org/images/icons/ecoscore-" + products[0].ecoscore_grade + ".svg"} alt={'ecoscore'} />
+                  <img className='label' src={"https://fr.openfoodfacts.org/images/misc/nova-group-" + products[0].nova_group + ".svg"} alt={'nova-group'} />
 
                   {products[0].labels.replace(/ /g, "").indexOf('ABAgricultureBiologique')!== -1
-                  ?<img className='label' src="https://static.openfoodfacts.org/images/lang/en/labels/ab-agriculture-biologique.74x90.svg" alt="" />
+                  ?<img className='label' src="https://static.openfoodfacts.org/images/lang/en/labels/ab-agriculture-biologique.74x90.svg" alt="AB-AgricultureBiologique" />
                   :<span></span>
                   }
 
                   {products[0].labels.replace(/ /g, "").indexOf('EUOrganic')!== -1
-                  ?<img className="label euorganic" src="https://world.openfoodfacts.org/images/lang/en/labels/eu-organic.135x90.svg" alt="" />
+                  ?<img className="label" src="https://world.openfoodfacts.org/images/lang/en/labels/eu-organic.135x90.svg" alt="EU-Organic" />
                   :<span></span>
                   }
                   
                   {products[0].labels.replace(/ /g, "").indexOf('FairtradeInternational')!== -1
-                  ?<img className='label' src="https://world.openfoodfacts.org/images/lang/en/labels/fairtrade-international.77x90.svg" alt="" />
+                  ?<img className='label' src="https://world.openfoodfacts.org/images/lang/en/labels/fairtrade-international.77x90.svg" alt="Fair-trade" />
                   :<span></span>            
                   }
               </div>
