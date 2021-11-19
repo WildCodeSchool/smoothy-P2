@@ -22,18 +22,15 @@ function NotFound() {
     <div>
       <div className="image-SlideNotfound"></div>
       <div className="div-GifNotfound">
-        <img className="img-NotFound" src={sigmund} alt="test" />
+        <img className="img-NotFound" src={sigmund} alt="img-notfound" />
       </div>
 
       <p className="txt-Pnotfound">
-        Le produit que vous demandez n&apos;existe pas. Vous pouvez toujours
-        effectuer une nouvelle recherche.{" "}
+        Le produit que vous demandez n&apos;existe pas. <a href="https://fr.openfoodfacts.org/contribuer">Cliquez ici</a> si
+        vous souhaitez contribuer à l&apos;enrichissement de notre catalogue.{" "} 
       </p>
-
       <p className="txt-Pnotfound">
-        Si vous ne trouvez pas votre produit,{" "}
-        <a href="https://fr.openfoodfacts.org/contribuer">cliquez ici</a> si
-        vous souhaitez contribuer à l&apos;ajouter.{" "}
+      ✨ Pour effectuer une nouvelle recherche ✨{" "}
       </p>
 
       <div className="search-Location">

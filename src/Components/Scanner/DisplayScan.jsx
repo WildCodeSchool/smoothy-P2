@@ -26,7 +26,7 @@ const DisplayScan = () => {
           <p className="barcode-p">
             Cliquez sur le barcode pour scanner votre produit.
           </p>
-          <img src={barcode} alt="" />
+          <img src={barcode} alt="barcode" />
         </button>
 
         <ul className="results">
