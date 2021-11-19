@@ -85,8 +85,14 @@ h3 {
 
 .environement-Switch-Product {
   margin-left: 5px;
+  background-color: white;
+  border: none;
 }
 
+button.environement-Switch-Product2 {
+  background-color: white;
+  border: none;
+}
 
 .environement-Switch-Product2 {
   margin-left: 5px;
