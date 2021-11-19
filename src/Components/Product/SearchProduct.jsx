@@ -1,7 +1,6 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-
 import downchevron from "../../Assets/chevron-up-solid.svg";
 import Upchevron from "../../Assets/chevron-down-solid.svg";
 import "./SearchProduct.css";
@@ -15,6 +14,11 @@ const dashRemover = (str) => {
   return str.replaceAll(("-", "_"), " ");
 };
 
+const firstLetterUpperCase = (a) => {
+  return (a + "").charAt(0).toUpperCase() + a.substr(1);
+};
+
+
 let arrayFilter =  []
 
 const Searchproduct = ({ products }) => {
@@ -25,7 +29,7 @@ const Searchproduct = ({ products }) => {
     setActive(!isActive);
     useswitch==="Composition"? setSwitch("environement") : setSwitch("Composition");
   };
-  const [cat, setCat] = useState(null)
+  // const [cat, setCat] = useState(null)
   const [code, setCode] = useState(null)
   const [equivProducts, setEquivProducts] = useState(null);
   const [filterNutrigrade, setFilterNutrigrade] = useState(null);
@@ -34,7 +38,7 @@ const Searchproduct = ({ products }) => {
   const [isText, setText] = useState(true)
  
   useEffect(()=>{
-    products && setCat(products[0].categories.split(",")[products[0].categories.split(",").length-2])
+    // products && setCat(products[0].categories.split(",")[products[0].categories.split(",").length-2])
     products && setCode(products[0]._id.slice(0,5)+'xxxxxxxx')
   }, [products])
   
@@ -42,11 +46,11 @@ const Searchproduct = ({ products }) => {
     const url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=codes_tags&tag_contains_0=contains&tag_0=${code}&fields=categories,_id,code,product_name_fr,brands_tags,image_front_small_url,image_url,quantity,nutrition_grade_fr,nutrition_grade_fr,nutrition_grades,labels_old,brands,generic_name,_keywords,nutrition_grade_fr,nutrition_grades_tags,brands_tags,&page_size=1&json=true`;
     const getProducts = () => {axios.get(url).then(({ data }) => setEquivProducts(data.products))}
     getProducts()
-  }, [cat]);
+  }, [code]);
 
   useEffect(() => {
-    equivProducts && setFilterNutrigrade(equivProducts.filter(e => ((e.nutrition_grades=="a")||(e.nutrition_grades=="b")||(e.nutrition_grades=="c")||(e.nutrition_grades=="d")||(e.nutrition_grades=="e"))).filter(e => (e.brands_tags)))
-  },[equivProducts])
+    equivProducts && setFilterNutrigrade(equivProducts.filter(e => ((e.nutrition_grades=="a")||(e.nutrition_grades=="b")||(e.nutrition_grades=="c")||(e.nutrition_grades=="d")||(e.nutrition_grades=="e"))).filter(e => (e.brands_tags)).filter(e => (e._id != products[0]._id)))
+  },[equivProducts,products])
 
   useEffect(() => {
     return(arrayFilter = [])
@@ -79,11 +83,13 @@ return (
         <div className="container-Product">
           <div className="header-Product">
             <div className="img-Left-Product">
-              <img
+            {products[0].image_url  
+              ?<img
                 className="img-Left-Prod"
                 src={products[0].image_url}
                 alt={""}
               />
+              :<img className="images" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Pas_d%27image_disponible.svg" />}
             </div>
             <div className="header-Right-Product">
               <h1 className="generic-Name-Product">{products[0].product_name_fr.length>=81?products[0].product_name_fr.substring(0,81):products[0].product_name_fr}</h1>
@@ -96,15 +102,15 @@ return (
                   <img className='nova-group' src={"https://fr.openfoodfacts.org/images/misc/nova-group-" + products[0].nova_group + ".svg"} alt={''} />
                 </div>
                 <div className="bio">
-                  {products[0].labels.replace(/ /g, "").indexOf('ABAgricultureBiologique')!== -1
+                  {products[0].labels && products[0].labels.replace(/ /g, "").indexOf('ABAgricultureBiologique')!== -1
                     ?<img className='nova-group1'src="https://static.openfoodfacts.org/images/lang/en/labels/ab-agriculture-biologique.74x90.svg" alt="" />
                     :<span></span>
                   }
-                  {products[0].labels.replace(/ /g, "").indexOf('EUOrganic')!== -1
+                  {products[0].labels && products[0].labels.replace(/ /g, "").indexOf('EUOrganic')!== -1
                     ?<img className='nova-group2'src="https://world.openfoodfacts.org/images/lang/en/labels/eu-organic.135x90.svg" alt="" />
                     :<span></span>
                   }
-                  {products[0].labels.replace(/ /g, "").indexOf('FairtradeInternational')!== -1
+                  {products[0].labels && products[0].labels.replace(/ /g, "").indexOf('FairtradeInternational')!== -1
                     ?<img className='nova-group3'src="https://world.openfoodfacts.org/images/lang/en/labels/fairtrade-international.77x90.svg" alt="" />
                     :<span></span>             
                   }
