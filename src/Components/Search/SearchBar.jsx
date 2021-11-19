@@ -6,14 +6,14 @@ function SearchBar(props) {
   return (
     <div>
       <form onSubmit={handleSubmit} className="form-css">
-       <input
+        <input
           value={term}
           type="text"
           placeholder="Rechercher..."
           onChange={handleChange}
           className="input-css"
         />
-        <button className="button-css">Go</button> 
+        <button className="button-css">Go</button>
       </form>
     </div>
   );

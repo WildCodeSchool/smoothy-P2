@@ -16,43 +16,27 @@ const App = () => {
         <Switch>
           <Route exact path="/">
             <HomePage />
-
-          </Route> 
+          </Route>
           <Route exact path="/openpage">
             <OpenPage />
-
           </Route>
           <Route exact path="/barcode">
             <BarCode />
-
           </Route>
-            <Route 
-            exact path="/productList/:product"
-            component={ProductList} 
-          /> 
-          <Route 
-            exact path="/product/:product"
-            component={Product}
-          />
-          <Route 
-            exact path="/productListEquiv/:healthy"
+          <Route exact path="/productList/:product" component={ProductList} />
+          <Route exact path="/product/:product" component={Product} />
+          <Route
+            exact
+            path="/productListEquiv/:healthy"
             component={ProductListEquiv}
           />
-          
-          <Route 
-            exact path="/product/:product"
-            component={Searchproduct}
-          />
-            <Route path="/error">
+
+          <Route exact path="/product/:product" component={Searchproduct} />
+          <Route path="/error">
             <NotFound />
           </Route>
 
-          <Route 
-            exact path="*"
-            component={NotFound}
-          />
-
-
+          <Route exact path="*" component={NotFound} />
         </Switch>
       </Router>
     </>

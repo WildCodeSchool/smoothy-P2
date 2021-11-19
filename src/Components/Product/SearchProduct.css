@@ -228,6 +228,10 @@ button.environement-Switch-Product2 {
   margin-right: 0.75rem;
 }
 
+.productListNone {
+  display:none;
+}
+
 .nutri-score{
   display: flex;
   width: 3.5rem;

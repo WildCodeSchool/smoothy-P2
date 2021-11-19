@@ -26,11 +26,18 @@ function NotFound() {
       </div>
 
       <p className="txt-Pnotfound">
-        Le produit que vous demandez n&apos;existe pas. <a href="https://fr.openfoodfacts.org/contribuer">Cliquez ici</a> si
-        vous souhaitez contribuer à l&apos;enrichissement de notre catalogue.{" "} 
+        Le produit que vous demandez n&apos;existe pas.{" "}
+        <a href="https://fr.openfoodfacts.org/contribuer">Cliquez ici</a> si
+        vous souhaitez contribuer à l&apos;enrichissement de notre catalogue.{" "}
       </p>
       <p className="txt-Pnotfound">
-      ✨ Pour effectuer une nouvelle recherche ✨{" "}
+        <span role="img" alt="emoji-stars">
+          ✨
+        </span>{" "}
+        Pour effectuer une nouvelle recherche{" "}
+        <span role="img" alt="emoji-stars">
+          ✨
+        </span>{" "}
       </p>
 
       <div className="search-Location">

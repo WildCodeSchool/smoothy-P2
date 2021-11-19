@@ -23,7 +23,6 @@ const SearchFunc = ({ produits }) => {
       ? (url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=_id&tag_contains_0=contains&tag_0=${produits}&json=true`)
       : (url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=_keywords&tag_contains_0=contains&tag_0=${produits}&fields=categories,_id,code,product_name_fr,brands_tags,image_front_small_url,quantity,nutriscore_grade,labels_old,brands,_keywords,nutrition_grade_fr,categories,generic_name&page_size=20&page=${page}&json=true`);
 
-
     const getProducts = () => {
       axios.get(url).then(({ data }) => setProducts(data.products));
     };
@@ -31,9 +30,13 @@ const SearchFunc = ({ produits }) => {
   }, [produits, page]);
 
   useEffect(() => {
-    if (page==1 && products) {setListElt([...products])}
-    if (page!=1 && products) {setListElt([...listElt, ...products])}
-  }, [products])
+    if (page == 1 && products) {
+      setListElt([...products]);
+    }
+    if (page != 1 && products) {
+      setListElt([...listElt, ...products]);
+    }
+  }, [products]);
 
   if (/\d/.test(produits)) {
     return (

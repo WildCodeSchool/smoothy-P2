@@ -25,7 +25,6 @@ function HomePage() {
       ? history.push(`/Product/${term}`)
       : history.push(`/ProductList/${term}`);
   };
-  console.log(handleClick);
   return (
     <div>
       <button className={classImg} onClick={handleClick}>
