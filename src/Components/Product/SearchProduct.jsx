@@ -100,19 +100,19 @@ return (
           <div className="midll-Product">
             <div className="switch-Midllproduct">
               <div className="composition-Product">
-                <p
+                <button 
                   className={isActive ? "environement-Switch-Product2" : "environement-Switch-Product" }
                   onClick={handleChange}
                 >
                   Composition |{" "}
-                </p>
-                <p
+                </button>
+                <button
                 className={!isActive ? "environement-Switch-Product2" : "environement-Switch-Product" }
                 onClick={handleChange}
                 >
                   {" "}
                   Santé
-                </p>
+                </button>
               </div> 
               <div className="composition-environement-Product show-Environement-Product ">
                 {useswitch === "Composition" ? (

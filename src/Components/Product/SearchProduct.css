@@ -10,6 +10,20 @@ h3 {
   margin-left: 7px;
 }
 
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffebb05d;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #ead28c;
+  border-radius: 15px;
+  border: 3px solid #ffebb05d;
+}
+
 .label{
   margin-left: 7px;
 }
@@ -71,8 +85,14 @@ h3 {
 
 .environement-Switch-Product {
   margin-left: 5px;
+  background-color: white;
+  border: none;
 }
 
+button.environement-Switch-Product2 {
+  background-color: white;
+  border: none;
+}
 
 .environement-Switch-Product2 {
   margin-left: 5px;
@@ -150,10 +170,12 @@ h3 {
   background-color: #f1cf68bb;
 }
 
+
 .button-content{
   display:flex;
   justify-content:space-between;
 }
+
 
 .le-grid {
   margin-top: 2rem;

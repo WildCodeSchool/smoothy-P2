@@ -23,19 +23,18 @@
 video {
   display: flex;
   justify-content: center;
-  height: 35vh;
-  width: 35vh;
+  height: 16rem;
+  width: 17rem;
   border: solid 1px black;
   border-radius: 5px;
-  margin-top: 8vh;
-  margin-bottom: 8vh;
+  margin-top: 4rem;
+  margin-bottom: 6rem;
   object-fit: cover;
 }
-
 @media screen and (min-width: 700px) {
   video {
-    height: 45vh;
-    width: 45vh;
+    height: 30rem;
+    width: 31rem;
   }
   
   .barcode-p {
