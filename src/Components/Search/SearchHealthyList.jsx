@@ -4,7 +4,6 @@ import SearchProductList from "./SearchProductList.jsx";
 import "./SearchFunc.css";
 import PageListSetter from "../ProductList/PageListSetter.jsx";
 import { useHistory } from "react-router-dom";
-import ProductList_Equiv from "../ProductList/ProductList_Equiv.jsx"
 
 let url = "";
 
@@ -33,16 +32,6 @@ const SearchHealthyList = ({ produits }) => {
     if (page==1 && products) {setListElt([...products])}
     if (page!=1 && products) {setListElt([...listElt, ...products])}
   }, [products])
-
-
-  useEffect(() => {
-    if (page == 1 && products) {
-      setListElt([...products]);
-    }
-    if (page != 1 && products) {
-      setListElt([...listElt, ...products]);
-    }
-  }, [products]);
 
     return (
       <div className="Container">

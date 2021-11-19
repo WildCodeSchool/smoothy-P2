@@ -120,6 +120,7 @@ h3 {
   border: solid rgba(150, 160, 58, 0.295) 3px;
 }
 
+
 .allAlergenes {
   margin: 0.8rem;
   display: flex;
@@ -132,11 +133,11 @@ h3 {
   align-items: center;
 }
 
-.button-content {
+/* .button-content {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-}
+} */
 
 .allAlergenes {
   display: flex;
@@ -147,6 +148,11 @@ h3 {
 
 .alergene-Component-Product button:hover {
   background-color: #f1cf68bb;
+}
+
+.button-content{
+  display:flex;
+  justify-content:space-between;
 }
 
 .le-grid {

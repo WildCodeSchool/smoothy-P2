@@ -22,12 +22,12 @@ const NavBar = () => {
     <nav className="navbar">
       <div>
         <Link to="/openpage">
-          <img className="main-logo" src={MainLogo} alt="test"></img>
+          <img className="main-logo" src={MainLogo} alt="logo-icon"></img>
         </Link>
       </div>
       <div>
         <Link to="/barcode">
-          <img className="barcode-logo2" src={BarCode} alt="test" />
+          <img className="barcode-logo2" src={BarCode} alt="logo-icon" />
         </Link>
       </div>
       <div>

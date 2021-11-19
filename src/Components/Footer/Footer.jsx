@@ -10,7 +10,7 @@ const Footer = () => {
     <footer className="footer">
       <div>
         <Link to="/openpage">
-          <img className="main-logo1" src={MainLogo} alt="test"></img>
+          <img className="main-logo1" src={MainLogo} alt="logo-icon"></img>
         </Link>
       </div>
       <div className="social">

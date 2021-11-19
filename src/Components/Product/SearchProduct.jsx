@@ -8,16 +8,11 @@ import { Link } from "react-router-dom";
 import replace from "../Tools/replace";
 import level from "../Tools/level";
 import Cards from "../Tools/Cards";
-
+import ComponentAlergenes from "../Tools/ComponentAlergenes";
 
 const dashRemover = (str) => {
   return str.replaceAll(("-", "_"), " ");
 };
-
-const firstLetterUpperCase = (a) => {
-  return (a + "").charAt(0).toUpperCase() + a.substr(1);
-};
-
 
 let arrayFilter =  []
 
@@ -29,7 +24,7 @@ const Searchproduct = ({ products }) => {
     setActive(!isActive);
     useswitch==="Composition"? setSwitch("environement") : setSwitch("Composition");
   };
-  // const [cat, setCat] = useState(null)
+  
   const [code, setCode] = useState(null)
   const [equivProducts, setEquivProducts] = useState(null);
   const [filterNutrigrade, setFilterNutrigrade] = useState(null);
@@ -38,7 +33,6 @@ const Searchproduct = ({ products }) => {
   const [isText, setText] = useState(true)
  
   useEffect(()=>{
-    // products && setCat(products[0].categories.split(",")[products[0].categories.split(",").length-2])
     products && setCode(products[0]._id.slice(0,5)+'xxxxxxxx')
   }, [products])
   
@@ -56,22 +50,7 @@ const Searchproduct = ({ products }) => {
     return(arrayFilter = [])
   }, [arrayFilter])
 
-const ComponentAlergenes = () => {
-  return (
-    <div className="allAlergenes">
-    {" "}
-    <span role="img" aria-label="warning">
-      {" "}
-      ⚠️{" "}
-    </span>{" "}
-    {products[0].allergens_from_ingredients.split(',').forEach(elt => !elt.startsWith('en:') ? arrayFilter.push(elt.trim()):'none')}
-    {products[0].allergens_from_ingredients 
-    ? `Ce produit contient : ${[...new Set (arrayFilter)].join(", ").toUpperCase()}`
-    : "Pas d'allergène renseigné sur ce produit"}
-  </div>
-  )
-};
-  
+
 const change = () => {
   setText(!isText)
   useText==="clickme"? setUseText("Reduire les allergènes") : setUseText("Afficher les allergènes")
@@ -87,31 +66,31 @@ return (
               ?<img
                 className="img-Left-Prod"
                 src={products[0].image_url}
-                alt={""}
+                alt={"img-left-prod"}
               />
-              :<img className="images" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Pas_d%27image_disponible.svg" />}
+              :<img className="images" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Pas_d%27image_disponible.svg" alt="no-image"/>}
             </div>
             <div className="header-Right-Product">
               <h1 className="generic-Name-Product">{products[0].product_name_fr.length>=81?products[0].product_name_fr.substring(0,81):products[0].product_name_fr}</h1>
               <div className="labellls">
                 <div className="labels-1">
-                  <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + products[0].nutrition_grade_fr + ".svg"} alt={''} />
-                  <img className='eco-score' src={"https://fr.openfoodfacts.org/images/icons/ecoscore-" + products[0].ecoscore_grade + ".svg"} alt={''} />
+                  <img className='nutri-score' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + products[0].nutrition_grade_fr + ".svg"} alt={'nutri-score'} />
+                  <img className='eco-score' src={"https://fr.openfoodfacts.org/images/icons/ecoscore-" + products[0].ecoscore_grade + ".svg"} alt={'eco-score'} />
                 </div >
                 <div className="labels-2">
-                  <img className='nova-group' src={"https://fr.openfoodfacts.org/images/misc/nova-group-" + products[0].nova_group + ".svg"} alt={''} />
+                  <img className='nova-group' src={"https://fr.openfoodfacts.org/images/misc/nova-group-" + products[0].nova_group + ".svg"} alt={'nova-group'} />
                 </div>
                 <div className="bio">
                   {products[0].labels && products[0].labels.replace(/ /g, "").indexOf('ABAgricultureBiologique')!== -1
-                    ?<img className='nova-group1'src="https://static.openfoodfacts.org/images/lang/en/labels/ab-agriculture-biologique.74x90.svg" alt="" />
+                    ?<img className='nova-group1'src="https://static.openfoodfacts.org/images/lang/en/labels/ab-agriculture-biologique.74x90.svg" alt="nova-group1" />
                     :<span></span>
                   }
                   {products[0].labels && products[0].labels.replace(/ /g, "").indexOf('EUOrganic')!== -1
-                    ?<img className='nova-group2'src="https://world.openfoodfacts.org/images/lang/en/labels/eu-organic.135x90.svg" alt="" />
+                    ?<img className='nova-group2'src="https://world.openfoodfacts.org/images/lang/en/labels/eu-organic.135x90.svg" alt="nova-group2" />
                     :<span></span>
                   }
                   {products[0].labels && products[0].labels.replace(/ /g, "").indexOf('FairtradeInternational')!== -1
-                    ?<img className='nova-group3'src="https://world.openfoodfacts.org/images/lang/en/labels/fairtrade-international.77x90.svg" alt="" />
+                    ?<img className='nova-group3'src="https://world.openfoodfacts.org/images/lang/en/labels/fairtrade-international.77x90.svg" alt="nova-group3" />
                     :<span></span>             
                   }
                 </div>
@@ -161,15 +140,18 @@ return (
             <div className="alergen-Product">
               <div className='alergene-Component-Product'>
                 <div className='button-content'>
+                  <div className="allergenTitle">
+                    <p>Allergènes</p>
+                  </div>
                   <button onClick={()=> {setVisible(prev => !prev) ; change();}} > {!isText 
                   ? <div className="butonshow">
-                      <p>Allergènes</p> <img src={downchevron} alt="" />
+                      <img src={downchevron} alt="chevron-down" />
                     </div> : <div className="butonshow">
-                      <p>Allergènes</p>  <img src={Upchevron} alt="" /> 
+                      <img src={Upchevron} alt="chevron-up" /> 
                     </div> } </button>
                 </div>
                 <div>
-                  {visible && <ComponentAlergenes />}
+                  {visible && <ComponentAlergenes products={products} arrayFilter={arrayFilter}/>}
                 </div>
               </div>
             </div>
@@ -182,7 +164,7 @@ return (
             <Cards filterNutrigrade={filterNutrigrade} num={4} />
             <Cards filterNutrigrade={filterNutrigrade} num={5} />
           </div>
-          <Link to={`/productListEquiv/${code}`} className="goproductlist">voir tout</Link> 
+          <Link to={`/productListEquiv/${code}`} className="goproductlist">Voir tout</Link> 
         </div>
       )}
     </div>
