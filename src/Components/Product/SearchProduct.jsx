@@ -106,6 +106,7 @@ const Searchproduct = ({ products }) => {
               </h1>
               <div className="labellls">
                 <div className="labels-1">
+                {products[0].nutrition_grade_fr ? (
                   <img
                     className="nutri-score"
                     src={
@@ -114,7 +115,11 @@ const Searchproduct = ({ products }) => {
                       ".svg"
                     }
                     alt={"nutri-score"}
-                  />
+                  />)
+                  : (<img className="nutri-listNone"
+                  src="https://static.openfoodfacts.org/images/attributes/nutriscore-unknown.svg"
+                  alt={"nutri-listnone"} />
+                  )}
                   {products[0].ecoscore_grade &&
                   products[0].ecoscore_grade != "not-applicable" ? (
                     <img
@@ -137,6 +142,7 @@ const Searchproduct = ({ products }) => {
                   )}
                 </div>
                 <div className="labels-2">
+                  {products[0].nova_group ? (
                   <img
                     className="nova-group"
                     src={
@@ -145,7 +151,15 @@ const Searchproduct = ({ products }) => {
                       ".svg"
                     }
                     alt={"nova-group"}
-                  />
+                  />)
+                  : (<img
+                    className="nova-group"
+                    src={
+                      "https://fr.openfoodfacts.org/images/misc/nova-group-unknown.svg" 
+                    }
+                    alt={"nova-group"}
+                  />)
+                  }
                 </div>
                 <div className="bio">
                   {products[0].labels &&
