@@ -19,8 +19,7 @@ const SearchHealthyList = ({ produits }) => {
   }, [produits]);
 
   useEffect(() => {
-      url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=codes_tags&tag_contains_0=contains&tag_0=${produits}&fields=categories,_id,code,product_name_fr,brands_tags,image_front_small_url,image_url,quantity,nutrition_grade_fr,nutrition_grade_fr,nutrition_grades,labels_old,brands,generic_name,_keywords,nutrition_grade_fr,brands_tags&page_size=24&page=${page}&json=true`
-
+    url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=codes_tags&tag_contains_0=contains&tag_0=${produits}&fields=categories,_id,code,product_name_fr,brands_tags,image_front_small_url,image_url,quantity,nutrition_grade_fr,nutrition_grade_fr,nutrition_grades,labels_old,brands,generic_name,_keywords,nutrition_grade_fr,brands_tags&page_size=24&page=${page}&json=true`;
 
     const getProducts = async () => {
       await axios.get(url).then(({ data }) => setProducts(data.products));
@@ -29,23 +28,26 @@ const SearchHealthyList = ({ produits }) => {
   }, [produits, page]);
 
   useEffect(() => {
-    if (page==1 && products) {setListElt([...products])}
-    if (page!=1 && products) {setListElt([...listElt, ...products])}
-  }, [products])
+    if (page == 1 && products) {
+      setListElt([...products]);
+    }
+    if (page != 1 && products) {
+      setListElt([...listElt, ...products]);
+    }
+  }, [products]);
 
-    return (
-      <div className="Container">
-        <div className="search-bar"></div>
+  return (
+    <div className="Container">
+      <div className="search-bar"></div>
 
-        {products && products.length == 0 ? (
-          history.push(`/error/`)
-        ) : (
+      {products && products.length == 0 ? (
+        history.push(`/error/`)
+      ) : (
         <SearchProductList products={listElt} />
-        )}
-        <PageListSetter page={page} setPage={setPage} produits={produits} />
-      </div>
-    );
-  
+      )}
+      <PageListSetter page={page} setPage={setPage} produits={produits} />
+    </div>
+  );
 };
 
 export default SearchHealthyList;

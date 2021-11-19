@@ -11,40 +11,57 @@ const dashRemover = (str) => {
   return str.replaceAll("-", " ");
 };
 
-
-
 function SearchProductList({ products }) {
   const history = useHistory();
-  (products && products.length==1) && history.push(`/Product/${products[0].code}`)
+  products &&
+    products.length == 1 &&
+    history.push(`/Product/${products[0].code}`);
   return (
     <div>
       {products && (
         <div className="map-products">
           {products.map((product) => (
-              <Link to={`/Product/${product.code}`}>
+            <Link to={`/Product/${product.code}`}>
               <figure key={product.id}>
-                
-              {product.image_front_small_url          
-                ?<img
-                  className="images"
-                  key={product.id}
-                  src={product.image_front_small_url}
-                  alt={"product-img"}
-                />
-                :<img className="images" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Pas_d%27image_disponible.svg" alt="no-image"/>}  
-              <figcaption>
-                <p className="items" key={product.id}>
-                  {product.product_name_fr} - {product.quantity}
-                </p>
-                <p>
-                </p>
-                {product.nutrition_grade_fr?<img className='nutri-list' src={"https://fr.openfoodfacts.org/images/misc/nutriscore-" + product.nutrition_grade_fr + ".svg"} alt={'nutri-list'} />:<img className='nutri-listNone' src="https://static.openfoodfacts.org/images/attributes/nutriscore-unknown.svg" alt={'nutri-listnone'}/>}
-
-              </figcaption>
-            </figure>
-
+                {product.image_front_small_url ? (
+                  <img
+                    className="images"
+                    key={product.id}
+                    src={product.image_front_small_url}
+                    alt={"product-img"}
+                  />
+                ) : (
+                  <img
+                    className="images"
+                    src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Pas_d%27image_disponible.svg"
+                    alt="no-image"
+                  />
+                )}
+                <figcaption>
+                  <p className="items" key={product.id}>
+                    {product.product_name_fr} - {product.quantity}
+                  </p>
+                  <p></p>
+                  {product.nutrition_grade_fr ? (
+                    <img
+                      className="nutri-list"
+                      src={
+                        "https://fr.openfoodfacts.org/images/misc/nutriscore-" +
+                        product.nutrition_grade_fr +
+                        ".svg"
+                      }
+                      alt={"nutri-list"}
+                    />
+                  ) : (
+                    <img
+                      className="nutri-listNone"
+                      src="https://static.openfoodfacts.org/images/attributes/nutriscore-unknown.svg"
+                      alt={"nutri-listnone"}
+                    />
+                  )}
+                </figcaption>
+              </figure>
             </Link>
-
           ))}
         </div>
       )}
