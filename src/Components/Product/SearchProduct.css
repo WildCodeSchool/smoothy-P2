@@ -11,17 +11,27 @@ h3 {
 }
 
 *::-webkit-scrollbar {
-  width: 10px;
+  width: 15px;
 }
 
-*::-webkit-scrollbar-track {
+.le-grid::-webkit-scrollbar-track {
   background: #ffebb05d;
 }
 
-*::-webkit-scrollbar-thumb {
+.le-grid::-webkit-scrollbar-thumb {
   background-color: #ead28c;
   border-radius: 15px;
   border: 3px solid #ffebb05d;
+}
+
+body::-webkit-scrollbar-track {
+  background: #c9c8c55d;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #b4b4b4;
+  border-radius: 8px;
+  border: 3px solid #d8d8d75d;
 }
 
 .label{
